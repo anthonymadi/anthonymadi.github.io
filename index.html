@@ -3,52 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home | Your Name</title>
+  <title>My Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  
-  <main class="fade-in">
-    <section class="hero">
-      <h1>Your Name</h1>
-      <p>Filmmaker & Videographer</p>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Fady Harb in Tbilisi</h3>
+      <p>A run & gun travel video I filmed and edited for the singer, Fady Harb, at various tourist attractions in Tbilisi, Georgia.</p>
       <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Showreel" frameborder="0" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/FrUAEwOV2Gs?si=jdNX4KazAqRtFZ6L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer>
-    <p>&copy; 2025 Your Name</p>
-  </footer>
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email me at: <a href="mailto:anthonymadimail@gmail.com">anthonymadimail@gmail.com</a></p>
+  </section>
 
-  <script>
-    // Fade-in animation
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll('.fade-in').forEach(el => {
-        el.style.opacity = 0;
-        el.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-          el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-          el.style.opacity = 1;
-          el.style.transform = 'translateY(0)';
-        }, 200);
-      });
-    });
-  </script>
 </body>
 </html>
