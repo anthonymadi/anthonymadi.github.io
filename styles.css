@@ -1,23 +1,207 @@
-/* Make introduction body texts white */
+body {
+  background-color: #121212;
+  color: #ffd54f;
+  font-family: 'Trebuchet MS', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 1rem;
+  font-family: 'Bad Script', cursive;
+  color: white;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  background-color: #1e1e1e;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ffd54f;
+  font-family: 'Trebuchet MS', sans-serif;
+  position: relative;
+  padding: 0.25rem 0;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 4px;
+  background-color: #ffd54f;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+.section {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: auto;
+  text-align: center;
+}
+
+.section h2 {
+  font-family: 'Bad Script', cursive;
+  color: #ffd54f;
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* Make introduction body texts white and normal weight */
 .section p {
   color: white;
   font-weight: normal;
 }
 
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.video-item,
+.video-item-alt {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.video-item-alt {
+  flex-direction: row-reverse;
+}
+
+.video-container {
+  position: relative;
+  width: 640px;
+  height: 360px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: none;
+}
+
+.video-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.play-button {
+  width: 0;
+  height: 0;
+  border-left: 40px solid white;
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  opacity: 0.5;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+}
+
 /* Project metadata block text white */
 .video-info {
+  flex: 1;
+  font-family: 'Trebuchet MS', sans-serif;
   color: white;
+  max-width: 600px;
+  text-align: left;
 }
 
 /* Project Title in metadata block uses Trebuchet MS */
 .video-info h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
   font-family: 'Trebuchet MS', sans-serif;
   color: white;
   font-weight: normal;
 }
 
-/* About Me body text normal weight */
+.video-info p {
+  margin: 0.2rem 0;
+  font-size: 1rem;
+}
+
 .about {
-  font-weight: normal;
-  color: white; /* keep white */
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: auto;
+  font-family: 'Trebuchet MS', sans-serif;
+  background-color: #1e1e1e;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  color: white;
+  text-align: center;
+  font-weight: normal; /* not bold */
+}
+
+.contact {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: auto;
+  font-family: 'Trebuchet MS', sans-serif;
+  background-color: #1e1e1e;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  color: white;
+  text-align: center;
+}
+
+.contact a {
+  text-decoration: none;
+  color: #ffd54f;
+}
+
+.contact strong {
+  display: inline-block;
+  min-width: 70px;
+  color: white;
+}
+
+@media (max-width: 1024px) {
+  .video-item,
+  .video-item-alt {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .video-container {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+
+  .video-info {
+    max-width: 100%;
+    text-align: center;
+  }
 }
