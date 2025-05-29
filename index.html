@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anthony Madi | Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anthony Madi | Filmmaker Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
   <header>
@@ -18,98 +18,29 @@
     </nav>
   </header>
 
-  <section id="home" class="section">
+  <section class="section" id="home">
+    <h2>Welcome</h2>
     <p>I’m a filmmaker focused on creating dynamic visual stories. Check out my work below.</p>
   </section>
 
-  <section id="projects" class="section">
+  <section class="section" id="projects">
     <h2>Projects</h2>
     <div class="projects-grid">
-      <div class="video-container">
-        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/FrUAEwOV2Gs/maxresdefault.jpg')" onclick="playVideo(this)">
-          <div class="play-button"></div>
-        </div>
-        <iframe src="https://www.youtube.com/embed/FrUAEwOV2Gs" allowfullscreen></iframe>
-      </div>
-      <div class="video-container">
-        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/ZNKMCjPrR70/maxresdefault.jpg')" onclick="playVideo(this)">
-          <div class="play-button"></div>
-        </div>
-        <iframe src="https://www.youtube.com/embed/ZNKMCjPrR70" allowfullscreen></iframe>
-      </div>
-      <div class="video-container">
-        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/ghtgcUPCD8o/maxresdefault.jpg')" onclick="playVideo(this)">
-          <div class="play-button"></div>
-        </div>
-        <iframe src="https://www.youtube.com/embed/ghtgcUPCD8o" allowfullscreen></iframe>
-      </div>
-      <div class="video-container">
-        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/Z4nBrLErOZI/maxresdefault.jpg')" onclick="playVideo(this)">
-          <div class="play-button"></div>
-        </div>
-        <iframe src="https://www.youtube.com/embed/Z4nBrLErOZI" allowfullscreen></iframe>
-      </div>
-      <div class="video-container">
-        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/Fsav0nfuX60/maxresdefault.jpg')" onclick="playVideo(this)">
-          <div class="play-button"></div>
-        </div>
-        <iframe src="https://www.youtube.com/embed/Fsav0nfuX60" allowfullscreen></iframe>
-      </div>
-      <div class="video-container">
-        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/I6uf1fLSCYs/maxresdefault.jpg')" onclick="playVideo(this)">
-          <div class="play-button"></div>
-        </div>
-        <iframe src="https://www.youtube.com/embed/I6uf1fLSCYs" allowfullscreen></iframe>
-      </div>
-      <div class="video-container">
-        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/ZsVM6THxOw8/maxresdefault.jpg')" onclick="playVideo(this)">
-          <div class="play-button"></div>
-        </div>
-        <iframe src="https://www.youtube.com/embed/ZsVM6THxOw8" allowfullscreen></iframe>
-      </div>
-      <div class="video-container">
-        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/_AhXEk1YmDc/maxresdefault.jpg')" onclick="playVideo(this)">
-          <div class="play-button"></div>
-        </div>
-        <iframe src="https://www.youtube.com/embed/_AhXEk1YmDc" allowfullscreen></iframe>
-      </div>
-      <div class="video-container">
-        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/Pas6ORSsfIc/maxresdefault.jpg')" onclick="playVideo(this)">
-          <div class="play-button"></div>
-        </div>
-        <iframe src="https://www.youtube.com/embed/Pas6ORSsfIc" allowfullscreen></iframe>
-      </div>
-      <div class="video-container">
-        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/VDfYpwlpFJc/maxresdefault.jpg')" onclick="playVideo(this)">
-          <div class="play-button"></div>
-        </div>
-        <iframe src="https://www.youtube.com/embed/VDfYpwlpFJc" allowfullscreen></iframe>
-      </div>
+      <!-- Video embeds will go here via JavaScript -->
     </div>
   </section>
 
-  <section id="about" class="section">
+  <section class="section" id="about">
     <h2>About Me</h2>
     <p>I'm a filmmaker based in the UAE. I enjoy crafting visually engaging stories through camera work, editing, and sound. My experience spans music videos, short films, and creative collaborations.</p>
   </section>
 
-  <section id="contact" class="section">
+  <section class="section contact" id="contact">
     <h2>Contact Me</h2>
-    <div class="contact">
-      <p>Phone: +971 50 850 1709</p>
-      <p>Email: <a href="mailto:anthonymadimail@gmail.com">anthonymadimail@gmail.com</a></p>
-    </div>
+    <p>Phone: +971 50 850 1709</p>
+    <p>Email: <a href="mailto:anthonymadimail@gmail.com">anthonymadimail@gmail.com</a></p>
   </section>
 
-  <script>
-    function playVideo(thumbnail) {
-      const container = thumbnail.parentElement;
-      const iframe = container.querySelector("iframe");
-      thumbnail.style.display = "none";
-      iframe.style.display = "block";
-      const src = iframe.src;
-      iframe.src = src + "?autoplay=1";
-    }
-  </script>
+  <script src="scripts.js"></script>
 </body>
 </html>
