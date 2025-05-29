@@ -1,196 +1,222 @@
-/* General resets and styles */
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #111;
-  color: white;
+background-color: #121212;
+color: #ffd54f;
+font-family: 'Trebuchet MS', sans-serif;
+margin: 0;
+padding: 0;
 }
 
-/* Header and navigation */
-header {
-  position: sticky;
-  top: 0;
-  background-color: #222;
-  display: flex;
-  align-items: center;
-  padding: 10px 20px;
-  z-index: 1000;
-  border-bottom: 1px solid #444;
-}
-
-header h1 {
-  margin: 0;
-  font-family: 'Bad Script', cursive;
-  font-size: 1.8rem;
-  color: white;
+h1 {
+text-align: center;
+margin-top: 1rem;
+font-family: 'Bad Script', cursive;
+color: white;
 }
 
 nav {
-  margin-left: auto;
+display: flex;
+justify-content: center;
+gap: 2rem;
+background-color: #1e1e1e;
+padding: 1rem;
+position: sticky;
+top: 0;
+z-index: 100;
 }
 
 nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
-  font-weight: 600;
-  padding-bottom: 4px;
-  position: relative;
+text-decoration: none;
+color: #ffd54f;
+font-family: 'Trebuchet MS', sans-serif;
+position: relative;
+padding: 0.25rem 0;
+  transition: color 0.3s ease;
 }
 
-nav a.active,
-nav a:hover {
-  font-weight: 700;
+nav a::after {
+content: '';
+position: absolute;
+left: 0;
+  bottom: -4px;
+  bottom: -6px;
+width: 0;
+  height: 4px;
+  height: 6px;
+background-color: #ffd54f;
+transition: width 0.3s ease;
+  border-radius: 3px;
 }
 
-nav a.active::after,
 nav a:hover::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 2px;
-  width: 100%;
-  background-color: white;
-  animation: underlineGrow 0.3s ease forwards;
+nav a:hover::after,
+nav a.active::after {
+width: 100%;
 }
 
-@keyframes underlineGrow {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-/* Sections */
-.section {
-  padding: 50px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Welcome text */
-#welcome p {
+nav a.active {
   color: white;
-  font-size: 1.2rem;
-  margin-top: 15px;
 }
 
-/* Projects grid */
+.section {
+padding: 2rem;
+max-width: 1400px;
+margin: auto;
+text-align: center;
+}
+
+.section h2 {
+font-family: 'Bad Script', cursive;
+color: #ffd54f;
+font-size: 2rem;
+text-align: center;
+}
+
+.section p {
+  color: white;
+}
+
 .projects-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+display: flex;
+flex-direction: column;
+gap: 3rem;
 }
 
-/* Video item styles */
 .video-item,
 .video-item-alt {
-  display: flex;
-  align-items: stretch;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+  gap: 2rem;
   gap: 0;
-}
-
-/* Alternating layout */
-.video-item {
-  flex-direction: row;
+align-items: flex-start;
+justify-content: center;
 }
 
 .video-item-alt {
-  flex-direction: row-reverse;
+flex-direction: row-reverse;
 }
 
-/* Video container */
 .video-container {
-  position: relative;
-  flex: 1 1 60%;
-  height: 340px;
-  background-size: cover;
-  background-position: center;
-  cursor: pointer;
+position: relative;
+width: 640px;
+height: 360px;
+background-size: cover;
+background-position: center;
+cursor: pointer;
+}
+
+.video-container iframe {
+width: 100%;
+height: 100%;
+border: none;
+display: none;
 }
 
 .video-thumbnail {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.4);
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
 .play-button {
-  width: 60px;
-  height: 60px;
-  background: white;
-  clip-path: polygon(25% 20%, 75% 50%, 25% 80%);
+width: 0;
+height: 0;
+border-left: 40px solid white;
+border-top: 25px solid transparent;
+border-bottom: 25px solid transparent;
+opacity: 0.5;
+box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
 }
 
-/* iframe hidden initially */
-iframe {
-  display: none;
-  width: 100%;
-  height: 100%;
-  border: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-/* Video info box */
 .video-info {
-  flex: 1 1 40%;
-  background: rgba(40, 40, 40, 0.85);
-  padding: 20px;
-  color: white;
-  font-size: 0.9rem;
-  font-family: "Trebuchet MS", sans-serif;
+flex: 1;
+font-family: 'Trebuchet MS', sans-serif;
+color: white;
+max-width: 600px;
+text-align: left;
+background-color: rgba(255, 255, 255, 0.08);
+padding: 1rem 1.5rem;
+border-radius: 8px;
+box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  margin: 0;
 }
 
 .video-info h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-family: "Trebuchet MS", sans-serif;
-  font-weight: 700;
-}
-
-/* About and contact */
-.about,
-.contact {
-  margin-top: 50px;
-}
-
-.about p {
+margin: 0 0 0.5rem 0;
+font-size: 1.5rem;
+font-family: 'Trebuchet MS', sans-serif;
   color: white;
-  font-weight: normal;
-  font-size: 1rem;
-  max-width: 700px;
-  line-height: 1.5;
+  color: #ffd54f;
 }
 
-.contact p {
-  margin: 6px 0;
+.video-info p {
+margin: 0.2rem 0;
+font-size: 1rem;
+  color: white;
+}
+
+.about {
+font-size: 1.1rem;
+max-width: 800px;
+margin: auto;
+font-family: 'Trebuchet MS', sans-serif;
+background-color: #1e1e1e;
+padding: 2rem;
+border-radius: 10px;
+box-shadow: 0 0 20px rgba(0,0,0,0.3);
+color: white;
+text-align: center;
+  font-weight: normal;
+}
+
+.contact {
+font-size: 1.1rem;
+max-width: 800px;
+margin: auto;
+font-family: 'Trebuchet MS', sans-serif;
+background-color: #1e1e1e;
+padding: 2rem;
+border-radius: 10px;
+box-shadow: 0 0 20px rgba(0,0,0,0.3);
+color: white;
+text-align: center;
 }
 
 .contact a {
-  color: white;
-  text-decoration: underline;
+text-decoration: none;
+color: #ffd54f;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .video-item,
-  .video-item-alt {
-    flex-direction: column;
-  }
-  .video-container,
-  .video-info {
-    flex: none;
-    width: 100%;
-    height: 220px;
-  }
-  .video-info {
-    font-size: 0.85rem;
-  }
+.contact strong {
+display: inline-block;
+min-width: 70px;
+color: white;
+}
+
+@media (max-width: 1024px) {
+.video-item,
+.video-item-alt {
+flex-direction: column;
+align-items: center;
+}
+
+.video-container {
+width: 100%;
+max-width: 100%;
+height: auto;
+aspect-ratio: 16/9;
+}
+
+.video-info {
+max-width: 100%;
+text-align: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+}
 }
