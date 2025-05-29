@@ -53,12 +53,14 @@ nav a:hover::after {
   padding: 2rem;
   max-width: 1400px;
   margin: auto;
+  text-align: center;
 }
 
 .section h2 {
   font-family: 'Bad Script', cursive;
   color: #ffd54f;
   font-size: 2rem;
+  text-align: center;
 }
 
 .projects-grid {
@@ -67,12 +69,18 @@ nav a:hover::after {
   gap: 3rem;
 }
 
-.video-item {
+.video-item,
+.video-item-alt {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 2rem;
   align-items: flex-start;
+  justify-content: center;
+}
+
+.video-item-alt {
+  flex-direction: row-reverse;
 }
 
 .video-container {
@@ -118,6 +126,7 @@ nav a:hover::after {
   font-family: 'Trebuchet MS', sans-serif;
   color: #ffd54f;
   max-width: 600px;
+  text-align: left;
 }
 
 .video-info h3 {
@@ -142,6 +151,7 @@ nav a:hover::after {
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0,0,0,0.3);
   color: white;
+  text-align: center;
 }
 
 .contact {
@@ -154,6 +164,7 @@ nav a:hover::after {
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0,0,0,0.3);
   color: white;
+  text-align: center;
 }
 
 .contact a {
@@ -168,7 +179,8 @@ nav a:hover::after {
 }
 
 @media (max-width: 1024px) {
-  .video-item {
+  .video-item,
+  .video-item-alt {
     flex-direction: column;
     align-items: center;
   }
