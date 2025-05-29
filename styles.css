@@ -56,6 +56,12 @@ nav a:hover {
   gap: 40px;
 }
 
+.video-block {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
 .video-container {
   position: relative;
   aspect-ratio: 16 / 9;
@@ -63,6 +69,7 @@ nav a:hover {
   overflow: hidden;
   background: black;
   border: none;
+  flex: 2;
 }
 
 .video-container iframe,
@@ -98,6 +105,8 @@ nav a:hover {
   padding: 20px;
   border-left: 4px solid #ffd54f;
   color: #ffd54f;
+  flex: 1;
+  max-width: 400px;
 }
 
 .contact, .about {
@@ -106,13 +115,26 @@ nav a:hover {
   border-radius: 10px;
   margin-top: 20px;
   font-size: 1.1rem;
+  font-family: "Trebuchet MS", sans-serif;
+  color: white;
+}
+
+.contact a, .about a {
   color: #ffd54f;
-  font-family: 'Bad Script', cursive;
+  text-decoration: none;
+}
+
+.contact p strong, .about p strong {
+  color: white;
 }
 
 @media screen and (max-width: 768px) {
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+
+  .video-block {
+    flex-direction: column;
   }
 }
 
