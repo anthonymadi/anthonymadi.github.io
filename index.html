@@ -3,122 +3,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anthony Madi – Projects</title>
+  <title>Anthony Madi Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0e0e0e;
+      color: #f5f5f5;
+    }
+    header {
+      background-color: #111;
+      padding: 1em;
+      text-align: center;
+    }
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      margin: 0 1em;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    .section {
+      padding: 2em;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2em;
+    }
+    iframe {
+      width: 100%;
+      height: 315px;
+      border: none;
+      border-radius: 10px;
+    }
+    .contact {
+      line-height: 1.8em;
+    }
+    h1, h2, h3 {
+      font-family: 'Trebuchet MS', sans-serif;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>Anthony Madi</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About Me</a>
+      <a href="#contact">Contact Me</a>
+    </nav>
+  </header>
 
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <section class="section" id="home">
+    <h2>Welcome</h2>
+    <p>I’m a filmmaker and videographer focused on creating dynamic and impactful visual stories. Check out my work below.</p>
+  </section>
 
-  <!-- Projects Section -->
-  <section id="projects">
+  <section class="section" id="projects">
     <h2>Projects</h2>
-    <div class="project-grid">
-
-      <!-- Project 0 -->
-      <div class="insta-wrapper">
-        <h3>Nafoura Lawn Advertisement</h3>
-  <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cq57dcerkok/" data-instgrm-version="14" style="background:#000; max-width:540px; margin:auto;"></blockquote>
-</div>
-<script async src="//www.instagram.com/embed.js"></script>
-
-      <!-- Project 1 -->
-      <div class="project">
-        <h3>Fady Harb in Tbilisi</h3>
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/FrUAEwOV2Gs" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-
-      <!-- Project 2 -->
-      <div class="project">
-        <h3>Fady Harb in Istanbul</h3>
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/ZNKMCjPrR70" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-
-      <!-- Project 3 -->
-      <div class="project">
-        <h3>UAE National Anthem Cover</h3>
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/ghtgcUPCD8o" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-
-      <!-- Project 4 -->
-      <div class="project">
-        <h3>Ghost Town Dance</h3>
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/Z4nBrLErOZI" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-
-      <!-- Project 5 -->
-      <div class="project">
-        <h3>Fzero — Short Film</h3>
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/Fsav0nfuX60" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-
-      <!-- Project 6 -->
-      <div class="project">
-        <h3>Fire Show</h3>
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/I6uf1fLSCYs" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-
-      <!-- Project 7 -->
-      <div class="project">
-        <h3>Golf GTI Commercial</h3>
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/ZsVM6THxOw8" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-
-      <!-- Project 8 -->
-      <div class="project">
-        <h3>Marie Nassar — Edam El Kel & Yay Mashup [Music Video]</h3>
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/_AhXEk1YmDc" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-
-      <!-- Project 9 -->
-      <div class="project">
-        <h3>Pamela Farhat — Aramam & Bel Gharam Cover [Music Video]</h3>
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/Pas6ORSsfIc" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-
-      <!-- Project 10 -->
-      <div class="project">
-        <h3>Pamela Farhat — Amara Ya Amara [Music Video]</h3>
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/VDfYpwlpFJc" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-
+    <div class="projects-grid">
+      <iframe src="https://www.youtube.com/embed/FrUAEwOV2Gs" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/ZNKMCjPrR70" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/ghtgcUPCD8o" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/Z4nBrLErOZI" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/Fsav0nfuX60" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/I6uf1fLSCYs" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/ZsVM6THxOw8" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/_AhXEk1YmDc" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/Pas6ORSsfIc" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/VDfYpwlpFJc" allowfullscreen></iframe>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cq57dcerkok/" data-instgrm-version="14" style="background:#000; max-width:100%; margin:auto;"></blockquote>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p><strong>Anthony Madi</strong></p>
-    <p>Email: <a href="mailto:anthonymadimail@gmail.com">anthonymadimail@gmail.com</a></p>
-    <p>Phone: <a href="tel:+971508501709">+971 50 850 1709</a></p>
-    <p>Instagram: <a href="https://instagram.com/anthony__madi" target="_blank">@anthony__madi</a></p>
+  <section class="section" id="about">
+    <h2>About Me</h2>
+    <p>I'm a filmmaker and videographer based in the UAE. I enjoy crafting visually engaging stories through camera work, editing, and sound. My experience spans music videos, short films, and creative collaborations.</p>
   </section>
 
+  <section class="section" id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact">
+      <p><strong>Phone:</strong> +971 50 850 1709</p>
+      <p><strong>Email:</strong> <a href="mailto:anthonymadimail@gmail.com">anthonymadimail@gmail.com</a></p>
+    </div>
+  </section>
+
+  <script async src="//www.instagram.com/embed.js"></script>
 </body>
 </html>
