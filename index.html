@@ -4,112 +4,94 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anthony Madi Portfolio</title>
-  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: "Trebuchet MS", sans-serif;
-    }
-  </style>
 </head>
 <body>
-  <header>
-    <h1 style="color: white;">Anthony Madi</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#projects">Projects</a>
-      <a href="#about">About Me</a>
-      <a href="#contact">Contact Me</a>
-    </nav>
-  </header>
+  <h1>Anthony Madi</h1>
+  <nav>
+    <a href="#welcome">Welcome</a>
+    <a href="#projects">Projects</a>
+    <a href="#about">About Me</a>
+    <a href="#contact">Contact Me</a>
+  </nav>
 
-  <section id="home" class="section">
-    <h2 style="color: #ffb300;">Welcome</h2>
-    <p>I’m a filmmaker focused on creating dynamic visual stories. Check out my work below.</p>
+  <section id="welcome" class="section">
+    <h2>Welcome</h2>
+    <p>Welcome to my videography portfolio. Explore my latest projects below.</p>
   </section>
 
   <section id="projects" class="section">
-    <h2 style="color: #ffb300;">Projects</h2>
+    <h2>Projects</h2>
     <div class="projects-grid">
-      <div class="video-project">
-        <div class="video-container" data-video-id="FrUAEwOV2Gs"></div>
+
+      <div class="project-item">
+        <div class="video-container" data-video-id="x1">
+          <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/ihz6JkWzj2E/maxresdefault.jpg');">
+            <div class="play-button"></div>
+          </div>
+        </div>
         <div class="video-info">
-          <h3>Project Title</h3>
-          <p>Description of the project goes here.</p>
+          <h3>Project Title 1</h3>
+          <p><strong>Description:</strong> Music video for emerging artist.</p>
           <p><strong>Type:</strong> Music Video</p>
           <p><strong>Role:</strong> Director, Editor</p>
-          <p><strong>Date:</strong> January 2024</p>
+          <p><strong>Date:</strong> March 2024</p>
         </div>
       </div>
-      <!-- Repeat for each project -->
+
+      <div class="project-item">
+        <div class="video-container" data-video-id="x2">
+          <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/uhazYNI7iPo/maxresdefault.jpg');">
+            <div class="play-button"></div>
+          </div>
+        </div>
+        <div class="video-info">
+          <h3>Project Title 2</h3>
+          <p><strong>Description:</strong> Short documentary on wellness sanctuary.</p>
+          <p><strong>Type:</strong> Documentary</p>
+          <p><strong>Role:</strong> Editor, Sound Designer</p>
+          <p><strong>Date:</strong> February 2024</p>
+        </div>
+      </div>
+
+      <!-- Add more project-item blocks below -->
+
     </div>
   </section>
 
-  <section id="about" class="section">
+  <section id="about" class="section about">
     <h2>About Me</h2>
-    <p>I'm a filmmaker based in the UAE. I enjoy crafting visually engaging stories through camera work, editing, and sound. My experience spans music videos, short films, and creative collaborations.</p>
+    <p>I’m a filmmaker and videographer passionate about creating striking visuals and impactful stories. With experience in directing, shooting, and editing, I bring a professional and cinematic approach to every project.</p>
   </section>
 
-  <section id="contact" class="section">
+  <section id="contact" class="section contact">
     <h2>Contact Me</h2>
-    <div class="contact">
-      <p>Phone: <a href="tel:+971508501709">+971 50 850 1709</a></p>
-      <p>Email: <a href="mailto:anthonymadimail@gmail.com">anthonymadimail@gmail.com</a></p>
-    </div>
+    <p><span class="label">Phone:</span> <span class="value">+971 50 850 1709</span></p>
+    <p><span class="label">Email:</span> <span class="value">anthony.madi@email.com</span></p>
   </section>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const allContainers = document.querySelectorAll('.video-container');
+    const containers = document.querySelectorAll('.video-container');
 
-      allContainers.forEach(container => {
-        const videoId = container.getAttribute('data-video-id');
+    containers.forEach(container => {
+      const videoId = container.dataset.videoId;
+      const thumbnail = container.querySelector('.video-thumbnail');
 
-        const thumbnail = document.createElement('div');
-        thumbnail.className = 'video-thumbnail';
-        thumbnail.style.backgroundImage = `url('https://img.youtube.com/vi/${videoId}/hqdefault.jpg')`;
-
-        const playButton = document.createElement('div');
-        playButton.className = 'play-button';
-        thumbnail.appendChild(playButton);
-
-        container.appendChild(thumbnail);
-
-        thumbnail.addEventListener('click', () => {
-          // Reset all other videos
-          allContainers.forEach(otherContainer => {
-            if (otherContainer !== container) {
-              const otherId = otherContainer.getAttribute('data-video-id');
-              otherContainer.innerHTML = '';
-              const otherThumb = document.createElement('div');
-              otherThumb.className = 'video-thumbnail';
-              otherThumb.style.backgroundImage = `url('https://img.youtube.com/vi/${otherId}/hqdefault.jpg')`;
-              const otherPlay = document.createElement('div');
-              otherPlay.className = 'play-button';
-              otherThumb.appendChild(otherPlay);
-              otherContainer.appendChild(otherThumb);
-              otherThumb.addEventListener('click', () => {
-                otherContainer.innerHTML = '';
-                const iframe = document.createElement('iframe');
-                iframe.src = `https://www.youtube.com/embed/${otherId}?autoplay=1`;
-                iframe.frameBorder = '0';
-                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-                iframe.allowFullscreen = true;
-                otherContainer.appendChild(iframe);
-              });
-            }
-          });
-
-          // Play selected video
-          container.innerHTML = '';
-          const iframe = document.createElement('iframe');
-          iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-          iframe.frameBorder = '0';
-          iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-          iframe.allowFullscreen = true;
-          container.appendChild(iframe);
+      thumbnail.addEventListener('click', () => {
+        containers.forEach(c => {
+          if (c !== container) {
+            const thumb = c.querySelector('.video-thumbnail');
+            const iframe = c.querySelector('iframe');
+            if (iframe) iframe.remove();
+            if (thumb) thumb.style.display = 'flex';
+          }
         });
+
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        iframe.allow = 'autoplay; encrypted-media';
+        container.appendChild(iframe);
+        thumbnail.style.display = 'none';
       });
     });
   </script>
