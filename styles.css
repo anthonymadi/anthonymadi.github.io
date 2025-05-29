@@ -1,141 +1,118 @@
 /* Base styles */
 body {
-font-family: "Trebuchet MS", sans-serif;
-background-color: #000;
-color: #fff;
-margin: 0;
-padding: 0;
+  font-family: "Trebuchet MS", sans-serif;
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
-font-size: 2.5rem;
-text-align: center;
-color: white;
-margin-top: 20px;
-font-family: 'Bad Script', cursive;
+  font-size: 2.5rem;
+  text-align: center;
+  color: white;
+  margin-top: 20px;
+  font-family: 'Bad Script', cursive;
 }
 
 h2 {
-color: #ffd54f;
-font-size: 2rem;
-text-align: center;
-margin-top: 40px;
-font-family: 'Bad Script', cursive;
+  color: #ffd54f;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 40px;
+  font-family: 'Bad Script', cursive;
 }
 
 nav {
-display: flex;
-justify-content: center;
-gap: 30px;
-background-color: #111;
-padding: 10px 0;
-position: sticky;
-top: 0;
-z-index: 1000;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  background-color: #111;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 nav a {
-color: #ffd54f;
-text-decoration: none;
-font-size: 1.2rem;
+  color: #ffd54f;
+  text-decoration: none;
+  font-size: 1.2rem;
 }
 
 nav a:hover {
-text-decoration: underline;
+  text-decoration: underline;
 }
 
 .section {
-padding: 40px 20px;
-max-width: 1400px;
-margin: auto;
+  padding: 40px 20px;
+  max-width: 1400px;
+  margin: auto;
 }
 
 .projects-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 40px;
-}
-
-.video-block {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
 }
 
 .video-container {
-position: relative;
-aspect-ratio: 16 / 9;
-width: 100%;
-overflow: hidden;
-background: black;
-border: none;
-  flex: 2;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  overflow: hidden;
+  background: black;
+  border: none;
 }
 
 .video-container iframe,
 .video-thumbnail {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 .video-thumbnail {
-background-size: cover;
-background-position: center;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .play-button {
-width: 60px;
-height: 60px;
-background: rgba(255, 255, 255, 0.5);
-clip-path: polygon(25% 20%, 75% 50%, 25% 80%);
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.5);
+  clip-path: polygon(25% 20%, 75% 50%, 25% 80%);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .video-info {
-font-family: 'Bad Script', cursive;
-background-color: #111;
-padding: 20px;
-border-left: 4px solid #ffd54f;
-color: #ffd54f;
-  flex: 1;
-  max-width: 400px;
+  font-family: 'Bad Script', cursive;
+  background-color: #111;
+  padding: 20px;
+  border-left: 4px solid #ffd54f;
+  color: #ffd54f;
 }
 
 .contact, .about {
-background-color: #111;
-padding: 20px;
-border-radius: 10px;
-margin-top: 20px;
-font-size: 1.1rem;
-  font-family: "Trebuchet MS", sans-serif;
-  color: white;
-}
-
-.contact a, .about a {
-color: #ffd54f;
+  background-color: #111;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #ffd54f;
   font-family: 'Bad Script', cursive;
-  text-decoration: none;
-}
-
-.contact p strong, .about p strong {
-  color: white;
 }
 
 @media screen and (max-width: 768px) {
-.projects-grid {
-grid-template-columns: 1fr;
-}
-
-  .video-block {
-    flex-direction: column;
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
 }
 
