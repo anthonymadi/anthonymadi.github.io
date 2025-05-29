@@ -6,10 +6,10 @@
   <title>Anthony Madi – Filmmaker</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Trebuchet+MS&family=Raleway&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Trebuchet+MS&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Anthony Madi</h1>
+  <h1 style="color: white; font-family: 'Trebuchet MS', sans-serif;">Anthony Madi</h1>
   <nav>
     <a href="#home">Home</a>
     <a href="#projects">Projects</a>
@@ -19,34 +19,37 @@
 
   <section id="home" class="section">
     <h2>Welcome</h2>
-    <p class="about">I’m a filmmaker focused on creating dynamic visual stories. Check out my work below.</p>
+    <p class="about" style="color: white;">I’m a filmmaker focused on creating dynamic visual stories. Check out my work below.</p>
   </section>
 
   <section id="projects" class="section">
     <h2>Projects</h2>
     <div class="projects-grid">
-      <div class="video-container" data-video-id="FrUAEwOV2Gs" style="background-image: url('https://img.youtube.com/vi/FrUAEwOV2Gs/hqdefault.jpg');">
-        <div class="video-thumbnail">
-          <div class="play-button"></div>
+      <!-- Example video item -->
+      <div class="video-item">
+        <div class="video-container" data-video-id="FrUAEwOV2Gs" style="background-image: url('https://img.youtube.com/vi/FrUAEwOV2Gs/hqdefault.jpg');">
+          <div class="video-thumbnail">
+            <div class="play-button"></div>
+          </div>
+          <iframe src="https://www.youtube.com/embed/FrUAEwOV2Gs?enablejsapi=1" allowfullscreen></iframe>
         </div>
-        <iframe src="https://www.youtube.com/embed/FrUAEwOV2Gs?enablejsapi=1" allowfullscreen></iframe>
-      </div>
-      <div class="video-info">
-        <h3>Fady Harb in Tbilisi</h3>
-        <p>Description: A music video shoot in Georgia</p>
-        <p>Type: Music Video</p>
-        <p>Role: Director & Editor</p>
-        <p>Date: 2024</p>
+        <div class="video-info">
+          <h3>Fady Harb in Tbilisi</h3>
+          <p>Description: A music video shoot in Georgia</p>
+          <p>Type: Music Video</p>
+          <p>Role: Director & Editor</p>
+          <p>Date: 2024</p>
+        </div>
       </div>
 
-      <!-- Repeat similar blocks for other videos -->
+      <!-- Repeat this video-item block for each of the 9 other videos -->
 
     </div>
   </section>
 
   <section id="about" class="section">
     <h2>About Me</h2>
-    <p class="about">I'm a filmmaker based in the UAE. I enjoy crafting visually engaging stories through camera work, editing, and sound. My experience spans music videos, short films, and creative collaborations.</p>
+    <p class="about" style="color: white;">I'm a filmmaker based in the UAE. I enjoy crafting visually engaging stories through camera work, editing, and sound. My experience spans music videos, short films, and creative collaborations.</p>
   </section>
 
   <section id="contact" class="section">
@@ -68,13 +71,15 @@
         containers.forEach(c => {
           const i = c.querySelector('iframe');
           const t = c.querySelector('.video-thumbnail');
-          i.style.display = 'none';
-          t.style.display = 'flex';
+          if (i && t) {
+            i.style.display = 'none';
+            t.style.display = 'flex';
+            const iframeSrc = i.src.split('?')[0];
+            i.src = `${iframeSrc}?enablejsapi=1`;
+          }
         });
         thumb.style.display = 'none';
         iframe.style.display = 'block';
-        const src = iframe.src;
-        iframe.src = src; // Reload to start playback
       });
     });
   </script>
