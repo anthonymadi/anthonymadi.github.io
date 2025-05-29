@@ -1,5 +1,5 @@
 /* styles.css */
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Share+Tech&display=swap');
 
 body {
   margin: 0;
@@ -23,7 +23,7 @@ header {
 }
 
 header h1 {
-  font-family: 'Share Tech', sans-serif;
+  font-family: 'Oswald', sans-serif;
   color: #FFA229;
   margin: 0;
 }
@@ -55,7 +55,7 @@ nav a:hover {
 }
 
 .section h2 {
-  font-family: 'Share Tech', sans-serif;
+  font-family: 'Oswald', sans-serif;
   color: #FFA229;
   font-size: 2rem;
   margin-bottom: 1rem;
@@ -105,24 +105,20 @@ nav a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.3s ease;
+  transition: transform 0.3s ease-in-out;
 }
 
 .video-thumbnail:hover {
-  opacity: 0.9;
+  transform: scale(1.02);
 }
 
 .play-button {
-  width: 60px;
-  height: 60px;
-  background-color: rgba(255, 162, 41, 0.85);
-  clip-path: polygon(20% 15%, 80% 50%, 20% 85%);
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.video-thumbnail:hover .play-button {
-  transform: scale(1.1);
-  background-color: rgba(255, 162, 41, 1);
+  width: 0;
+  height: 0;
+  border-left: 30px solid white;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7));
 }
 
 .contact {
