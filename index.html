@@ -2,84 +2,87 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anthony Madi – Filmmaker</title>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Trebuchet+MS&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anthony Madi - Videography Portfolio</title>
+  <link href="styles.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1 style="color: white; font-family: 'Trebuchet MS', sans-serif;">Anthony Madi</h1>
+  <h1>Anthony Madi</h1>
+
   <nav>
-    <a href="#home">Home</a>
+    <a href="#welcome">Welcome</a>
     <a href="#projects">Projects</a>
     <a href="#about">About Me</a>
     <a href="#contact">Contact Me</a>
   </nav>
 
-  <section id="home" class="section">
+  <section id="welcome" class="section">
     <h2>Welcome</h2>
-    <p class="about" style="color: white;">I’m a filmmaker focused on creating dynamic visual stories. Check out my work below.</p>
+    <p>I’m a filmmaker focused on creating dynamic visual stories. Check out my work below.</p>
   </section>
 
   <section id="projects" class="section">
     <h2>Projects</h2>
     <div class="projects-grid">
-      <!-- Example video item -->
+      <!-- Repeat for each project -->
       <div class="video-item">
-        <div class="video-container" data-video-id="FrUAEwOV2Gs" style="background-image: url('https://img.youtube.com/vi/FrUAEwOV2Gs/hqdefault.jpg');">
+        <div class="video-container" data-video-id="YOUR_VIDEO_ID_1" style="background-image: url('https://img.youtube.com/vi/YOUR_VIDEO_ID_1/hqdefault.jpg');">
           <div class="video-thumbnail">
             <div class="play-button"></div>
           </div>
-          <iframe src="https://www.youtube.com/embed/FrUAEwOV2Gs?enablejsapi=1" allowfullscreen></iframe>
+          <iframe src="" allowfullscreen></iframe>
         </div>
         <div class="video-info">
-          <h3>Fady Harb in Tbilisi</h3>
-          <p>Description: A music video shoot in Georgia</p>
-          <p>Type: Music Video</p>
-          <p>Role: Director & Editor</p>
-          <p>Date: 2024</p>
+          <h3>Project Title 1</h3>
+          <p><strong>Description:</strong> Short summary here.</p>
+          <p><strong>Type:</strong> Music Video</p>
+          <p><strong>Role:</strong> Director</p>
+          <p><strong>Date:</strong> Jan 2024</p>
         </div>
       </div>
 
-      <!-- Repeat this video-item block for each of the 9 other videos -->
+      <!-- Copy and modify above block for each video (up to 10 total) -->
 
     </div>
   </section>
 
   <section id="about" class="section">
     <h2>About Me</h2>
-    <p class="about" style="color: white;">I'm a filmmaker based in the UAE. I enjoy crafting visually engaging stories through camera work, editing, and sound. My experience spans music videos, short films, and creative collaborations.</p>
+    <div class="about">
+      <p>I'm a filmmaker based in the UAE. I enjoy crafting visually engaging stories through camera work, editing, and sound. My experience spans music videos, short films, and creative collaborations.</p>
+    </div>
   </section>
 
   <section id="contact" class="section">
     <h2>Contact Me</h2>
     <div class="contact">
-      <p><strong style="color:white; font-family:'Trebuchet MS'">Phone:</strong> <a href="tel:+971508501709" style="color:#ffd54f; font-family:'Trebuchet MS'">+971 50 850 1709</a></p>
-      <p><strong style="color:white; font-family:'Trebuchet MS'">Email:</strong> <a href="mailto:anthonymadimail@gmail.com" style="color:#ffd54f; font-family:'Trebuchet MS'">anthonymadimail@gmail.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+971508501709">+971 50 850 1709</a></p>
+      <p><strong>Email:</strong> <a href="mailto:anthonymadiwork@gmail.com">anthonymadiwork@gmail.com</a></p>
+      <p><strong>Instagram:</strong> <a href="https://instagram.com/anthony__madi" target="_blank">@anthony__madi</a></p>
     </div>
   </section>
 
   <script>
-    const containers = document.querySelectorAll('.video-container');
-    containers.forEach(container => {
-      const thumb = container.querySelector('.video-thumbnail');
-      const iframe = container.querySelector('iframe');
+    const videoContainers = document.querySelectorAll('.video-container');
 
-      iframe.style.display = 'none';
-      thumb.addEventListener('click', () => {
-        containers.forEach(c => {
-          const i = c.querySelector('iframe');
-          const t = c.querySelector('.video-thumbnail');
-          if (i && t) {
-            i.style.display = 'none';
-            t.style.display = 'flex';
-            const iframeSrc = i.src.split('?')[0];
-            i.src = `${iframeSrc}?enablejsapi=1`;
-          }
+    videoContainers.forEach(container => {
+      const iframe = container.querySelector('iframe');
+      const thumbnail = container.querySelector('.video-thumbnail');
+      const videoId = container.dataset.videoId;
+
+      container.addEventListener('click', () => {
+        document.querySelectorAll('.video-container iframe').forEach(f => {
+          f.src = '';
+          f.style.display = 'none';
         });
-        thumb.style.display = 'none';
+        document.querySelectorAll('.video-container .video-thumbnail').forEach(t => {
+          t.style.display = 'flex';
+        });
+
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
         iframe.style.display = 'block';
+        thumbnail.style.display = 'none';
       });
     });
   </script>
