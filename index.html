@@ -1,54 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Anthony Madi - Videography Portfolio</title>
-  <link href="styles.css" rel="stylesheet" />
+  <title>Anthony Madi - Videography Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
-<link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet">
 </head>
 <body>
-<h1>Anthony Madi</h1>
+  <h1>Anthony Madi</h1>
+  <nav>
+    <a href="#welcome">Welcome</a>
+    <a href="#projects">Projects</a>
+    <a href="#about">About Me</a>
+    <a href="#contact">Contact Me</a>
+  </nav>
 
-<nav>
-<a href="#welcome">Welcome</a>
-<a href="#projects">Projects</a>
-<a href="#about">About Me</a>
-<a href="#contact">Contact Me</a>
-</nav>
-
-  <section id="welcome" class="section">
   <section class="section" id="welcome">
-<h2>Welcome</h2>
-    <p>I’m a filmmaker focused on creating dynamic visual stories. Check out my work below.</p>
+    <h2>Welcome</h2>
     <p>I'm a filmmaker based in the UAE. I enjoy crafting visually engaging stories through camera work, editing, and sound. My experience spans music videos, short films, and creative collaborations.</p>
-</section>
+  </section>
 
-  <section id="projects" class="section">
   <section class="section" id="projects">
-<h2>Projects</h2>
-<div class="projects-grid">
-      <!-- Repeat for each project -->
+    <h2>Projects</h2>
+    <div class="projects-grid">
 
-<div class="video-item">
-        <div class="video-container" data-video-id="YOUR_VIDEO_ID_1" style="background-image: url('https://img.youtube.com/vi/YOUR_VIDEO_ID_1/hqdefault.jpg');">
+      <div class="video-item">
         <div class="video-container" data-id="dQw4w9WgXcQ" style="background-image: url('https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg');">
-<div class="video-thumbnail">
-<div class="play-button"></div>
-</div>
-          <iframe src="" allowfullscreen></iframe>
+          <div class="video-thumbnail">
+            <div class="play-button"></div>
+          </div>
           <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1" allowfullscreen></iframe>
-</div>
-<div class="video-info">
-          <h3>Project Title 1</h3>
-          <p><strong>Description:</strong> Short summary here.</p>
+        </div>
+        <div class="video-info">
           <h3>Project Title</h3>
           <p><strong>Description:</strong> A dynamic and colorful music video.</p>
-<p><strong>Type:</strong> Music Video</p>
-          <p><strong>Role:</strong> Director</p>
-          <p><strong>Date:</strong> Jan 2024</p>
+          <p><strong>Type:</strong> Music Video</p>
           <p><strong>Role:</strong> Director, Editor</p>
           <p><strong>Date:</strong> April 2024</p>
         </div>
@@ -67,66 +54,49 @@
           <p><strong>Type:</strong> Short Film</p>
           <p><strong>Role:</strong> Cinematographer</p>
           <p><strong>Date:</strong> January 2024</p>
-</div>
-</div>
+        </div>
+      </div>
 
-      <!-- Copy and modify above block for each video (up to 10 total) -->
       <!-- Add additional video-item and video-item-alt blocks as needed -->
 
-</div>
-</section>
+    </div>
+  </section>
 
-  <section id="about" class="section">
   <section class="section" id="about">
-<h2>About Me</h2>
-<div class="about">
-      <p>I'm a filmmaker based in the UAE. I enjoy crafting visually engaging stories through camera work, editing, and sound. My experience spans music videos, short films, and creative collaborations.</p>
+    <h2>About Me</h2>
+    <div class="about">
       <p>I’m a filmmaker focused on creating dynamic visual stories. Check out my work below.</p>
-</div>
-</section>
+    </div>
+  </section>
 
-  <section id="contact" class="section">
   <section class="section" id="contact">
-<h2>Contact Me</h2>
-<div class="contact">
-<p><strong>Phone:</strong> <a href="tel:+971508501709">+971 50 850 1709</a></p>
-      <p><strong>Email:</strong> <a href="mailto:anthonymadiwork@gmail.com">anthonymadiwork@gmail.com</a></p>
-      <p><strong>Instagram:</strong> <a href="https://instagram.com/anthony__madi" target="_blank">@anthony__madi</a></p>
+    <h2>Contact Me</h2>
+    <div class="contact">
+      <p><strong>Phone:</strong> <a href="tel:+971508501709">+971 50 850 1709</a></p>
       <p><strong>Email:</strong> <a href="mailto:anthonymadi4@gmail.com">anthonymadi4@gmail.com</a></p>
-</div>
-</section>
+    </div>
+  </section>
 
-<script>
-    const videoContainers = document.querySelectorAll('.video-container');
+  <script>
     const containers = document.querySelectorAll('.video-container');
 
-    videoContainers.forEach(container => {
     containers.forEach(container => {
-const iframe = container.querySelector('iframe');
-const thumbnail = container.querySelector('.video-thumbnail');
-      const videoId = container.dataset.videoId;
+      const iframe = container.querySelector('iframe');
+      const thumbnail = container.querySelector('.video-thumbnail');
 
-container.addEventListener('click', () => {
-        document.querySelectorAll('.video-container iframe').forEach(f => {
-          f.src = '';
-          f.style.display = 'none';
-        });
-        document.querySelectorAll('.video-container .video-thumbnail').forEach(t => {
+      container.addEventListener('click', () => {
         containers.forEach(c => {
           const i = c.querySelector('iframe');
           const t = c.querySelector('.video-thumbnail');
           i.style.display = 'none';
-t.style.display = 'flex';
-});
-
-        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-        iframe.style.display = 'block';
-thumbnail.style.display = 'none';
+          t.style.display = 'flex';
+        });
+        thumbnail.style.display = 'none';
         iframe.style.display = 'block';
         const src = iframe.src;
         iframe.src = src + '&autoplay=1';
-});
-});
-</script>
+      });
+    });
+  </script>
 </body>
 </html>
