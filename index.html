@@ -11,7 +11,6 @@
       const videos = document.querySelectorAll('.video-container');
       videos.forEach(video => {
         video.addEventListener('click', () => {
-          // Pause other iframes and hide them
           videos.forEach(v => {
             if (v !== video) {
               const iframe = v.querySelector('iframe');
@@ -32,7 +31,6 @@
         });
       });
 
-      // Highlight nav link on scroll
       const sections = document.querySelectorAll('section');
       const navLinks = document.querySelectorAll('nav a.nav-link');
 
@@ -72,7 +70,7 @@
     <h2>Projects</h2>
     <div class="projects-grid">
 
-      <!-- Project template 1: video left, metadata right -->
+      <!-- Example project -->
       <div class="video-item">
         <div class="video-container" style="background-image:url('thumbnail1.jpg')">
           <div class="video-thumbnail">
@@ -89,152 +87,7 @@
         </div>
       </div>
 
-      <!-- Project template 2: metadata left, video right -->
-      <div class="video-item-alt">
-        <div class="video-info">
-          <h3>Project Title 2</h3>
-          <p>Description of project 2 goes here.</p>
-          <p><strong>Type:</strong> Music Video</p>
-          <p><strong>Role:</strong> Cinematographer</p>
-          <p><strong>Date:</strong> Mar 2024</p>
-        </div>
-        <div class="video-container" style="background-image:url('thumbnail2.jpg')">
-          <div class="video-thumbnail">
-            <div class="play-button"></div>
-          </div>
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
-        </div>
-      </div>
-
-      <!-- Add remaining projects alternating templates -->
-
-      <div class="video-item">
-        <div class="video-container" style="background-image:url('thumbnail3.jpg')">
-          <div class="video-thumbnail">
-            <div class="play-button"></div>
-          </div>
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" allowfullscreen></iframe>
-        </div>
-        <div class="video-info">
-          <h3>Project Title 3</h3>
-          <p>Description of project 3 goes here.</p>
-          <p><strong>Type:</strong> Documentary</p>
-          <p><strong>Role:</strong> Editor</p>
-          <p><strong>Date:</strong> May 2024</p>
-        </div>
-      </div>
-
-      <div class="video-item-alt">
-        <div class="video-info">
-          <h3>Project Title 4</h3>
-          <p>Description of project 4 goes here.</p>
-          <p><strong>Type:</strong> Commercial</p>
-          <p><strong>Role:</strong> Director of Photography</p>
-          <p><strong>Date:</strong> Jul 2024</p>
-        </div>
-        <div class="video-container" style="background-image:url('thumbnail4.jpg')">
-          <div class="video-thumbnail">
-            <div class="play-button"></div>
-          </div>
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" allowfullscreen></iframe>
-        </div>
-      </div>
-
-      <div class="video-item">
-        <div class="video-container" style="background-image:url('thumbnail5.jpg')">
-          <div class="video-thumbnail">
-            <div class="play-button"></div>
-          </div>
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_5" allowfullscreen></iframe>
-        </div>
-        <div class="video-info">
-          <h3>Project Title 5</h3>
-          <p>Description of project 5 goes here.</p>
-          <p><strong>Type:</strong> Short Film</p>
-          <p><strong>Role:</strong> Producer</p>
-          <p><strong>Date:</strong> Sep 2024</p>
-        </div>
-      </div>
-
-      <div class="video-item-alt">
-        <div class="video-info">
-          <h3>Project Title 6</h3>
-          <p>Description of project 6 goes here.</p>
-          <p><strong>Type:</strong> Music Video</p>
-          <p><strong>Role:</strong> Director</p>
-          <p><strong>Date:</strong> Nov 2024</p>
-        </div>
-        <div class="video-container" style="background-image:url('thumbnail6.jpg')">
-          <div class="video-thumbnail">
-            <div class="play-button"></div>
-          </div>
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_6" allowfullscreen></iframe>
-        </div>
-      </div>
-
-      <div class="video-item">
-        <div class="video-container" style="background-image:url('thumbnail7.jpg')">
-          <div class="video-thumbnail">
-            <div class="play-button"></div>
-          </div>
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_7" allowfullscreen></iframe>
-        </div>
-        <div class="video-info">
-          <h3>Project Title 7</h3>
-          <p>Description of project 7 goes here.</p>
-          <p><strong>Type:</strong> Documentary</p>
-          <p><strong>Role:</strong> Editor</p>
-          <p><strong>Date:</strong> Dec 2024</p>
-        </div>
-      </div>
-
-      <div class="video-item-alt">
-        <div class="video-info">
-          <h3>Project Title 8</h3>
-          <p>Description of project 8 goes here.</p>
-          <p><strong>Type:</strong> Commercial</p>
-          <p><strong>Role:</strong> Cinematographer</p>
-          <p><strong>Date:</strong> Feb 2025</p>
-        </div>
-        <div class="video-container" style="background-image:url('thumbnail8.jpg')">
-          <div class="video-thumbnail">
-            <div class="play-button"></div>
-          </div>
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_8" allowfullscreen></iframe>
-        </div>
-      </div>
-
-      <div class="video-item">
-        <div class="video-container" style="background-image:url('thumbnail9.jpg')">
-          <div class="video-thumbnail">
-            <div class="play-button"></div>
-          </div>
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_9" allowfullscreen></iframe>
-        </div>
-        <div class="video-info">
-          <h3>Project Title 9</h3>
-          <p>Description of project 9 goes here.</p>
-          <p><strong>Type:</strong> Short Film</p>
-          <p><strong>Role:</strong> Director</p>
-          <p><strong>Date:</strong> Apr 2025</p>
-        </div>
-      </div>
-
-      <div class="video-item-alt">
-        <div class="video-info">
-          <h3>Project Title 10</h3>
-          <p>Description of project 10 goes here.</p>
-          <p><strong>Type:</strong> Music Video</p>
-          <p><strong>Role:</strong> Producer</p>
-          <p><strong>Date:</strong> May 2025</p>
-        </div>
-        <div class="video-container" style="background-image:url('thumbnail10.jpg')">
-          <div class="video-thumbnail">
-            <div class="play-button"></div>
-          </div>
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_10" allowfullscreen></iframe>
-        </div>
-      </div>
+      <!-- Add more projects alternating .video-item and .video-item-alt -->
 
     </div>
   </section>
