@@ -1,3 +1,6 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Roboto+Slab:wght@400;700&display=swap');
+
 /* Base styles */
 body {
   font-family: "Trebuchet MS", sans-serif;
@@ -20,7 +23,7 @@ h2 {
   font-size: 2rem;
   text-align: center;
   margin-top: 40px;
-  font-family: 'Bad Script', cursive;
+  font-family: 'Roboto Slab', serif;
 }
 
 nav {
@@ -46,17 +49,18 @@ nav a:hover {
 
 .section {
   padding: 40px 20px;
-  max-width: 1400px;
+  max-width: 1600px;
   margin: auto;
 }
 
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 60px;
+  align-items: start;
 }
 
-.video-block {
+.project-wrapper {
   display: flex;
   gap: 20px;
   align-items: flex-start;
@@ -65,11 +69,11 @@ nav a:hover {
 .video-container {
   position: relative;
   aspect-ratio: 16 / 9;
-  width: 100%;
+  width: 60%;
   overflow: hidden;
   background: black;
   border: none;
-  flex: 2;
+  flex-shrink: 0;
 }
 
 .video-container iframe,
@@ -100,13 +104,17 @@ nav a:hover {
 }
 
 .video-info {
-  font-family: 'Bad Script', cursive;
+  font-family: 'Roboto Slab', serif;
   background-color: #111;
   padding: 20px;
   border-left: 4px solid #ffd54f;
   color: #ffd54f;
-  flex: 1;
-  max-width: 400px;
+  width: 100%;
+}
+
+.video-info h3 {
+  margin-top: 0;
+  font-size: 1.3rem;
 }
 
 .contact, .about {
@@ -115,28 +123,38 @@ nav a:hover {
   border-radius: 10px;
   margin-top: 20px;
   font-size: 1.1rem;
-  font-family: "Trebuchet MS", sans-serif;
-  color: white;
+  font-family: 'Bad Script', cursive;
 }
 
-.contact a, .about a {
+.contact p, .about p {
+  margin: 10px 0;
+}
+
+.contact strong {
+  color: white;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.contact a {
   color: #ffd54f;
+  font-family: 'Trebuchet MS', sans-serif;
   text-decoration: none;
 }
 
-.contact p strong, .about p strong {
-  color: white;
+.contact a:hover {
+  text-decoration: underline;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .projects-grid {
     grid-template-columns: 1fr;
   }
 
-  .video-block {
+  .project-wrapper {
     flex-direction: column;
   }
-}
 
-/* Import Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
+  .video-container {
+    width: 100%;
+  }
+}
