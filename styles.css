@@ -1,9 +1,10 @@
+/* styles.css */
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
 
 body {
   margin: 0;
   font-family: 'Share Tech', sans-serif;
-  background-color: #0d0d0d;
+  background-color: #121212;
   color: #f0f0f0;
   width: 100vw;
   overflow-x: hidden;
@@ -18,7 +19,7 @@ header {
   flex-direction: column;
   align-items: center;
   z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 
 header h1 {
@@ -29,22 +30,21 @@ header h1 {
 
 nav {
   margin-top: 0.5rem;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
 }
 
 nav a {
+  margin: 0 1rem;
   text-decoration: none;
   color: #f0f0f0;
   font-weight: bold;
-  padding: 0.5rem 0.5rem;
   position: relative;
-  transition: color 0.3s ease;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  transition: border 0.3s ease-in-out;
 }
 
 nav a:hover {
-  color: #FF9E35;
+  border-bottom: 2px solid #FFA229;
 }
 
 .section {
@@ -86,32 +86,43 @@ nav a:hover {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-  cursor: pointer;
-  background-size: cover;
-  background-position: center;
-}
-
-.video-thumbnail {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.play-button {
-  width: 0;
-  height: 0;
-  border-left: 30px solid rgba(255, 162, 41, 0.85);
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-  cursor: pointer;
 }
 
 .video-container iframe {
   width: 100%;
   height: 100%;
   border: none;
+  display: none;
+}
+
+.video-thumbnail {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.video-thumbnail:hover {
+  opacity: 0.9;
+}
+
+.play-button {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255, 162, 41, 0.85);
+  clip-path: polygon(20% 15%, 80% 50%, 20% 85%);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.video-thumbnail:hover .play-button {
+  transform: scale(1.1);
+  background-color: rgba(255, 162, 41, 1);
 }
 
 .contact {
@@ -128,10 +139,23 @@ nav a:hover {
 }
 
 .contact a {
-  color: #FFA229;
+  color: #FECD2A;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .contact a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }
