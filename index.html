@@ -1,246 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Anthony Madi – Filmmaker</title>
-<link rel="icon" type="image/png" href="favicon.png" />
-<link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anthony Madi - Videography Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const videos = document.querySelectorAll('.video-container');
+      videos.forEach(video => {
+        video.addEventListener('click', () => {
+          // Pause other iframes and hide them
+          videos.forEach(v => {
+            if (v !== video) {
+              const iframe = v.querySelector('iframe');
+              const thumbnail = v.querySelector('.video-thumbnail');
+              if (iframe) iframe.style.display = 'none';
+              if (thumbnail) thumbnail.style.display = 'flex';
+            }
+          });
+          const iframe = video.querySelector('iframe');
+          const thumbnail = video.querySelector('.video-thumbnail');
+          if (iframe.style.display === 'block') {
+            iframe.style.display = 'none';
+            thumbnail.style.display = 'flex';
+          } else {
+            iframe.style.display = 'block';
+            thumbnail.style.display = 'none';
+          }
+        });
+      });
+
+      // Highlight nav link on scroll
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('nav a.nav-link');
+
+      function activateNavLink() {
+        let index = sections.length;
+
+        while (--index && window.scrollY + 150 < sections[index].offsetTop) {}
+
+        navLinks.forEach(link => link.classList.remove('active'));
+        if (navLinks[index]) navLinks[index].classList.add('active');
+      }
+
+      activateNavLink();
+      window.addEventListener('scroll', activateNavLink);
+    });
+  </script>
 </head>
 <body>
+  <header>
+    <h1>Anthony Madi</h1>
+    <nav>
+      <a href="#welcome" class="nav-link">Welcome</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#about" class="nav-link">About Me</a>
+      <a href="#contact" class="nav-link">Contact Me</a>
+    </nav>
+  </header>
 
-<header>
-  <h1>Anthony Madi</h1>
-  <nav>
-    <a href="#home" class="nav-link">Home</a>
-    <a href="#projects" class="nav-link">Projects</a>
-    <a href="#about" class="nav-link">About Me</a>
-    <a href="#contact" class="nav-link">Contact Me</a>
-  </nav>
-</header>
+  <section id="welcome" class="section">
+    <h2>Welcome</h2>
+    <p style="color:white;">
+      I’m a filmmaker focused on creating dynamic visual stories. Check out my work below.
+    </p>
+  </section>
 
-<section id="home" class="section">
-  <h2>Welcome</h2>
-  <p>I’m a filmmaker focused on creating dynamic visual stories. Check out my work below.</p>
-</section>
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="projects-grid">
 
-<section id="projects" class="section">
-  <h2>Projects</h2>
-  <div class="projects-grid">
-
-    <div class="video-item">
-      <div class="video-container" style="background-image: url('https://img.youtube.com/vi/FrUAEwOV2Gs/hqdefault.jpg')" data-video-id="FrUAEwOV2Gs">
-        <div class="video-thumbnail">
-          <div class="play-button"></div>
+      <!-- Project template 1: video left, metadata right -->
+      <div class="video-item">
+        <div class="video-container" style="background-image:url('thumbnail1.jpg')">
+          <div class="video-thumbnail">
+            <div class="play-button"></div>
+          </div>
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
         </div>
-        <iframe allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" src="" frameborder="0"></iframe>
-      </div>
-      <div class="video-info">
-        <h3>Fady Harb in Tbilisi</h3>
-        <p>Title: Fady Harb in Tbilisi</p>
-        <p>Description: A dynamic music video shot in Tbilisi.</p>
-        <p>Type: Music Video</p>
-        <p>Role: Director & Editor</p>
-        <p>Date Filmed: 2024</p>
-      </div>
-    </div>
-
-    <div class="video-item-alt">
-      <div class="video-info">
-        <h3>Fady Harb in Istanbul</h3>
-        <p>Title: Fady Harb in Istanbul</p>
-        <p>Description: Music video with vibrant city scenes.</p>
-        <p>Type: Music Video</p>
-        <p>Role: Director & Editor</p>
-        <p>Date Filmed: 2023</p>
-      </div>
-      <div class="video-container" style="background-image: url('https://img.youtube.com/vi/ZNKMCjPrR70/hqdefault.jpg')" data-video-id="ZNKMCjPrR70">
-        <div class="video-thumbnail">
-          <div class="play-button"></div>
+        <div class="video-info">
+          <h3>Project Title 1</h3>
+          <p>Description of project 1 goes here.</p>
+          <p><strong>Type:</strong> Short Film</p>
+          <p><strong>Role:</strong> Director</p>
+          <p><strong>Date:</strong> Jan 2024</p>
         </div>
-        <iframe allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" src="" frameborder="0"></iframe>
       </div>
-    </div>
 
-    <!-- Repeat for all other videos similarly, alternating .video-item and .video-item-alt -->
-
-    <div class="video-item">
-      <div class="video-container" style="background-image: url('https://img.youtube.com/vi/ghtgcUPCD8o/hqdefault.jpg')" data-video-id="ghtgcUPCD8o">
-        <div class="video-thumbnail">
-          <div class="play-button"></div>
+      <!-- Project template 2: metadata left, video right -->
+      <div class="video-item-alt">
+        <div class="video-info">
+          <h3>Project Title 2</h3>
+          <p>Description of project 2 goes here.</p>
+          <p><strong>Type:</strong> Music Video</p>
+          <p><strong>Role:</strong> Cinematographer</p>
+          <p><strong>Date:</strong> Mar 2024</p>
         </div>
-        <iframe allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" src="" frameborder="0"></iframe>
-      </div>
-      <div class="video-info">
-        <h3>UAE National Anthem Cover</h3>
-        <p>Title: UAE National Anthem Cover</p>
-        <p>Description: A heartfelt anthem cover.</p>
-        <p>Type: Music Video</p>
-        <p>Role: Director & Editor</p>
-        <p>Date Filmed: 2024</p>
-      </div>
-    </div>
-
-    <div class="video-item-alt">
-      <div class="video-info">
-        <h3>Ghost Town Dance</h3>
-        <p>Title: Ghost Town Dance</p>
-        <p>Description: Short dance film with moody visuals.</p>
-        <p>Type: Short Film</p>
-        <p>Role: Director</p>
-        <p>Date Filmed: 2023</p>
-      </div>
-      <div class="video-container" style="background-image: url('https://img.youtube.com/vi/Z4nBrLErOZI/hqdefault.jpg')" data-video-id="Z4nBrLErOZI">
-        <div class="video-thumbnail">
-          <div class="play-button"></div>
+        <div class="video-container" style="background-image:url('thumbnail2.jpg')">
+          <div class="video-thumbnail">
+            <div class="play-button"></div>
+          </div>
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
         </div>
-        <iframe allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" src="" frameborder="0"></iframe>
       </div>
-    </div>
 
-    <div class="video-item">
-      <div class="video-container" style="background-image: url('https://img.youtube.com/vi/Fsav0nfuX60/hqdefault.jpg')" data-video-id="Fsav0nfuX60">
-        <div class="video-thumbnail">
-          <div class="play-button"></div>
+      <!-- Add remaining projects alternating templates -->
+
+      <div class="video-item">
+        <div class="video-container" style="background-image:url('thumbnail3.jpg')">
+          <div class="video-thumbnail">
+            <div class="play-button"></div>
+          </div>
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" allowfullscreen></iframe>
         </div>
-        <iframe allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" src="" frameborder="0"></iframe>
-      </div>
-      <div class="video-info">
-        <h3>Fzero — Short Film</h3>
-        <p>Title: Fzero — Short Film</p>
-        <p>Description: A gripping narrative short film.</p>
-        <p>Type: Short Film</p>
-        <p>Role: Director & Editor</p>
-        <p>Date Filmed: 2023</p>
-      </div>
-    </div>
-
-    <div class="video-item-alt">
-      <div class="video-info">
-        <h3>Fire Show</h3>
-        <p>Title: Fire Show</p>
-        <p>Description: Capturing a mesmerizing fire performance.</p>
-        <p>Type: Event Filming</p>
-        <p>Role: Videographer</p>
-        <p>Date Filmed: 2024</p>
-      </div>
-      <div class="video-container" style="background-image: url('https://img.youtube.com/vi/I6uf1fLSCYs/hqdefault.jpg')" data-video-id="I6uf1fLSCYs">
-        <div class="video-thumbnail">
-          <div class="play-button"></div>
+        <div class="video-info">
+          <h3>Project Title 3</h3>
+          <p>Description of project 3 goes here.</p>
+          <p><strong>Type:</strong> Documentary</p>
+          <p><strong>Role:</strong> Editor</p>
+          <p><strong>Date:</strong> May 2024</p>
         </div>
-        <iframe allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" src="" frameborder="0"></iframe>
       </div>
-    </div>
 
-    <div class="video-item">
-      <div class="video-container" style="background-image: url('https://img.youtube.com/vi/ZsVM6THxOw8/hqdefault.jpg')" data-video-id="ZsVM6THxOw8">
-        <div class="video-thumbnail">
-          <div class="play-button"></div>
+      <div class="video-item-alt">
+        <div class="video-info">
+          <h3>Project Title 4</h3>
+          <p>Description of project 4 goes here.</p>
+          <p><strong>Type:</strong> Commercial</p>
+          <p><strong>Role:</strong> Director of Photography</p>
+          <p><strong>Date:</strong> Jul 2024</p>
         </div>
-        <iframe allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" src="" frameborder="0"></iframe>
-      </div>
-      <div class="video-info">
-        <h3>Car Edit</h3>
-        <p>Title: Car Edit</p>
-        <p>Description: High-energy car montage edit.</p>
-        <p>Type: Commercial</p>
-        <p>Role: Editor</p>
-        <p>Date Filmed: 2023</p>
-      </div>
-    </div>
-
-    <div class="video-item-alt">
-      <div class="video-info">
-        <h3>Marie Nassar — Edam El Kel & Yay Mashup</h3>
-        <p>Title: Marie Nassar — Edam El Kel & Yay Mashup</p>
-        <p>Description: Creative music video mashup.</p>
-        <p>Type: Music Video</p>
-        <p>Role: Director & Editor</p>
-        <p>Date Filmed: 2024</p>
-      </div>
-      <div class="video-container" style="background-image: url('https://img.youtube.com/vi/_AhXEk1YmDc/hqdefault.jpg')" data-video-id="_AhXEk1YmDc">
-        <div class="video-thumbnail">
-          <div class="play-button"></div>
+        <div class="video-container" style="background-image:url('thumbnail4.jpg')">
+          <div class="video-thumbnail">
+            <div class="play-button"></div>
+          </div>
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" allowfullscreen></iframe>
         </div>
-        <iframe allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" src="" frameborder="0"></iframe>
       </div>
-    </div>
 
-    <div class="video-item">
-      <div class="video-container" style="background-image: url('https://img.youtube.com/vi/Pas6ORSsfIc/hqdefault.jpg')" data-video-id="Pas6ORSsfIc">
-        <div class="video-thumbnail">
-          <div class="play-button"></div>
+      <div class="video-item">
+        <div class="video-container" style="background-image:url('thumbnail5.jpg')">
+          <div class="video-thumbnail">
+            <div class="play-button"></div>
+          </div>
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_5" allowfullscreen></iframe>
         </div>
-        <iframe allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" src="" frameborder="0"></iframe>
+        <div class="video-info">
+          <h3>Project Title 5</h3>
+          <p>Description of project 5 goes here.</p>
+          <p><strong>Type:</strong> Short Film</p>
+          <p><strong>Role:</strong> Producer</p>
+          <p><strong>Date:</strong> Sep 2024</p>
+        </div>
       </div>
-      <div class="video-info">
-        <h3>Nu Lounge Promo</h3>
-        <p>Title: Nu Lounge Promo</p>
-        <p>Description: Promotional video for Nu Lounge.</p>
-        <p>Type: Commercial</p>
-        <p>Role: Videographer</p>
-        <p>Date Filmed: 2024</p>
+
+      <div class="video-item-alt">
+        <div class="video-info">
+          <h3>Project Title 6</h3>
+          <p>Description of project 6 goes here.</p>
+          <p><strong>Type:</strong> Music Video</p>
+          <p><strong>Role:</strong> Director</p>
+          <p><strong>Date:</strong> Nov 2024</p>
+        </div>
+        <div class="video-container" style="background-image:url('thumbnail6.jpg')">
+          <div class="video-thumbnail">
+            <div class="play-button"></div>
+          </div>
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_6" allowfullscreen></iframe>
+        </div>
       </div>
+
+      <div class="video-item">
+        <div class="video-container" style="background-image:url('thumbnail7.jpg')">
+          <div class="video-thumbnail">
+            <div class="play-button"></div>
+          </div>
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_7" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h3>Project Title 7</h3>
+          <p>Description of project 7 goes here.</p>
+          <p><strong>Type:</strong> Documentary</p>
+          <p><strong>Role:</strong> Editor</p>
+          <p><strong>Date:</strong> Dec 2024</p>
+        </div>
+      </div>
+
+      <div class="video-item-alt">
+        <div class="video-info">
+          <h3>Project Title 8</h3>
+          <p>Description of project 8 goes here.</p>
+          <p><strong>Type:</strong> Commercial</p>
+          <p><strong>Role:</strong> Cinematographer</p>
+          <p><strong>Date:</strong> Feb 2025</p>
+        </div>
+        <div class="video-container" style="background-image:url('thumbnail8.jpg')">
+          <div class="video-thumbnail">
+            <div class="play-button"></div>
+          </div>
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_8" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-container" style="background-image:url('thumbnail9.jpg')">
+          <div class="video-thumbnail">
+            <div class="play-button"></div>
+          </div>
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_9" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h3>Project Title 9</h3>
+          <p>Description of project 9 goes here.</p>
+          <p><strong>Type:</strong> Short Film</p>
+          <p><strong>Role:</strong> Director</p>
+          <p><strong>Date:</strong> Apr 2025</p>
+        </div>
+      </div>
+
+      <div class="video-item-alt">
+        <div class="video-info">
+          <h3>Project Title 10</h3>
+          <p>Description of project 10 goes here.</p>
+          <p><strong>Type:</strong> Music Video</p>
+          <p><strong>Role:</strong> Producer</p>
+          <p><strong>Date:</strong> May 2025</p>
+        </div>
+        <div class="video-container" style="background-image:url('thumbnail10.jpg')">
+          <div class="video-thumbnail">
+            <div class="play-button"></div>
+          </div>
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_10" allowfullscreen></iframe>
+        </div>
+      </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
+  <section id="about" class="section about">
+    <h2>About Me</h2>
+    <p>
+      Anthony Madi is a passionate filmmaker dedicated to crafting engaging, dynamic visual stories that resonate with audiences.
+    </p>
+  </section>
 
-<section id="about" class="section about">
-  <h2>About Me</h2>
-  <p>
-    I am Anthony Madi, a passionate filmmaker specializing in music videos, short films, and commercials.
-    My work blends creative storytelling with technical precision to bring visions to life.
-  </p>
-</section>
-
-<section id="contact" class="section contact">
-  <h2>Contact Me</h2>
-  <p><strong>Email:</strong> <a href="mailto:anthony@portfolio.com">anthony@portfolio.com</a></p>
-  <p><strong>Phone:</strong> +971 50 850 1709</p>
-</section>
-
-<script>
-  // Video play toggle
-  document.querySelectorAll('.video-container').forEach(container => {
-    container.addEventListener('click', () => {
-      const iframe = container.querySelector('iframe');
-      if (iframe.style.display === 'block') {
-        iframe.style.display = 'none';
-        iframe.src = '';
-        container.querySelector('.video-thumbnail').style.display = 'flex';
-      } else {
-        const videoId = container.getAttribute('data-video-id');
-        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-        iframe.style.display = 'block';
-        container.querySelector('.video-thumbnail').style.display = 'none';
-      }
-    });
-  });
-
-  // Highlight nav tab on scroll
-  const sections = document.querySelectorAll('section.section');
-  const navLinks = document.querySelectorAll('nav a.nav-link');
-
-  window.addEventListener('scroll', () => {
-    let current = '';
-    const scrollPos = window.scrollY + window.innerHeight / 3;
-
-    sections.forEach(section => {
-      if (scrollPos >= section.offsetTop) {
-        current = section.getAttribute('id');
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active');
-      }
-    });
-  });
-</script>
-
+  <section id="contact" class="section contact">
+    <h2>Contact Me</h2>
+    <p><strong>Email:</strong> <a href="mailto:anthony@example.com">anthony@example.com</a></p>
+    <p><strong>Phone:</strong> +971 50 850 1709</p>
+    <p><strong>Instagram:</strong> <a href="https://instagram.com/anthony__madi" target="_blank">@anthony__madi</a></p>
+  </section>
 </body>
 </html>
