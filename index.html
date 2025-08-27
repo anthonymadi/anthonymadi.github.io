@@ -1,205 +1,220 @@
-/* Base Styles */
-body {
-  margin: 0;
-  font-family: 'League Spartan', sans-serif;
-  background-color: #000;
-  color: #fff;
-  line-height: 1.5;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Anthony Madi – Filmmaker</title>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+/* Reset & base */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'League Spartan', sans-serif; scroll-behavior: smooth; }
+body { background-color: #111; color: #fff; line-height: 1.3; }
+a { color: inherit; text-decoration: none; }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-h1, h2, h3 {
-  text-align: center;
-  margin: 0.5em 0;
-}
-
-h1 {
-  font-size: 3em;
-}
-
-h2 {
-  font-size: 2em;
-  margin-bottom: 0.5em;
-}
-
-h3 {
-  font-size: 1.2em;
-  margin-bottom: 0.2em;
-}
-
-p {
-  text-align: center;
-  margin: 0.2em 0;
-}
-
-/* Header */
-header {
-  background-color: #111;
-  padding: 20px 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-header nav {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 10px;
-}
-
-header nav a {
-  color: #fff;
-  font-weight: bold;
-  padding-bottom: 5px;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-header nav a.active,
-header nav a:hover {
-  border-bottom: 4px solid #FF2025;
-}
+/* Header & Nav */
+header { text-align: center; padding: 1rem 0; position: sticky; top: 0; background: #111; z-index: 100; }
+header h1 { font-size: 2rem; margin-bottom: 0.5rem; color: #fff; text-transform: capitalize; }
+nav { display: flex; justify-content: center; gap: 1.5rem; position: relative; }
+nav a.nav-link { position: relative; padding-bottom: 0.25rem; text-transform: lowercase; font-weight: 600; }
+nav a.nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background-color: #FF2025; transform: scaleX(0); transform-origin: right; transition: transform 0.3s ease; }
+nav a.nav-link:hover::after, nav a.nav-link.active::after { transform: scaleX(1); transform-origin: left; }
 
 /* Sections */
-.section {
-  padding: 60px 20px;
-}
+.section { padding: 1.5rem 1rem; text-align: center; }
+.section h2 { font-size: 1.6rem; margin-bottom: 0.75rem; text-transform: lowercase; }
+.section p { max-width: 700px; margin: 0 auto 1rem; }
 
-.showreel-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
-}
+/* Showreel */
+.showreel-container { display: flex; justify-content: center; margin: 1rem 0; }
+.showreel-container .video-container { position: relative; width: 80%; max-width: 900px; padding-top: 56.25%; background-color: #222; color: #FF2025; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; }
 
-/* Carousel */
-.carousel-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
+/* Carousel / Projects */
+.carousel-wrapper { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin: 0 auto; }
+.carousel-track { display: flex; gap: 0.5rem; overflow-x: auto; scroll-behavior: smooth; padding: 0.5rem 0; }
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-arrow { background: none; border: none; color: #FF2025; font-size: 1.8rem; cursor: pointer; }
+.video-item { min-width: 200px; flex-shrink: 0; text-align: center; }
+.video-container { position: relative; width: 100%; padding-top: 56.25%; background-size: cover; background-position: center; margin-bottom: 0.25rem; cursor: pointer; }
+.video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: none; }
+.video-thumbnail { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.play-button { width: 30px; height: 30px; background-color: #FF2025; clip-path: polygon(0% 0%, 100% 50%, 0% 100%); opacity: 0; transition: opacity 0.3s ease; }
+.video-container:hover .play-button { opacity: 1; }
+.video-info h3 { font-size: 0.95rem; margin-bottom: 0.2rem; }
+.video-info p { font-size: 0.75rem; color: #aaa; }
 
-.carousel-track {
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  gap: 20px;
-  padding: 20px 0;
-}
-
-.carousel-track::-webkit-scrollbar {
-  display: none;
-}
-
-.video-item {
-  flex: 0 0 auto;
-  width: 300px;
-}
-
-.video-container {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 aspect ratio */
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
-}
-
-/* Play Button */
-.video-thumbnail {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.play-button {
-  width: 60px;
-  height: 60px;
-  background-color: #FF2025;
-  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.video-container:hover .play-button {
-  opacity: 1;
-}
-
-/* Video Info */
-.video-info {
-  text-align: center;
-  color: #fff;
-}
-
-/* Carousel Arrows */
-.carousel-arrow {
-  background: none;
-  border: none;
-  color: #FF2025;
-  font-size: 3em;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-}
-
-.carousel-arrow.left {
-  left: 0;
-}
-
-.carousel-arrow.right {
-  right: 0;
-}
-
-/* About Section */
-.about p {
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-/* Contact Section */
-.contact .email-link {
-  color: #FF2025;
-  font-weight: bold;
-}
+/* About & Contact */
+.about p { margin: 0 auto; max-width: 700px; }
+.contact { margin-bottom: 2rem; text-align: center; }
+.contact p { margin-bottom: 0.3rem; }
+.contact a { color: #FF2025; }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .video-item {
-    width: 250px;
-  }
-
-  .carousel-arrow {
-    font-size: 2.5em;
-  }
+  .carousel-track { gap: 0.25rem; }
+  .video-item { min-width: 90%; max-width: 90%; }
+  nav { flex-direction: column; gap: 0.5rem; }
 }
+</style>
+</head>
+<body>
 
-@media (max-width: 480px) {
-  .video-item {
-    width: 80%;
-  }
+<header>
+  <h1>Anthony Madi</h1>
+  <nav>
+    <a href="#home" class="nav-link">home</a>
+    <a href="#projects" class="nav-link">projects</a>
+    <a href="#about" class="nav-link">about me</a>
+    <a href="#contact" class="nav-link">contact me</a>
+  </nav>
+</header>
 
-  .carousel-arrow {
-    font-size: 2em;
-  }
-}
+<section id="home" class="section">
+  <h2>Welcome</h2>
+  <p>Hey there, I'm Anthony, a visual storyteller based in Dubai. Check out my work below:</p>
+</section>
+
+<!-- DOP Showreel Placeholder -->
+<section class="showreel-container">
+  <div class="video-container">DOP Showreel Coming Soon</div>
+</section>
+
+<section id="projects" class="section">
+  <h2>Projects</h2>
+  <div class="carousel-wrapper">
+    <button class="carousel-arrow left">&#8592;</button>
+    <div class="carousel-track">
+      <!-- Project Videos: sorted by date descending -->
+      <div class="video-item">
+        <div class="video-container" style="background-image: url('https://img.youtube.com/vi/XRXnCK5tr3k/hqdefault.jpg')" data-video-id="XRXnCK5tr3k">
+          <div class="video-thumbnail"><div class="play-button"></div></div>
+          <iframe allowfullscreen src=""></iframe>
+        </div>
+        <div class="video-info"><h3>Sunset Dance</h3><p>DOP & Editor</p><p>17-Jun-2025</p></div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-container" style="background-image: url('https://img.youtube.com/vi/PUEyOgSyV9w/hqdefault.jpg')" data-video-id="PUEyOgSyV9w">
+          <div class="video-thumbnail"><div class="play-button"></div></div>
+          <iframe allowfullscreen src=""></iframe>
+        </div>
+        <div class="video-info"><h3>One Must Fall — Short Film</h3><p>Director</p><p>15-Apr-2025</p></div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-container" style="background-image: url('https://img.youtube.com/vi/1DXleUvdN1s/hqdefault.jpg')" data-video-id="1DXleUvdN1s">
+          <div class="video-thumbnail"><div class="play-button"></div></div>
+          <iframe allowfullscreen src=""></iframe>
+        </div>
+        <div class="video-info"><h3>Première de MDX Studios 2025</h3><p>Camera Operator</p><p>30-Apr-2025</p></div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-container" style="background-image: url('https://img.youtube.com/vi/VDfYpwlpFJc/hqdefault.jpg')" data-video-id="VDfYpwlpFJc">
+          <div class="video-thumbnail"><div class="play-button"></div></div>
+          <iframe allowfullscreen src=""></iframe>
+        </div>
+        <div class="video-info"><h3>Pamela Farhat — Amara Ya Amara [Music Video]</h3><p>DOP & Editor</p><p>19-Jul-2024</p></div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-container" style="background-image: url('https://img.youtube.com/vi/_AhXEk1YmDc/hqdefault.jpg')" data-video-id="_AhXEk1YmDc">
+          <div class="video-thumbnail"><div class="play-button"></div></div>
+          <iframe allowfullscreen src=""></iframe>
+        </div>
+        <div class="video-info"><h3>Marie Nassar — Edam El Kel & Yay Mashup [Music Video]</h3><p>DOP & Editor</p><p>04-Apr-2024</p></div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-container" style="background-image: url('https://img.youtube.com/vi/Fsav0nfuX60/hqdefault.jpg')" data-video-id="Fsav0nfuX60">
+          <div class="video-thumbnail"><div class="play-button"></div></div>
+          <iframe allowfullscreen src=""></iframe>
+        </div>
+        <div class="video-info"><h3>Fzero — Short Film</h3><p>One-man Crew</p><p>05-Feb-2024</p></div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-container" style="background-image: url('https://img.youtube.com/vi/I6uf1fLSCYs/hqdefault.jpg')" data-video-id="I6uf1fLSCYs">
+          <div class="video-thumbnail"><div class="play-button"></div></div>
+          <iframe allowfullscreen src=""></iframe>
+        </div>
+        <div class="video-info"><h3>Fire Show</h3><p>DOP & Editor</p><p>12-Dec-2023</p></div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-container" style="background-image: url('https://img.youtube.com/vi/ghtgcUPCD8o/hqdefault.jpg')" data-video-id="ghtgcUPCD8o">
+          <div class="video-thumbnail"><div class="play-button"></div></div>
+          <iframe allowfullscreen src=""></iframe>
+        </div>
+        <div class="video-info"><h3>UAE National Anthem Cover</h3><p>DOP & Editor</p><p>02-Dec-2023</p></div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-container" style="background-image: url('https://img.youtube.com/vi/ZNKMCjPrR70/hqdefault.jpg')" data-video-id="ZNKMCjPrR70">
+          <div class="video-thumbnail"><div class="play-button"></div></div>
+          <iframe allowfullscreen src=""></iframe>
+        </div>
+        <div class="video-info"><h3>Istanbul Trip</h3><p>DOP & Editor</p><p>20-Sep-2023</p></div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-container" style="background-image: url('https://img.youtube.com/vi/1X3PheqBEgk/hqdefault.jpg')" data-video-id="1X3PheqBEgk">
+          <div class="video-thumbnail"><div class="play-button"></div></div>
+          <iframe allowfullscreen src=""></iframe>
+        </div>
+        <div class="video-info"><h3>Golf GTI 2019 Commercial</h3><p>DOP & Editor</p><p>02-Jun-2023</p></div>
+      </div>
+    </div>
+    <button class="carousel-arrow right">&#8594;</button>
+  </div>
+</section>
+
+<section id="about" class="section about">
+  <h2>About Me</h2>
+  <p>I am Anthony Madi, a passionate filmmaker specializing in music videos, short films, and commercials. My work blends creative storytelling with technical skills to bring visions to life.</p>
+</section>
+
+<section id="contact" class="section contact">
+  <h2>Contact Me</h2>
+  <p><strong>Email:</strong> <a href="mailto:anthonymadimail@gmail.com">anthonymadimail@gmail.com</a></p>
+  <p><strong>Phone:</strong> +971 50 850 1709</p>
+</section>
+
+<script>
+// Video play toggle
+document.querySelectorAll('.video-container').forEach(container => {
+  container.addEventListener('click', () => {
+    const iframe = container.querySelector('iframe');
+    if (iframe.style.display === 'block') {
+      iframe.style.display = 'none';
+      iframe.src = '';
+      container.querySelector('.video-thumbnail').style.display = 'flex';
+    } else {
+      const videoId = container.getAttribute('data-video-id');
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+      iframe.style.display = 'block';
+      container.querySelector('.video-thumbnail').style.display = 'none';
+    }
+  });
+});
+
+// Highlight nav tab on scroll
+const sections = document.querySelectorAll('section.section');
+const navLinks = document.querySelectorAll('nav a.nav-link');
+window.addEventListener('scroll', () => {
+  let current = '';
+  const scrollPos = window.scrollY + window.innerHeight / 3;
+  sections.forEach(section => { if (scrollPos >= section.offsetTop) current = section.getAttribute('id'); });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+  });
+});
+
+// Carousel arrows
+const track = document.querySelector('.carousel-track');
+document.querySelector('.carousel-arrow.left').addEventListener('click', () => { track.scrollBy({ left: -650, behavior: 'smooth' }); });
+document.querySelector('.carousel-arrow.right').addEventListener('click', () => { track.scrollBy({ left: 650, behavior: 'smooth' }); });
+</script>
+
+</body>
+</html>
