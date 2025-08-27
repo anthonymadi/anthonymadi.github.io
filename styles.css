@@ -1,39 +1,36 @@
-/* General reset & font */
+/* Reset & font */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'League Spartan', sans-serif;
 }
 
 body {
+  font-family: 'League Spartan', sans-serif;
   background-color: #000;
   color: #fff;
   line-height: 1.6;
-  text-align: center; /* center all text by default */
+  text-align: center;
 }
 
 /* Header */
 header {
   padding: 20px 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background-color: #111;
 }
 
 header h1 {
   font-size: 2rem;
-  margin-bottom: 10px;
   color: #FF2025;
-  text-transform: none;
+  text-transform: capitalize;
+  margin-bottom: 10px;
 }
 
 header nav {
   display: flex;
+  justify-content: center;
   gap: 30px;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
 header nav a {
@@ -48,7 +45,7 @@ header nav a.active {
   color: #FF2025;
 }
 
-/* Section */
+/* Sections */
 .section {
   padding: 60px 20px;
 }
@@ -56,26 +53,18 @@ header nav a.active {
 .section h2 {
   font-size: 1.8rem;
   margin-bottom: 20px;
-  text-transform: none;
+  text-transform: lowercase;
+}
+
+.section p {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Showreel */
 .showreel-container {
   margin-bottom: 50px;
   text-align: center;
-}
-
-.showreel-container h3 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-
-.showreel-container .video-container {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  background-color: #111;
-  position: relative;
 }
 
 /* Carousel */
@@ -90,7 +79,7 @@ header nav a.active {
   overflow-x: auto;
   scroll-behavior: smooth;
   padding-bottom: 20px;
-  justify-content: center; /* center videos in track */
+  justify-content: center;
 }
 
 .carousel-track::-webkit-scrollbar {
@@ -101,14 +90,11 @@ header nav a.active {
   min-width: 300px;
   flex: 0 0 auto;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .video-container {
   width: 100%;
-  padding-top: 56.25%; /* 16:9 ratio */
+  padding-top: 56.25%;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -142,28 +128,17 @@ header nav a.active {
   border-left: 25px solid #FF2025;
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.video-item:hover .play-button {
+  opacity: 1;
 }
 
 .video-info {
   text-align: center;
   margin-top: 10px;
-}
-
-.video-info h3 {
-  font-size: 1rem;
-  margin-bottom: 5px;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.video-info p {
-  font-size: 0.9rem;
-  color: #ccc;
-}
-
-/* Show title on hover */
-.video-item:hover h3 {
-  opacity: 1;
 }
 
 /* Carousel arrows */
@@ -180,31 +155,16 @@ header nav a.active {
   z-index: 10;
 }
 
-.carousel-arrow.left {
-  left: 0;
-}
+.carousel-arrow.left { left: 0; }
+.carousel-arrow.right { right: 0; }
 
-.carousel-arrow.right {
-  right: 0;
-}
-
-/* About & Contact */
-.about p, .contact p {
-  max-width: 800px;
-  margin: 10px auto;
-  text-align: center;
+/* Contact email */
+.contact a {
+  color: #FF2025;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .carousel-track {
-    gap: 15px;
-  }
-  .video-item {
-    min-width: 90%;
-  }
-  .carousel-arrow {
-    font-size: 1.5rem;
-    padding: 5px 10px;
-  }
+  .video-item { min-width: 90%; }
+  .carousel-arrow { font-size: 1.5rem; padding: 5px 10px; }
 }
