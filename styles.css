@@ -1,33 +1,35 @@
 /* General */
 body {
   margin: 0;
+  padding: 0;
   font-family: 'League Spartan', sans-serif;
   background-color: #000;
   color: #fff;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: #FF2025;
 }
 
-/* Header & Navigation */
+/* Header */
 header {
   position: sticky;
   top: 0;
-  z-index: 100;
   background-color: #000;
+  z-index: 100;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem 0;
+  border-bottom: 3px solid #FF2025;
 }
 
 header h1 {
-  margin: 0;
-  font-weight: normal;
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 0.2rem 0;
   text-transform: lowercase;
-  color: #fff;
 }
 
 nav {
@@ -36,71 +38,84 @@ nav {
   margin-top: 0.5rem;
 }
 
-nav a {
+nav a.nav-link {
+  font-weight: 700;
+  color: #fff;
   position: relative;
   text-transform: lowercase;
-  padding: 0.2rem 0;
-  transition: color 0.2s;
+  transition: color 0.3s;
 }
 
-nav a::after {
+nav a.nav-link.active,
+nav a.nav-link:hover {
+  color: #FF2025;
+}
+
+nav a.nav-link::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  width: 0%;
+  height: 3px;
+  bottom: -5px;
   left: 0;
-  width: 0;
-  height: 4px;
-  background-color: #FF2025;
-  transition: width 0.3s ease;
+  background-color: #fff;
+  transition: width 0.3s;
 }
 
-nav a:hover::after,
-nav a.active::after {
+nav a.nav-link:hover::after,
+nav a.nav-link.active::after {
   width: 100%;
 }
 
-/* Section styling */
-section.section {
-  padding: 3rem 2rem;
+/* Sections */
+.section {
+  padding: 4rem 2rem;
   text-align: center;
 }
 
-section h2 {
+.section h2 {
+  font-size: 2rem;
   margin-bottom: 1rem;
-  font-weight: normal;
   text-transform: lowercase;
-  color: #fff;
 }
 
-section p {
-  color: #fff;
-  max-width: 700px;
-  margin: 0 auto 2rem auto;
+.section p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Projects Grid */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
-  justify-items: center;
+  margin-top: 2rem;
 }
 
-.video-item, .video-item-alt {
+/* Video Items */
+.video-item,
+.video-item-alt {
   display: flex;
   flex-direction: column;
-  position: relative;
-  width: 100%;
-  max-width: 400px;
+  background-color: #111;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
 }
 
-.video-container {
+.video-item:hover,
+.video-item-alt:hover {
+  transform: scale(1.02);
+}
+
+.video-item .video-container,
+.video-item-alt .video-container {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 ratio */
+  padding-top: 56.25%; /* 16:9 aspect ratio */
   background-size: cover;
   background-position: center;
-  cursor: pointer;
 }
 
 .video-container iframe {
@@ -110,9 +125,9 @@ section p {
   width: 100%;
   height: 100%;
   display: none;
+  border: none;
 }
 
-/* Play button overlay */
 .video-thumbnail {
   position: absolute;
   top: 0;
@@ -122,57 +137,67 @@ section p {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  background-color: rgba(0,0,0,0.3);
+  transition: background-color 0.3s;
+}
+
+.video-thumbnail:hover {
+  background-color: rgba(0,0,0,0.5);
 }
 
 .play-button {
   width: 60px;
   height: 60px;
-  background-color: rgba(255, 32, 37, 0.5);
+  background-color: #FF2025;
   clip-path: polygon(25% 20%, 25% 80%, 75% 50%);
 }
 
-/* Video info panel */
-.video-info {
-  margin-top: 0.5rem;
-  background-color: #111;
-  padding: 0.5rem;
-  color: #fff;
-  font-family: 'League Spartan', sans-serif;
-  transition: transform 0.2s;
-}
-
+/* Show title only on hover */
 .video-info h3 {
-  margin: 0 0 0.3rem 0;
-  font-size: 1.1rem;
-  text-transform: lowercase;
+  display: none;
+  margin: 0;
+  font-size: 1.2rem;
+  color: #FF2025;
 }
 
-.video-info p {
-  margin: 0.1rem 0;
-  font-size: 0.9rem;
+.video-item:hover .video-info h3,
+.video-item-alt:hover .video-info h3 {
+  display: block;
 }
 
-/* Hover effect: title only appears when hovering over the video */
 .video-info {
-  opacity: 0;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+  background-color: #111;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  text-align: center;
 }
 
-.video-item:hover .video-info,
-.video-item-alt:hover .video-info {
-  opacity: 1;
+/* Showreel Placeholder */
+.showreel-placeholder .video-container {
+  background-color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.showreel-placeholder .placeholder-text {
+  color: #FF2025;
+  font-size: 1.5rem;
+  position: absolute;
 }
 
 /* About & Contact */
 .about, .contact {
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
+  padding: 2rem;
+  background-color: #111;
+  border-radius: 8px;
+  text-align: center;
 }
 
-.about p, .contact p {
-  text-align: center;
-  color: #fff;
-  margin-bottom: 1rem;
+.contact a {
+  color: #FF2025;
 }
