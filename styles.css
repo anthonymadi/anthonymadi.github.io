@@ -1,154 +1,202 @@
-/* Global Styles */
-body {
+/* General reset */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: 'League Spartan', sans-serif;
-  background-color: #000; /* black background */
-  color: #fff; /* default white text */
 }
 
-h1, h2 {
-  color: #ff2025; /* bold red accents */
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
+/* Body styling */
+body {
+  background-color: #000;
+  color: #fff;
+  line-height: 1.6;
+  padding: 0 20px;
 }
 
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #111;
-  padding: 15px 30px;
+/* Header and navigation */
+header {
+  background-color: #000;
+  padding: 20px 0;
   position: sticky;
   top: 0;
-  z-index: 1000;
-}
-
-.navbar .logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #e50914;
-}
-
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: 600;
-  transition: color 0.3s;
-}
-
-.navbar a:hover {
-  color: #e50914;
-}
-
-/* Sections */
-section {
-  padding: 60px 10%;
+  z-index: 100;
   text-align: center;
+  border-bottom: 3px solid #fff;
 }
 
-#about p {
-  max-width: 600px;
-  margin: 0 auto;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-/* Showreel Skeleton */
-.showreel-skeleton {
-  background-color: #111;
-  border: 2px dashed #e50914;
-  border-radius: 10px;
-  padding: 100px 20px;
-  color: #888;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-}
-
-/* Projects Grid */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.project {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  background: #111;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.8s ease forwards;
-}
-
-.project:nth-child(1) { animation-delay: 0.1s; }
-.project:nth-child(2) { animation-delay: 0.2s; }
-.project:nth-child(3) { animation-delay: 0.3s; }
-.project:nth-child(4) { animation-delay: 0.4s; }
-.project:nth-child(5) { animation-delay: 0.5s; }
-/* add more nth-child if more videos */
-
-.project video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
-}
-
-.project:hover video {
-  transform: scale(1.05);
-}
-
-/* Overlay Title */
-.project .overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(229, 9, 20, 0.85);
+header h1 {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
   color: #fff;
-  text-transform: uppercase;
-  font-weight: 600;
-  padding: 10px;
-  opacity: 0;
-  transform: translateY(100%);
+  text-transform: lowercase;
+  margin-bottom: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 1rem;
+  color: #fff;
+  position: relative;
+  text-transform: lowercase;
   transition: all 0.3s ease;
 }
 
-.project:hover .overlay {
-  opacity: 1;
-  transform: translateY(0);
+nav a:hover::after,
+nav a.active::after {
+  content: '';
+  display: block;
+  height: 3px;
+  background: #FF2025;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: -5px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
 }
 
-/* Contact Section */
-#contact a {
-  color: #e50914;
+/* Sections */
+.section {
+  max-width: 1200px;
+  margin: 60px auto;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.section h2 {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 15px;
+  text-transform: lowercase;
+}
+
+.section p {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+/* Video grid */
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Video items */
+.video-item, .video-item-alt {
+  display: flex;
+  flex-direction: column;
+  background-color: #111;
+  overflow: hidden;
+  width: 320px;
+  border: 1px solid #333;
+}
+
+.video-item-alt {
+  flex-direction: column-reverse;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 ratio */
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.video-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-button {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 32, 37, 0.5); /* updated red */
+  clip-path: polygon(25% 20%, 25% 80%, 75% 50%);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.video-container:hover .play-button {
+  transform: scale(1.2);
+  background-color: rgba(255, 32, 37, 0.7);
+}
+
+/* Video info */
+.video-info {
+  padding: 15px;
+  text-align: left;
+  background-color: #111;
+}
+
+.video-info h3 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 5px;
+  text-transform: lowercase;
+}
+
+.video-info p {
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+/* About & Contact sections */
+.about, .contact {
+  background-color: #111;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.contact a {
+  color: #FF2025; /* updated red */
   text-decoration: none;
-  font-weight: 600;
 }
 
-#contact a:hover {
+.contact a:hover {
   text-decoration: underline;
 }
 
-/* Animations */
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .projects-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .video-item, .video-item-alt {
+    width: 90%;
+  }
+
+  nav a {
+    display: block;
+    margin: 10px 0;
   }
 }
-
