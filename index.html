@@ -5,148 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Anthony Madi – Filmmaker</title>
 <link rel="icon" type="image/png" href="favicon.png" />
-<link href="https://fonts.googleapis.com/css2?family=League+Spartan&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
-<style>
-  body {
-    margin: 0;
-    font-family: 'League Spartan', sans-serif;
-    background-color: #000;
-    color: #fff;
-  }
-
-  header {
-    position: sticky;
-    top: 0;
-    background-color: #000;
-    z-index: 100;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-  }
-
-  header h1 {
-    color: #fff;
-    margin: 0.2rem 0;
-    font-weight: normal;
-    text-transform: lowercase;
-  }
-
-  nav {
-    display: flex;
-    gap: 2rem;
-  }
-
-  nav a {
-    color: #fff;
-    text-decoration: none;
-    position: relative;
-    padding: 0.2rem 0;
-    text-transform: lowercase;
-  }
-
-  nav a.active::after, nav a:hover::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background-color: #FF2025;
-  }
-
-  section.section {
-    padding: 3rem 2rem;
-    text-align: center;
-  }
-
-  section h2 {
-    margin-bottom: 1rem;
-    text-transform: lowercase;
-    color: #fff;
-  }
-
-  section p {
-    color: #fff;
-    max-width: 700px;
-    margin: 0 auto 2rem auto;
-  }
-
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    justify-items: center;
-  }
-
-  .video-item, .video-item-alt {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-  }
-
-  .video-container {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%; /* 16:9 ratio */
-    background-size: cover;
-    background-position: center;
-    cursor: pointer;
-  }
-
-  .video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: none;
-  }
-
-  .video-thumbnail {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .play-button {
-    width: 60px;
-    height: 60px;
-    background-color: rgba(255,32,37,0.5);
-    clip-path: polygon(25% 20%, 25% 80%, 75% 50%);
-  }
-
-  .video-info {
-    margin-top: 0.5rem;
-    background-color: #111;
-    padding: 0.5rem;
-    color: #fff;
-    font-family: 'League Spartan', sans-serif;
-  }
-
-  .video-info h3 {
-    margin: 0 0 0.3rem 0;
-    font-size: 1.1rem;
-  }
-
-  .video-info p {
-    margin: 0.1rem 0;
-    font-size: 0.9rem;
-  }
-</style>
 </head>
 <body>
 
 <header>
-  <h1>anthony madi</h1>
+  <h1>(THIS WEBSITE IS A WORK-IN-PROGRESS) Anthony Madi</h1>
   <nav>
     <a href="#home" class="nav-link">Home</a>
     <a href="#projects" class="nav-link">Projects</a>
@@ -156,102 +21,163 @@
 </header>
 
 <section id="home" class="section">
-  <h2>welcome</h2>
+  <h2>Welcome</h2>
   <p>I’m a filmmaker focused on creating dynamic visual stories. Check out my work below.</p>
 </section>
 
 <section id="projects" class="section">
-  <h2>projects</h2>
+  <h2>Projects</h2>
   <div class="projects-grid">
 
-    <!-- Sorted by date (most recent first) -->
     <div class="video-item">
       <div class="video-container" style="background-image: url('https://img.youtube.com/vi/XRXnCK5tr3k/hqdefault.jpg')" data-video-id="XRXnCK5tr3k">
-        <div class="video-thumbnail">
-          <div class="play-button"></div>
-        </div>
-        <iframe allowfullscreen frameborder="0"></iframe>
+        <div class="video-thumbnail"><div class="play-button"></div></div>
+        <iframe allowfullscreen src="" frameborder="0"></iframe>
       </div>
       <div class="video-info">
         <h3>Sunset Dance</h3>
-        <p>DOP & Editor</p>
         <p>Date: 17-Jun-2025</p>
+        <p>Role: DOP & Editor</p>
       </div>
     </div>
 
     <div class="video-item-alt">
       <div class="video-container" style="background-image: url('https://img.youtube.com/vi/PUEyOgSyV9w/hqdefault.jpg')" data-video-id="PUEyOgSyV9w">
-        <div class="video-thumbnail">
-          <div class="play-button"></div>
-        </div>
-        <iframe allowfullscreen frameborder="0"></iframe>
+        <div class="video-thumbnail"><div class="play-button"></div></div>
+        <iframe allowfullscreen src="" frameborder="0"></iframe>
       </div>
       <div class="video-info">
         <h3>One Must Fall — Short Film</h3>
-        <p>Director</p>
         <p>Date: 15-Apr-2025</p>
+        <p>Role: Director</p>
       </div>
     </div>
 
     <div class="video-item">
       <div class="video-container" style="background-image: url('https://img.youtube.com/vi/1DXleUvdN1s/hqdefault.jpg')" data-video-id="1DXleUvdN1s">
-        <div class="video-thumbnail">
-          <div class="play-button"></div>
-        </div>
-        <iframe allowfullscreen frameborder="0"></iframe>
+        <div class="video-thumbnail"><div class="play-button"></div></div>
+        <iframe allowfullscreen src="" frameborder="0"></iframe>
       </div>
       <div class="video-info">
         <h3>Première de MDX Studios 2025</h3>
-        <p>Camera Operator</p>
         <p>Date: 30-Apr-2025</p>
+        <p>Role: Camera Operator</p>
       </div>
     </div>
 
     <div class="video-item-alt">
       <div class="video-container" style="background-image: url('https://img.youtube.com/vi/VDfYpwlpFJc/hqdefault.jpg')" data-video-id="VDfYpwlpFJc">
-        <div class="video-thumbnail">
-          <div class="play-button"></div>
-        </div>
-        <iframe allowfullscreen frameborder="0"></iframe>
+        <div class="video-thumbnail"><div class="play-button"></div></div>
+        <iframe allowfullscreen src="" frameborder="0"></iframe>
       </div>
       <div class="video-info">
         <h3>Pamela Farhat — Amara Ya Amara [Music Video]</h3>
-        <p>DOP & Editor</p>
         <p>Date: 19-Jul-2024</p>
+        <p>Role: DOP & Editor</p>
       </div>
     </div>
 
     <div class="video-item">
       <div class="video-container" style="background-image: url('https://img.youtube.com/vi/_AhXEk1YmDc/hqdefault.jpg')" data-video-id="_AhXEk1YmDc">
-        <div class="video-thumbnail">
-          <div class="play-button"></div>
-        </div>
-        <iframe allowfullscreen frameborder="0"></iframe>
+        <div class="video-thumbnail"><div class="play-button"></div></div>
+        <iframe allowfullscreen src="" frameborder="0"></iframe>
       </div>
       <div class="video-info">
         <h3>Marie Nassar — Edam El Kel & Yay Mashup [Music Video]</h3>
-        <p>DOP & Editor</p>
         <p>Date: 04-Apr-2024</p>
+        <p>Role: DOP & Editor</p>
       </div>
     </div>
 
     <div class="video-item-alt">
       <div class="video-container" style="background-image: url('https://img.youtube.com/vi/Fsav0nfuX60/hqdefault.jpg')" data-video-id="Fsav0nfuX60">
-        <div class="video-thumbnail">
-          <div class="play-button"></div>
-        </div>
-        <iframe allowfullscreen frameborder="0"></iframe>
+        <div class="video-thumbnail"><div class="play-button"></div></div>
+        <iframe allowfullscreen src="" frameborder="0"></iframe>
       </div>
       <div class="video-info">
         <h3>Fzero — Short Film</h3>
-        <p>One-man Crew</p>
         <p>Date: 05-Feb-2024</p>
+        <p>Role: One-man Crew</p>
       </div>
     </div>
 
     <div class="video-item">
+      <div class="video-container" style="background-image: url('https://img.youtube.com/vi/ghtgcUPCD8o/hqdefault.jpg')" data-video-id="ghtgcUPCD8o">
+        <div class="video-thumbnail"><div class="play-button"></div></div>
+        <iframe allowfullscreen src="" frameborder="0"></iframe>
+      </div>
+      <div class="video-info">
+        <h3>UAE National Anthem Cover</h3>
+        <p>Date: 02-Dec-2023</p>
+        <p>Role: DOP & Editor</p>
+      </div>
+    </div>
+
+    <div class="video-item-alt">
       <div class="video-container" style="background-image: url('https://img.youtube.com/vi/I6uf1fLSCYs/hqdefault.jpg')" data-video-id="I6uf1fLSCYs">
-        <div class="video-thumbnail">
-          <div class="play-button"></div>
-        </div>
-        <iframe allowfullscreen frameborder
+        <div class="video-thumbnail"><div class="play-button"></div></div>
+        <iframe allowfullscreen src="" frameborder="0"></iframe>
+      </div>
+      <div class="video-info">
+        <h3>Fire Show</h3>
+        <p>Date: 12-Dec-2023</p>
+        <p>Role: DOP & Editor</p>
+      </div>
+    </div>
+
+    <div class="video-item">
+      <div class="video-container" style="background-image: url('https://img.youtube.com/vi/ZNKMCjPrR70/hqdefault.jpg')" data-video-id="ZNKMCjPrR70">
+        <div class="video-thumbnail"><div class="play-button"></div></div>
+        <iframe allowfullscreen src="" frameborder="0"></iframe>
+      </div>
+      <div class="video-info">
+        <h3>Istanbul Trip</h3>
+        <p>Date: 20-Sep-2023</p>
+        <p>Role: DOP & Editor</p>
+      </div>
+    </div>
+
+    <div class="video-item-alt">
+      <div class="video-container" style="background-image: url('https://img.youtube.com/vi/1X3PheqBEgk/hqdefault.jpg')" data-video-id="1X3PheqBEgk">
+        <div class="video-thumbnail"><div class="play-button"></div></div>
+        <iframe allowfullscreen src="" frameborder="0"></iframe>
+      </div>
+      <div class="video-info">
+        <h3>Golf GTI 2019 Commercial</h3>
+        <p>Date: 02-Jun-2023</p>
+        <p>Role: DOP & Editor</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="about" class="section about">
+  <h2>About Me</h2>
+  <p>
+    I am Anthony Madi, a passionate filmmaker specializing in music videos, short films, and commercials.
+    My work blends creative storytelling with technical skills to bring visions to life.
+  </p>
+</section>
+
+<section id="contact" class="section contact">
+  <h2>Contact Me</h2>
+  <p><strong>Email:</strong> <a href="mailto:anthonymadimail@gmail.com">anthonymadimail@gmail.com</a></p>
+  <p><strong>Phone:</strong> +971 50 850 1709</p>
+</section>
+
+<script>
+  // Video play toggle
+  document.querySelectorAll('.video-container').forEach(container => {
+    container.addEventListener('click', () => {
+      const iframe = container.querySelector('iframe');
+      if (iframe.style.display === 'block') {
+        iframe.style.display = 'none';
+        iframe.src = '';
+        container.querySelector('.video-thumbnail').style.display = 'flex';
+      } else {
+        // Stop other videos
+        document.querySelectorAll('.video-container iframe').forEach(f => {
+          f.style.display = 'none';
+          f.src = '';
+          f.parentElement.querySelector('.video
