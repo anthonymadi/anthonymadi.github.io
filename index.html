@@ -7,13 +7,24 @@
 <link rel="icon" type="image/png" href="favicon.png" />
 <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
+<style>
+/* Inline CSS for red line under active nav and smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+header nav a.active {
+  border-bottom: 4px solid #FF2025;
+  padding-bottom: 4px;
+}
+</style>
 </head>
 <body>
 
 <header>
   <h1>Anthony Madi</h1>
   <nav>
-    <a href="#home" class="nav-link">Home</a>
+    <a href="#home" class="nav-link active">Home</a>
     <a href="#projects" class="nav-link">Projects</a>
     <a href="#about" class="nav-link">About Me</a>
     <a href="#contact" class="nav-link">Contact Me</a>
@@ -22,13 +33,14 @@
 
 <section id="home" class="section">
   <h2>Welcome</h2>
-  <p>Hey there, I'm Anthony, a visual storyteller based in Dubai. Below you will find various projects I played a major role in, including short films, music videos, commercials, and events.</p>
+  <p>Hey there, I'm Anthony, a visual storyteller based in Dubai. Below, you will find various projects I was involved in as a major role, including short films, music videos, commercials, and events.</p>
 </section>
 
-<!-- DOP Showreel Placeholder -->
-<section class="showreel-container">
-  <div class="video-container" style="background-color:#111; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:1.5rem;">
-    DOP Showreel coming soon
+<section id="showreel" class="section">
+  <div class="showreel-container">
+    <div class="video-container" style="background-color:#111; display:flex; align-items:center; justify-content:center; width:400px; aspect-ratio:16/9; color:#fff; font-weight:bold;">
+      DOP Showreel Coming Soon
+    </div>
   </div>
 </section>
 
@@ -38,9 +50,10 @@
     <button class="carousel-arrow left">&#10094;</button>
     <div class="carousel-track">
 
-      <!-- Example project block -->
+      <!-- Video Items Start -->
+
       <div class="video-item">
-        <div class="video-container" style="background-image: url('https://img.youtube.com/vi/XRXnCK5tr3k/hqdefault.jpg')" data-video-id="XRXnCK5tr3k">
+        <div class="video-container" data-video-id="XRXnCK5tr3k" style="background-image: url('https://img.youtube.com/vi/XRXnCK5tr3k/hqdefault.jpg')">
           <div class="video-thumbnail">
             <div class="play-button"></div>
           </div>
@@ -48,12 +61,138 @@
         </div>
         <div class="video-info">
           <h3>Sunset Dance</h3>
-          <p>Role: DOP & Editor</p>
-          <p>Date: 17-Jun-2025</p>
+          <p>DOP & Editor</p>
+          <p>17-Jun-2025</p>
         </div>
       </div>
 
-      <!-- Repeat for all 10 projects with proper titles, dates, and roles -->
+      <div class="video-item">
+        <div class="video-container" data-video-id="PUEyOgSyV9w" style="background-image: url('https://img.youtube.com/vi/PUEyOgSyV9w/hqdefault.jpg')">
+          <div class="video-thumbnail">
+            <div class="play-button"></div>
+          </div>
+          <iframe allowfullscreen src="" frameborder="0"></iframe>
+        </div>
+        <div class="video-info">
+          <h3>One Must Fall — Short Film</h3>
+          <p>Director</p>
+          <p>15-Apr-2025</p>
+        </div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-container" data-video-id="1DXleUvdN1s" style="background-image: url('https://img.youtube.com/vi/1DXleUvdN1s/hqdefault.jpg')">
+          <div class="video-thumbnail">
+            <div class="play-button"></div>
+          </div>
+          <iframe allowfullscreen src="" frameborder="0"></iframe>
+        </div>
+        <div class="video-info">
+          <h3>Première de MDX Studios 2025</h3>
+          <p>Camera Operator</p>
+          <p>30-Apr-2025</p>
+        </div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-container" data-video-id="VDfYpwlpFJc" style="background-image: url('https://img.youtube.com/vi/VDfYpwlpFJc/hqdefault.jpg')">
+          <div class="video-thumbnail">
+            <div class="play-button"></div>
+          </div>
+          <iframe allowfullscreen src="" frameborder="0"></iframe>
+        </div>
+        <div class="video-info">
+          <h3>Pamela Farhat — Amara Ya Amara [Music Video]</h3>
+          <p>DOP & Editor</p>
+          <p>19-Jul-2024</p>
+        </div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-container" data-video-id="_AhXEk1YmDc" style="background-image: url('https://img.youtube.com/vi/_AhXEk1YmDc/hqdefault.jpg')">
+          <div class="video-thumbnail">
+            <div class="play-button"></div>
+          </div>
+          <iframe allowfullscreen src="" frameborder="0"></iframe>
+        </div>
+        <div class="video-info">
+          <h3>Marie Nassar — Edam El Kel & Yay Mashup [Music Video]</h3>
+          <p>DOP & Editor</p>
+          <p>04-Apr-2024</p>
+        </div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-container" data-video-id="Fsav0nfuX60" style="background-image: url('https://img.youtube.com/vi/Fsav0nfuX60/hqdefault.jpg')">
+          <div class="video-thumbnail">
+            <div class="play-button"></div>
+          </div>
+          <iframe allowfullscreen src="" frameborder="0"></iframe>
+        </div>
+        <div class="video-info">
+          <h3>Fzero — Short Film</h3>
+          <p>One-man Crew</p>
+          <p>05-Feb-2024</p>
+        </div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-container" data-video-id="ghtgcUPCD8o" style="background-image: url('https://img.youtube.com/vi/ghtgcUPCD8o/hqdefault.jpg')">
+          <div class="video-thumbnail">
+            <div class="play-button"></div>
+          </div>
+          <iframe allowfullscreen src="" frameborder="0"></iframe>
+        </div>
+        <div class="video-info">
+          <h3>UAE National Anthem Cover</h3>
+          <p>DOP & Editor</p>
+          <p>02-Dec-2023</p>
+        </div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-container" data-video-id="I6uf1fLSCYs" style="background-image: url('https://img.youtube.com/vi/I6uf1fLSCYs/hqdefault.jpg')">
+          <div class="video-thumbnail">
+            <div class="play-button"></div>
+          </div>
+          <iframe allowfullscreen src="" frameborder="0"></iframe>
+        </div>
+        <div class="video-info">
+          <h3>Fire Show</h3>
+          <p>DOP & Editor</p>
+          <p>12-Dec-2023</p>
+        </div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-container" data-video-id="ZNKMCjPrR70" style="background-image: url('https://img.youtube.com/vi/ZNKMCjPrR70/hqdefault.jpg')">
+          <div class="video-thumbnail">
+            <div class="play-button"></div>
+          </div>
+          <iframe allowfullscreen src="" frameborder="0"></iframe>
+        </div>
+        <div class="video-info">
+          <h3>Istanbul Trip</h3>
+          <p>DOP & Editor</p>
+          <p>20-Sep-2023</p>
+        </div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-container" data-video-id="1X3PheqBEgk" style="background-image: url('https://img.youtube.com/vi/1X3PheqBEgk/hqdefault.jpg')">
+          <div class="video-thumbnail">
+            <div class="play-button"></div>
+          </div>
+          <iframe allowfullscreen src="" frameborder="0"></iframe>
+        </div>
+        <div class="video-info">
+          <h3>Golf GTI 2019 Commercial</h3>
+          <p>DOP & Editor</p>
+          <p>02-Jun-2023</p>
+        </div>
+      </div>
+
+      <!-- Video Items End -->
 
     </div>
     <button class="carousel-arrow right">&#10095;</button>
@@ -67,63 +206,61 @@
 
 <section id="contact" class="section contact">
   <h2>Contact Me</h2>
-  <p><strong>Email:</strong> <a href="mailto:anthonymadimail@gmail.com">anthonymadimail@gmail.com</a></p>
+  <p><strong>Email:</strong> <a href="mailto:anthonymadimail@gmail.com" class="email-link">anthonymadimail@gmail.com</a></p>
   <p><strong>Phone:</strong> +971 50 850 1709</p>
 </section>
 
 <script>
-  // Video play toggle
-  document.querySelectorAll('.video-container').forEach(container => {
-    container.addEventListener('click', () => {
-      const iframe = container.querySelector('iframe');
-      const thumbnail = container.querySelector('.video-thumbnail');
+// Video play toggle
+document.querySelectorAll('.video-container').forEach(container => {
+  container.addEventListener('click', () => {
+    const iframe = container.querySelector('iframe');
+    if (iframe.style.display === 'block') {
+      iframe.style.display = 'none';
+      iframe.src = '';
+      container.querySelector('.video-thumbnail').style.display = 'flex';
+    } else {
+      const videoId = container.getAttribute('data-video-id');
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+      iframe.style.display = 'block';
+      container.querySelector('.video-thumbnail').style.display = 'none';
+    }
+  });
+});
 
-      if (iframe.style.display === 'block') {
-        iframe.style.display = 'none';
-        iframe.src = '';
-        if(thumbnail) thumbnail.style.display = 'flex';
-      } else {
-        const videoId = container.getAttribute('data-video-id');
-        if(videoId) iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-        iframe.style.display = 'block';
-        if(thumbnail) thumbnail.style.display = 'none';
-      }
-    });
+// Highlight nav tab on scroll
+const sections = document.querySelectorAll('section.section');
+const navLinks = document.querySelectorAll('nav a.nav-link');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  const scrollPos = window.scrollY + window.innerHeight / 3;
+
+  sections.forEach(section => {
+    if (scrollPos >= section.offsetTop) {
+      current = section.getAttribute('id');
+    }
   });
 
-  // Highlight nav tab on scroll
-  const sections = document.querySelectorAll('section.section');
-  const navLinks = document.querySelectorAll('nav a.nav-link');
-
-  window.addEventListener('scroll', () => {
-    let current = '';
-    const scrollPos = window.scrollY + window.innerHeight / 3;
-
-    sections.forEach(section => {
-      if (scrollPos >= section.offsetTop) {
-        current = section.getAttribute('id');
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active');
-      }
-    });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${current}`) {
+      link.classList.add('active');
+    }
   });
+});
 
-  // Carousel arrows functionality
-  const leftArrow = document.querySelector('.carousel-arrow.left');
-  const rightArrow = document.querySelector('.carousel-arrow.right');
-  const track = document.querySelector('.carousel-track');
+// Carousel scroll functionality
+const track = document.querySelector('.carousel-track');
+const leftArrow = document.querySelector('.carousel-arrow.left');
+const rightArrow = document.querySelector('.carousel-arrow.right');
 
-  leftArrow.addEventListener('click', () => {
-    track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' });
-  });
-  rightArrow.addEventListener('click', () => {
-    track.scrollBy({ left: track.clientWidth, behavior: 'smooth' });
-  });
+leftArrow.addEventListener('click', () => {
+  track.scrollBy({ left: -track.offsetWidth, behavior: 'smooth' });
+});
+rightArrow.addEventListener('click', () => {
+  track.scrollBy({ left: track.offsetWidth, behavior: 'smooth' });
+});
 </script>
 
 </body>
