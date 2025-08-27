@@ -88,7 +88,17 @@ section {
   overflow: hidden;
   border-radius: 10px;
   background: #111;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards;
 }
+
+.project:nth-child(1) { animation-delay: 0.1s; }
+.project:nth-child(2) { animation-delay: 0.2s; }
+.project:nth-child(3) { animation-delay: 0.3s; }
+.project:nth-child(4) { animation-delay: 0.4s; }
+.project:nth-child(5) { animation-delay: 0.5s; }
+/* add more nth-child if more videos */
 
 .project video {
   width: 100%;
@@ -132,4 +142,12 @@ section {
 
 #contact a:hover {
   text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
