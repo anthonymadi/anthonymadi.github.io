@@ -1,4 +1,4 @@
-/* Reset & Base */
+/* General reset & font */
 * {
   margin: 0;
   padding: 0;
@@ -12,89 +12,100 @@ body {
   line-height: 1.6;
 }
 
-a {
-  color: #FF2025;
-  text-decoration: none;
-}
-
-/* Header & Nav */
+/* Header */
 header {
-  position: sticky;
-  top: 0;
-  background-color: #000;
-  padding: 20px;
-  border-bottom: 2px solid #FF2025;
-  z-index: 1000;
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #111;
 }
 
 header h1 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-bottom: 10px;
-  font-weight: 700;
+  color: #FF2025;
 }
 
-nav {
+header nav {
   display: flex;
   gap: 30px;
+  flex-wrap: wrap;
 }
 
-nav a {
+header nav a {
+  color: #fff;
+  text-decoration: none;
   font-weight: 700;
-  font-size: 1rem;
-  position: relative;
+  transition: color 0.2s;
 }
 
-nav a.active::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 2px;
-  background: #fff;
+header nav a:hover,
+header nav a.active {
+  color: #FF2025;
 }
 
-/* Sections */
+/* Section */
 .section {
   padding: 60px 20px;
 }
 
 .section h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  text-transform: lowercase;
+  font-size: 1.8rem;
   margin-bottom: 20px;
-  color: #fff;
+  text-transform: none;
 }
 
-/* About & Contact */
-.about p,
-.contact p {
-  font-size: 1rem;
-  margin-bottom: 15px;
-  color: #fff;
+/* Showreel */
+.showreel-container {
+  margin-bottom: 50px;
+  text-align: center;
 }
 
-/* Projects Grid */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+.showreel-container h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
 }
 
-.video-item, .video-item-alt {
+.showreel-container .video-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #111;
   position: relative;
-  cursor: pointer;
+}
+
+/* Carousel */
+.carousel-container {
+  position: relative;
   overflow: hidden;
-  border: 2px solid #FF2025;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 20px;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.video-item {
+  min-width: 300px;
+  flex: 0 0 auto;
+  position: relative;
 }
 
 .video-container {
-  position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 aspect ratio */
+  padding-top: 56.25%; /* 16:9 ratio */
   background-size: cover;
   background-position: center;
+  position: relative;
+  cursor: pointer;
 }
 
 .video-container iframe {
@@ -112,56 +123,80 @@ nav a.active::after {
   left: 0;
   width: 100%;
   height: 100%;
+  background: rgba(0,0,0,0.4);
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(0,0,0,0.4);
-  transition: background 0.3s;
-}
-
-.video-thumbnail:hover {
-  background: rgba(0,0,0,0.6);
 }
 
 .play-button {
-  width: 60px;
-  height: 60px;
-  background: #FF2025;
-  clip-path: polygon(20% 15%, 80% 50%, 20% 85%);
+  width: 50px;
+  height: 50px;
+  border-left: 25px solid #FF2025;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
 }
 
-/* Video Info Overlay */
 .video-info {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.7);
-  padding: 10px;
-  color: #fff;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.video-info h3 {
+  font-size: 1rem;
+  margin-bottom: 5px;
   opacity: 0;
   transition: opacity 0.3s;
 }
 
-.video-item:hover .video-info,
-.video-item-alt:hover .video-info {
+.video-info p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* Show title on hover */
+.video-item:hover h3 {
   opacity: 1;
 }
 
-/* Responsive Text */
-.video-info h3 {
-  font-size: 1rem;
-  margin-bottom: 5px;
-  text-transform: capitalize;
+/* Carousel arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(17,17,17,0.8);
+  border: none;
+  color: #FF2025;
+  font-size: 2rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 10;
 }
 
-.video-info p {
-  font-size: 0.85rem;
-  margin-bottom: 3px;
+.carousel-arrow.left {
+  left: 0;
 }
 
-/* About & Contact spacing */
-.about, .contact {
+.carousel-arrow.right {
+  right: 0;
+}
+
+/* About & Contact */
+.about p, .contact p {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 10px auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel-track {
+    gap: 15px;
+  }
+  .video-item {
+    min-width: 90%;
+  }
+  .carousel-arrow {
+    font-size: 1.5rem;
+    padding: 5px 10px;
+  }
 }
