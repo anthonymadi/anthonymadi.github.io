@@ -1,84 +1,68 @@
-/* General Styles */
 body {
   font-family: 'League Spartan', sans-serif;
-  background-color: #000;
-  color: #fff;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  background-color: #000;
+  color: white;
 }
 
-h1, h2, h3 {
+h1 {
+  font-size: 2rem;
+  margin: 0;
+  padding: 20px;
   text-align: center;
 }
 
-section {
-  padding: 50px 20px;
+nav {
+  text-align: center;
+  margin: 20px 0;
 }
 
 .nav-link {
+  color: white;
   text-decoration: none;
-  color: #fff;
-  padding: 10px;
-  font-size: 16px;
-  transition: color 0.3s;
-}
-
-.nav-link:hover {
-  color: #FF2025;
+  font-size: 1.2rem;
+  margin: 0 15px;
+  position: relative;
 }
 
 .nav-underline {
   width: 100%;
   height: 4px;
   background-color: #FF2025;
+  position: absolute;
+  bottom: -10px;
 }
 
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #000;
-  z-index: 999;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.section {
+  padding: 40px 20px;
+  text-align: center;
 }
 
-header h1 {
-  font-size: 24px;
-}
-
-nav {
-  display: flex;
-  gap: 20px;
-}
-
-section#dop-showreel .video-container {
-  width: 100%;
-  height: 300px;
-  margin: 0 auto;
-  background-color: #333;
+.video-item {
+  display: inline-block;
+  margin: 10px;
   position: relative;
-  overflow: hidden;
+}
+
+.video-container {
+  width: 320px;
+  height: 180px;
+  background-color: #222;
+  position: relative;
+  margin-bottom: 10px;
 }
 
 .video-thumbnail {
   width: 100%;
   height: 100%;
-  background-color: #555;
-  background-size: cover;
-  background-position: center;
+  background-color: #333;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  background-size: cover;
+  background-position: center;
   transition: opacity 0.3s ease;
-}
-
-.video-thumbnail {
-  opacity: 1;
 }
 
 .play-button {
@@ -86,13 +70,11 @@ section#dop-showreel .video-container {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-top: 30px solid red;
-  width: 0;
-  height: 0;
+  background-color: red;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
   opacity: 0;
-  z-index: 2;
   transition: opacity 0.3s ease;
 }
 
@@ -107,40 +89,32 @@ iframe {
   border: none;
 }
 
-.projects-carousel {
-  display: flex;
-  overflow: hidden;
-  gap: 10px;
-  justify-content: flex-start;
-}
-
-.video-item {
-  width: 320px;
-  height: 180px;
-}
-
-.video-item h3 {
-  font-size: 18px;
-  text-align: center;
+.video-info h3 {
   margin: 5px 0;
 }
 
-.video-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.video-info p {
+  margin: 5px 0;
 }
 
-.carousel-prev,
-.carousel-next {
-  position: fixed;
-  top: 50%;
-  z-index: 10;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  font-size: 24px;
+.projects-carousel {
+  display: flex;
+  overflow-x: auto;
+  padding: 20px 0;
+  gap: 10px;
+  justify-content: center;
+}
+
+.carousel-prev, .carousel-next {
+  background-color: #FF2025;
+  color: white;
+  border: none;
   padding: 10px;
   cursor: pointer;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .carousel-prev {
@@ -151,15 +125,43 @@ iframe {
   right: 10px;
 }
 
-section#projects {
-  margin-top: 100px;
+.carousel-prev:hover, .carousel-next:hover {
+  background-color: #d01c1a;
 }
 
-header,
-section#home {
-  z-index: 100;
+#dop-showreel .showreel-placeholder {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  height: 400px;
+  background-color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-nav a:hover {
+.showreel-placeholder:hover .play-button {
+  opacity: 1;
+}
+
+.showreel-placeholder p {
+  font-size: 1.5rem;
+  color: white;
+}
+
+#home, #about, #contact {
+  margin-top: 60px;
+}
+
+#home p {
+  font-size: 1.2rem;
+}
+
+.red-email {
+  color: #FF2025;
+}
+
+nav a.active {
   color: #FF2025;
 }
