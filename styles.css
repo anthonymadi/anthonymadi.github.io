@@ -21,11 +21,6 @@ section {
   color: #fff;
   padding: 10px;
   font-size: 16px;
-  transition: color 0.3s;
-}
-
-.nav-link:hover {
-  color: #FF2025;
 }
 
 .nav-underline {
@@ -56,8 +51,8 @@ nav {
 }
 
 section#dop-showreel .video-container {
-  width: 100%;
-  height: 300px;
+  width: 320px;
+  height: 180px;
   margin: 0 auto;
   background-color: #333;
   position: relative;
@@ -149,17 +144,4 @@ iframe {
 
 .carousel-next {
   right: 10px;
-}
-
-section#projects {
-  margin-top: 100px;
-}
-
-header,
-section#home {
-  z-index: 100;
-}
-
-nav a:hover {
-  color: #FF2025;
 }
