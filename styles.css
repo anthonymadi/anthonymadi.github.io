@@ -45,40 +45,52 @@ nav {
   position: relative;
 }
 
+/* Ensure the video container has a proper aspect ratio and structure */
 .video-container {
   width: 320px;
   height: 180px;
   background-color: #222;
   position: relative;
   margin-bottom: 10px;
+  overflow: hidden;
 }
 
 .video-thumbnail {
   width: 100%;
   height: 100%;
-  background-color: #333;
+  background-color: #333; /* Fallback color */
+  background-size: cover;
+  background-position: center;
   position: absolute;
   top: 0;
   left: 0;
-  background-size: cover;
-  background-position: center;
+  z-index: 1;
   transition: opacity 0.3s ease;
+  opacity: 1;
 }
 
+/* Triangle play button */
 .play-button {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: red;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 30px solid red; /* The red triangle */
+  width: 0;
+  height: 0;
   opacity: 0;
+  z-index: 2;
   transition: opacity 0.3s ease;
 }
 
+/* Show play button when hovering */
 .video-container:hover .play-button {
+  opacity: 1;
+}
+
+.video-container:hover .video-thumbnail {
   opacity: 1;
 }
 
@@ -165,3 +177,4 @@ iframe {
 nav a.active {
   color: #FF2025;
 }
+
