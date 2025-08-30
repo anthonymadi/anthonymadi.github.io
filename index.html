@@ -55,7 +55,7 @@
         <p>Date Filmed: 17-Jun-2025</p>
       </div>
     </div>
-    <!-- Add all other projects in similar format... -->
+    <!-- Add other projects here -->
   </div>
 </section>
 
@@ -69,6 +69,14 @@
   <p>Email: <a href="mailto:anthonymadimail@gmail.com" class="red-email">anthonymadimail@gmail.com</a></p>
   <p>Phone: +971 50 850 1709</p>
 </section>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox">
+  <div class="lightbox-content">
+    <iframe id="lightbox-iframe" allowfullscreen frameborder="0"></iframe>
+    <span class="close-lightbox" onclick="closeLightbox()">×</span>
+  </div>
+</div>
 
 <script>
   // Video play toggle functionality
@@ -89,6 +97,25 @@
       document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     });
   });
+
+  // Lightbox Functionality
+  document.querySelectorAll('.video-thumbnail').forEach(thumbnail => {
+    thumbnail.addEventListener('click', function() {
+      const videoId = this.closest('.video-container').getAttribute('data-video-id');
+      const lightbox = document.getElementById('lightbox');
+      const iframe = document.getElementById('lightbox-iframe');
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+      lightbox.style.display = 'block';
+    });
+  });
+
+  // Close the Lightbox
+  function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    const iframe = document.getElementById('lightbox-iframe');
+    iframe.src = '';
+    lightbox.style.display = 'none';
+  }
 </script>
 
 </body>
