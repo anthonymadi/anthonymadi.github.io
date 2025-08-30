@@ -14,196 +14,22 @@ h1 {
   text-align: center;
 }
 
-nav {
-  text-align: center;
-  margin: 20px 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #000;
-  z-index: 100;
-  padding: 10px 0;
-}
-
-.nav-link {
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
-  margin: 0 15px;
-  position: relative;
-}
-
-.nav-underline {
-  width: 100%;
-  height: 4px;
-  background-color: #FF2025;
-  position: absolute;
-  bottom: -10px;
-}
-
-.section {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.video-item {
-  display: inline-block;
-  margin: 10px;
-  position: relative;
-}
-
-.video-container {
-  width: 320px;
-  height: 180px;
-  background-color: #222;
-  position: relative;
-  margin-bottom: 10px;
-}
-
-.video-thumbnail {
-  width: 100%;
-  height: 100%;
-  background-color: #333;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-size: cover;
-  background-position: center;
-  transition: opacity 0.3s ease;
-}
-
-/* Play Button */
-.play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* 90 degrees counterclockwise */
-  border-left: 40px solid white; /* Adjust left border to stretch */
-  border-top: 20px solid transparent; /* Adjust right border to stretch */
-  border-bottom: 20px solid transparent; /* Make the button white and stretch it horizontally */
-  width: 0;
-  height: 0;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-/* Hover Effects for Play Button */
-.video-thumbnail:hover .play-button {
-  opacity: 1;
-}
-
-#dop-showreel .showreel-placeholder:hover .play-button {
-  opacity: 1; /* Show on hover for showreel */
-}
-
-/* Hide play button from .showreel-placeholder permanently */
-.showreel-placeholder .play-button {
-  opacity: 0; /* Ensuring it's hidden by default */
-}
-
-iframe {
-  width: 100%;
-  height: 100%;
-  display: none;
-  border: none;
-}
-
-.video-info h3 {
-  margin: 5px 0;
-}
-
-.video-info p {
-  margin: 5px 0;
-}
-
-.projects-carousel {
-  display: flex;
-  overflow-x: auto;
-  padding: 20px 0;
-  gap: 10px;
-  justify-content: center;
-}
-
-#dop-showreel .showreel-placeholder {
-  width: 100%;
-  max-width: 720px;
-  margin: 0 auto;
-  height: 400px;
-  background-color: #222;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.showreel-placeholder p {
-  font-size: 1.5rem;
-  color: white;
-}
-
-#home, #about, #contact {
-  margin-top: 100px; /* Increased margin to make room for the fixed navbar */
-}
-
-#home p {
-  font-size: 1.2rem;
-}
-
-.red-email {
-  color: #FF2025;
-}
-
-nav a.active {
-  color: #FF2025;
-}
-
-/* Lightbox Styles */
-.lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: none;
-  justify-content: center;
-  align-items: center;
-}
-
-.lightbox-content {
-  position: relative;
-  width: 80%;
-  height: 80%;
-}
-
-.lightbox iframe {
-  width: 100%;
-  height: 100%;
-}
-
-.close-lightbox {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 2rem;
-  color: white;
-  cursor: pointer;
-}
-
-/* Additional Adjustments */
 header {
-  padding: 10px 0;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   background-color: #000;
   z-index: 100;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 header h1 {
-  margin-left: 20px;
+  margin: 0;
   font-size: 24px;
 }
 
@@ -226,46 +52,133 @@ nav a.nav-link:hover {
 }
 
 .nav-underline {
+  width: 100%;
   height: 2px;
   background-color: #e63946;
-  margin-top: 5px;
+  margin-top: 0;
 }
 
-#dop-showreel .video-container {
+.section {
+  padding: 100px 20px 40px; /* top padding accounts for fixed header */
+  text-align: center;
+}
+
+.video-item {
+  display: inline-block;
+  margin: 10px;
   position: relative;
-  max-width: 560px;
-  width: 100%;
-  height: 315px;
 }
 
-.video-info {
-  padding: 10px;
+.video-container {
+  width: 320px;
+  height: 180px;
+  background-color: #222;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.video-thumbnail {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+/* Play Button */
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-left: 40px solid white;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.video-thumbnail:hover .play-button {
+  opacity: 1;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  display: none;
+  border: none;
+}
+
+.video-info h3 {
+  margin: 5px 0;
+}
+
+.video-info p {
+  margin: 5px 0;
 }
 
 .projects-carousel {
   display: flex;
-  overflow-x: scroll;
+  overflow-x: auto;
   gap: 20px;
   justify-content: center;
+  padding: 20px 0;
 }
 
-#home {
-  text-align: center;
+#dop-showreel .showreel-placeholder {
+  width: 100%;
+  max-width: 720px;
+  height: 400px;
+  margin: 0 auto;
 }
 
-#dop-showreel {
-  margin: 60px 0;
+#dop-showreel iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.red-email {
+  color: #FF2025;
+}
+
+/* Lightbox Styles */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-content {
+  width: 80%;
+  height: 80%;
+  position: relative;
+}
+
+.close-lightbox {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
-  header h1 {
-    font-size: 20px;
-  }
-
   .video-container {
     height: 200px;
   }
-
   .video-info h3 {
     font-size: 14px;
   }
