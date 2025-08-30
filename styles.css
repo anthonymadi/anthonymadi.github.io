@@ -1,68 +1,17 @@
-/* General Styles */
-body {
-  font-family: 'League Spartan', sans-serif;
-  background-color: #000;
-  color: #fff;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-h1, h2, h3 {
-  text-align: center;
-}
-
-section {
-  padding: 50px 20px;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: #fff;
-  padding: 10px;
-  font-size: 16px;
-}
-
-.nav-underline {
-  width: 100%;
-  height: 4px;
-  background-color: #FF2025;
-}
-
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #000;
-  z-index: 999;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header h1 {
-  font-size: 24px;
-}
-
-nav {
-  display: flex;
-  gap: 20px;
-}
-
-section#dop-showreel .video-container {
+/* Ensure the video container has a proper aspect ratio and structure */
+.video-container {
   width: 320px;
   height: 180px;
-  margin: 0 auto;
-  background-color: #333;
+  background-color: #222;
   position: relative;
+  margin-bottom: 10px;
   overflow: hidden;
 }
 
 .video-thumbnail {
   width: 100%;
   height: 100%;
-  background-color: #555;
+  background-color: #333; /* Fallback color */
   background-size: cover;
   background-position: center;
   position: absolute;
@@ -70,12 +19,10 @@ section#dop-showreel .video-container {
   left: 0;
   z-index: 1;
   transition: opacity 0.3s ease;
-}
-
-.video-thumbnail {
   opacity: 1;
 }
 
+/* Triangle play button */
 .play-button {
   position: absolute;
   top: 50%;
@@ -83,7 +30,7 @@ section#dop-showreel .video-container {
   transform: translate(-50%, -50%);
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
-  border-top: 30px solid red;
+  border-top: 30px solid red; /* The red triangle */
   width: 0;
   height: 0;
   opacity: 0;
@@ -91,7 +38,12 @@ section#dop-showreel .video-container {
   transition: opacity 0.3s ease;
 }
 
+/* Show play button when hovering */
 .video-container:hover .play-button {
+  opacity: 1;
+}
+
+.video-container:hover .video-thumbnail {
   opacity: 1;
 }
 
@@ -100,48 +52,4 @@ iframe {
   height: 100%;
   display: none;
   border: none;
-}
-
-.projects-carousel {
-  display: flex;
-  overflow: hidden;
-  gap: 10px;
-  justify-content: flex-start;
-}
-
-.video-item {
-  width: 320px;
-  height: 180px;
-}
-
-.video-item h3 {
-  font-size: 18px;
-  text-align: center;
-  margin: 5px 0;
-}
-
-.video-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.carousel-prev,
-.carousel-next {
-  position: fixed;
-  top: 50%;
-  z-index: 10;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  font-size: 24px;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.carousel-prev {
-  left: 10px;
-}
-
-.carousel-next {
-  right: 10px;
 }
