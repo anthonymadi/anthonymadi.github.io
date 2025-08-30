@@ -78,7 +78,7 @@ nav {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Center play button */
+  transform: translate(-50%, -50%) rotate(-90deg); /* Rotate 90 degrees counterclockwise */
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   border-top: 30px solid red; /* Correct triangle orientation */
