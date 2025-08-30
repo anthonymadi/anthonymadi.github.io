@@ -1,162 +1,221 @@
-/* Global Styles */
+/* General Reset and Box-Sizing */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Body Styling */
 body {
   font-family: 'League Spartan', sans-serif;
   background-color: #000;
   color: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+h1, h2, h3, p {
+  margin: 0;
 }
 
-h1, h2 {
-  text-align: center;
-}
-
-p {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.nav-link {
-  color: #fff;
-  padding: 10px 20px;
-  font-weight: bold;
-}
-
+/* Navigation Styling */
 header {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
-  background-color: #000;
+  background: #000;
+  color: #fff;
   z-index: 10;
+  padding: 20px 0;
+  text-align: center;
 }
 
 header h1 {
-  font-size: 2rem;
-  text-align: center;
-  padding: 10px 0;
-  text-transform: capitalize;
+  font-size: 24px;
 }
 
-header nav {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+nav a:hover {
+  color: #FF2025;
 }
 
 .nav-underline {
-  height: 2px;
-  background-color: #FF2025;
-  margin-top: 10px;
-  transition: all 0.3s ease;
-}
-
-header nav a:hover {
-  border-bottom: 3px solid #FF2025;
-}
-
-/* Section Styling */
-.section {
-  padding: 100px 20px;
-}
-
-#projects {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  gap: 10px;
-  justify-content: center;
-}
-
-.video-item {
-  position: relative;
-  width: 350px;
-  height: 200px;
-}
-
-.video-container {
+  height: 3px;
+  background: #FF2025;
   width: 100%;
-  height: 100%;
+  margin-top: 10px;
+}
+
+/* Sections Styling */
+.section {
+  padding: 60px 10vw;
+  margin-top: 100px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+#home p {
+  font-size: 1.2rem;
+  font-weight: 300;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Projects Styling */
+#projects .video-item {
   position: relative;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+#projects .video-item .video-container {
+  position: relative;
+  width: 300px;
+  height: 169px; /* 16:9 Aspect Ratio */
   background-color: #333;
   overflow: hidden;
+  margin-bottom: 10px;
 }
 
-.video-thumbnail {
+#projects .video-item .video-thumbnail {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-color: #333;
-  transition: opacity 0.3s ease;
-}
-
-.play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50px;
-  height: 50px;
-  background-color: #FF2025;
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.video-container:hover .play-button {
+  background-color: #555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
-iframe {
+#projects .video-item .play-button {
+  display: none;
+  width: 60px;
+  height: 60px;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/1/16/Play_icon.png') no-repeat center center;
+  background-size: 60%;
+  cursor: pointer;
+}
+
+#projects .video-item:hover .video-thumbnail {
+  opacity: 0.7;
+}
+
+#projects .video-item:hover .play-button {
+  display: block;
+}
+
+#projects iframe {
   width: 100%;
   height: 100%;
   display: none;
 }
 
-.video-info {
-  text-align: center;
-  margin-top: 10px;
+/* DOP Showreel */
+#dop-showreel .showreel-placeholder {
+  width: 80%;
+  height: 45vw; /* 16:9 Aspect Ratio */
+  margin: 40px auto;
+  background-color: #333;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.video-info h3 {
-  font-size: 1.1rem;
-  font-weight: bold;
+#dop-showreel .showreel-placeholder .play-button {
+  width: 60px;
+  height: 60px;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/1/16/Play_icon.png') no-repeat center center;
+  background-size: 60%;
+  cursor: pointer;
+  display: none;
 }
 
-.video-info p {
-  font-size: 0.9rem;
+#dop-showreel .showreel-placeholder:hover .play-button {
+  display: block;
 }
 
-/* DOP Showreel Styling */
-#dop-showreel .video-container {
-  width: 70%;
-  margin: 20px auto;
-  height: 400px;
+#dop-showreel iframe {
+  width: 100%;
+  height: 100%;
+  display: none;
 }
 
-#dop-showreel .video-thumbnail {
-  background-image: url('https://img.youtube.com/vi/SP8B-LFrXhU/hqdefault.jpg');
-  background-size: cover;
+/* Carousel Styling */
+.projects-carousel {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
 }
 
-/* Contact Styling */
-.red-email {
+.projects-carousel .video-item {
+  flex: 0 0 auto;
+  margin-right: 20px;
+}
+
+.carousel-prev, .carousel-next {
+  background-color: transparent;
+  border: none;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
   color: #FF2025;
 }
 
-section#contact {
-  margin-top: 50px;
+.carousel-prev {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
 }
 
-.nav-link {
-  text-transform: capitalize;
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+/* Footer Styling */
+#contact .red-email {
+  color: #FF2025;
+  text-decoration: none;
+}
+
+#contact .red-email:hover {
+  color: #fff;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
 }
