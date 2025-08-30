@@ -29,7 +29,12 @@
 <!-- DOP Showreel placeholder -->
 <section id="dop-showreel" class="section">
   <div class="showreel-placeholder">
-    <p>DOP Showreel coming soon</p>
+    <div class="video-container" data-video-id="SP8B-LFrXhU">
+      <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/SP8B-LFrXhU/hqdefault.jpg')">
+        <div class="play-button"></div>
+      </div>
+      <iframe allowfullscreen frameborder="0"></iframe>
+    </div>
   </div>
 </section>
 
@@ -39,7 +44,7 @@
     <!-- Project 1 -->
     <div class="video-item">
       <div class="video-container" data-video-id="XRXnCK5tr3k">
-        <div class="video-thumbnail">
+        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/XRXnCK5tr3k/hqdefault.jpg')">
           <div class="play-button"></div>
         </div>
         <iframe allowfullscreen frameborder="0"></iframe>
@@ -50,10 +55,8 @@
         <p>Date Filmed: 17-Jun-2025</p>
       </div>
     </div>
-    <!-- Add all other projects here -->
+    <!-- Add all other projects in similar format... -->
   </div>
-  <button class="carousel-prev">&#10094;</button>
-  <button class="carousel-next">&#10095;</button>
 </section>
 
 <section id="about" class="section about">
@@ -79,25 +82,11 @@
     });
   });
 
-  // Carousel Navigation
-  const prevButton = document.querySelector('.carousel-prev');
-  const nextButton = document.querySelector('.carousel-next');
-  const carousel = document.querySelector('.projects-carousel');
-  let scrollAmount = 0;
-
-  prevButton.addEventListener('click', () => {
-    scrollAmount -= 320; // Adjust the scroll step based on your needs
-    carousel.scrollTo({
-      left: scrollAmount,
-      behavior: 'smooth'
-    });
-  });
-
-  nextButton.addEventListener('click', () => {
-    scrollAmount += 320; // Adjust the scroll step based on your needs
-    carousel.scrollTo({
-      left: scrollAmount,
-      behavior: 'smooth'
+  // Smooth scroll for navigation
+  document.querySelectorAll('nav a.nav-link').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     });
   });
 </script>
