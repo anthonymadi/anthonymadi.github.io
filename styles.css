@@ -1,45 +1,40 @@
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Body and Global Styles */
+/* Global styles */
 body {
   font-family: 'League Spartan', sans-serif;
   background-color: #000;
-  color: #fff;
-  line-height: 1.6;
+  color: white;
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #111;
+  padding: 20px;
+  z-index: 1000;
+}
+
+header h1 {
+  text-align: center;
+  font-size: 30px;
   margin: 0;
 }
 
-/* Header Styles */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  position: relative;
-}
-
-h1 {
-  font-size: 2.5rem;
-  color: #fff;
-}
-
 nav {
-  display: flex;
-  gap: 20px;
+  text-align: center;
 }
 
 nav a {
+  color: white;
   text-decoration: none;
-  color: #fff;
-  text-transform: lowercase;
-  font-weight: 700;
-  transition: color 0.3s ease;
+  font-weight: bold;
+  margin: 0 15px;
+  text-transform: capitalize;
 }
 
 nav a:hover {
@@ -47,56 +42,36 @@ nav a:hover {
 }
 
 .nav-underline {
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 100%;
-  height: 2px;
+  height: 4px;
   background-color: #FF2025;
-  visibility: hidden;
+  width: 100%;
+  margin-top: 10px;
 }
 
-nav a:hover + .nav-underline {
-  visibility: visible;
-}
-
-/* Section Styles */
+/* Section styles */
 .section {
   padding: 60px 20px;
+  margin-top: 80px;
+}
+
+#home h2,
+#projects h2,
+#about h2,
+#contact h2 {
   text-align: center;
 }
 
-h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-p {
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-/* DOP Showreel */
-#dop-showreel {
-  margin: 40px 0;
+#home p {
+  text-align: center;
+  font-size: 18px;
 }
 
 .video-container {
   position: relative;
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  width: 300px;
+  height: 170px;
+  margin: 0 10px;
   background-color: #333;
-  overflow: hidden;
-  margin-bottom: 20px;
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
 }
 
 .video-thumbnail {
@@ -105,77 +80,41 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center;
-}
-
-.play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #FF2025;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  background-color: #555;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  opacity: 0.8;
+  transition: opacity 0.3s;
 }
 
-.play-button::before {
-  content: '▶';
-  font-size: 25px;
-  color: #fff;
-}
-
-.video-container:hover .play-button {
+.video-thumbnail:hover .play-button {
   opacity: 1;
 }
 
-/* Project Section */
-#projects .projects-carousel {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.video-item {
-  width: 300px;
-  margin: 0;
-}
-
-.video-item .video-container {
-  position: relative;
+.play-button {
+  width: 40px;
+  height: 40px;
+  background-color: #FF2025;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
 .video-info {
-  margin-top: 15px;
+  text-align: center;
+  margin-top: 10px;
 }
 
-.video-info h3 {
-  font-size: 1.2rem;
-}
-
-.video-info p {
-  font-size: 0.9rem;
-  color: #bbb;
-}
-
-/* Arrows */
 .carousel-prev,
 .carousel-next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: transparent;
+  font-size: 30px;
+  color: white;
+  background: transparent;
   border: none;
-  color: #fff;
-  font-size: 2rem;
   cursor: pointer;
   z-index: 10;
 }
@@ -188,36 +127,40 @@ p {
   right: 10px;
 }
 
-/* About and Contact Section */
-#about, #contact {
-  background-color: #111;
-  padding: 50px 20px;
-}
-
-#contact p a {
+.carousel-prev:hover,
+.carousel-next:hover {
   color: #FF2025;
-  text-decoration: none;
 }
 
-/* Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
+/* DOP Showreel */
+.showreel-placeholder {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background-color: #333;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-  .projects-carousel {
-    flex-direction: column;
-  }
+.showreel-placeholder .video-container {
+  width: 100%;
+  height: 100%;
+}
 
-  .carousel-prev,
-  .carousel-next {
-    position: static;
-    margin: 20px 0;
-  }
+.showreel-placeholder .video-thumbnail {
+  opacity: 0.8;
+}
 
-  .video-item {
-    width: 100%;
-    margin-bottom: 20px;
-  }
+.showreel-placeholder .video-thumbnail:hover .play-button {
+  opacity: 1;
+}
+
+.red-email {
+  color: #FF2025;
+}
+
+.red-email:hover {
+  text-decoration: underline;
 }
