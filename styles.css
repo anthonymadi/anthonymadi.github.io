@@ -80,8 +80,8 @@ nav {
   left: 50%;
   transform: translate(-50%, -50%); /* 90 degrees counterclockwise */
   border-left: 40px solid white; /* Adjust left border to stretch */
-  border-top: 10px solid transparent; /* Adjust right border to stretch */
-  border-bottom: 10px solid transparent; /* Make the button white and stretch it horizontally */
+  border-top: 20px solid transparent; /* Adjust right border to stretch */
+  border-bottom: 20px solid transparent; /* Make the button white and stretch it horizontally */
   width: 0;
   height: 0;
   opacity: 0;
@@ -270,6 +270,7 @@ nav a.nav-link:hover {
     font-size: 14px;
   }
 }
+
 
 
 
