@@ -30,7 +30,7 @@ nav a {
   margin-top: 0.5rem;
 }
 
-.section { padding: 1.5rem 1rem; text-align: center; }
+.section { padding: 1.125rem 0.75rem; text-align: center; }
 
 .section h2 { font-size: 1.75rem; margin-bottom: 0.5rem; font-weight: 700; text-transform: lowercase; }
 
@@ -118,3 +118,4 @@ nav a {
   .projects-carousel { padding-bottom: 0.5rem; }
   .video-item { min-width: 250px; max-width: 250px; margin: 0 0.25rem; }
 }
+
