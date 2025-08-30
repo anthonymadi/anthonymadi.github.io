@@ -1,217 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Anthony Madi — Portfolio</title>
-<link rel="icon" type="image/png" href="favicon.png" />
-<link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=League+Spartan:wght@400;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anthony Madi — Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
+  <header>
+    <h1>Anthony Madi</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">home</a></li>
+        <li><a href="#projects">projects</a></li>
+        <li><a href="#about">about me</a></li>
+        <li><a href="#contact">contact me</a></li>
+      </ul>
+    </nav>
+    <div class="nav-underline"></div>
+  </header>
 
-<header>
-  <h1>Anthony Madi</h1>
-  <nav>
-    <a href="#home" class="nav-link">home</a>
-    <a href="#projects" class="nav-link">projects</a>
-    <a href="#about" class="nav-link">about me</a>
-    <a href="#contact" class="nav-link">contact me</a>
-  </nav>
-  <div class="nav-underline"></div>
-</header>
+  <section id="home" class="welcome-section">
+    <p>Hey there, I'm Anthony, a visual storyteller based in Dubai. Check out my work below:</p>
+  </section>
 
-<section id="home" class="section">
-  <h2>Welcome</h2>
-  <p>Hey there, I'm Anthony, a visual storyteller based in Dubai. Check out my work below:</p>
-</section>
+  <section class="showreel-section">
+    <div class="showreel-placeholder">
+      <span>DOP Showreel coming soon</span>
+    </div>
+  </section>
 
-<!-- DOP Showreel placeholder -->
-<section id="dop-showreel" class="section">
-  <div class="showreel-placeholder">
-    <p>DOP Showreel coming soon</p>
-  </div>
-</section>
+  <section id="projects" class="projects-section">
+    <h2>Projects</h2>
+    <div class="carousel">
+      <button class="arrow left">&#10094;</button>
+      <div class="carousel-track">
+        <!-- 10 Projects -->
+        <div class="project">
+          <div class="video-thumbnail" data-video="https://www.youtube.com/embed/video1?autoplay=1">
+            <img src="thumbnails/project1.jpg" alt="Project 1">
+            <div class="play-button"></div>
+          </div>
+          <h3>Project One (2025)</h3>
+          <p>Short Film</p>
+        </div>
+        <div class="project">
+          <div class="video-thumbnail" data-video="https://www.youtube.com/embed/video2?autoplay=1">
+            <img src="thumbnails/project2.jpg" alt="Project 2">
+            <div class="play-button"></div>
+          </div>
+          <h3>Project Two (2025)</h3>
+          <p>Music Video</p>
+        </div>
+        <div class="project">
+          <div class="video-thumbnail" data-video="https://www.youtube.com/embed/video3?autoplay=1">
+            <img src="thumbnails/project3.jpg" alt="Project 3">
+            <div class="play-button"></div>
+          </div>
+          <h3>Project Three (2024)</h3>
+          <p>Commercial</p>
+        </div>
+        <div class="project">
+          <div class="video-thumbnail" data-video="https://www.youtube.com/embed/video4?autoplay=1">
+            <img src="thumbnails/project4.jpg" alt="Project 4">
+            <div class="play-button"></div>
+          </div>
+          <h3>Project Four (2024)</h3>
+          <p>Event Coverage</p>
+        </div>
+        <div class="project">
+          <div class="video-thumbnail" data-video="https://www.youtube.com/embed/video5?autoplay=1">
+            <img src="thumbnails/project5.jpg" alt="Project 5">
+            <div class="play-button"></div>
+          </div>
+          <h3>Project Five (2024)</h3>
+          <p>Short Film</p>
+        </div>
+        <div class="project">
+          <div class="video-thumbnail" data-video="https://www.youtube.com/embed/video6?autoplay=1">
+            <img src="thumbnails/project6.jpg" alt="Project 6">
+            <div class="play-button"></div>
+          </div>
+          <h3>Project Six (2023)</h3>
+          <p>Music Video</p>
+        </div>
+        <div class="project">
+          <div class="video-thumbnail" data-video="https://www.youtube.com/embed/video7?autoplay=1">
+            <img src="thumbnails/project7.jpg" alt="Project 7">
+            <div class="play-button"></div>
+          </div>
+          <h3>Project Seven (2023)</h3>
+          <p>Commercial</p>
+        </div>
+        <div class="project">
+          <div class="video-thumbnail" data-video="https://www.youtube.com/embed/video8?autoplay=1">
+            <img src="thumbnails/project8.jpg" alt="Project 8">
+            <div class="play-button"></div>
+          </div>
+          <h3>Project Eight (2023)</h3>
+          <p>Event Coverage</p>
+        </div>
+        <div class="project">
+          <div class="video-thumbnail" data-video="https://www.youtube.com/embed/video9?autoplay=1">
+            <img src="thumbnails/project9.jpg" alt="Project 9">
+            <div class="play-button"></div>
+          </div>
+          <h3>Project Nine (2022)</h3>
+          <p>Short Film</p>
+        </div>
+        <div class="project">
+          <div class="video-thumbnail" data-video="https://www.youtube.com/embed/video10?autoplay=1">
+            <img src="thumbnails/project10.jpg" alt="Project 10">
+            <div class="play-button"></div>
+          </div>
+          <h3>Project Ten (2022)</h3>
+          <p>Music Video</p>
+        </div>
+      </div>
+      <button class="arrow right">&#10095;</button>
+    </div>
+  </section>
 
-<section id="projects" class="section">
-  <h2>Projects</h2>
-  <div class="projects-carousel">
-    <!-- Project 1 -->
-    <div class="video-item">
-      <div class="video-container" data-video-id="XRXnCK5tr3k">
-        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/XRXnCK5tr3k/hqdefault.jpg');">
-          <div class="play-button"></div>
-        </div>
-        <iframe allowfullscreen frameborder="0"></iframe>
-      </div>
-      <div class="video-info">
-        <h3>Sunset Dance</h3>
-        <p>DOP & Editor</p>
-        <p>Date Filmed: 17-Jun-2025</p>
-      </div>
-    </div>
-    <!-- Project 2 -->
-    <div class="video-item">
-      <div class="video-container" data-video-id="PUEyOgSyV9w">
-        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/PUEyOgSyV9w/hqdefault.jpg');">
-          <div class="play-button"></div>
-        </div>
-        <iframe allowfullscreen frameborder="0"></iframe>
-      </div>
-      <div class="video-info">
-        <h3>One Must Fall — Short Film</h3>
-        <p>Director</p>
-        <p>Date Filmed: 15-Apr-2025</p>
-      </div>
-    </div>
-    <!-- Project 3 -->
-    <div class="video-item">
-      <div class="video-container" data-video-id="1DXleUvdN1s">
-        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/1DXleUvdN1s/hqdefault.jpg');">
-          <div class="play-button"></div>
-        </div>
-        <iframe allowfullscreen frameborder="0"></iframe>
-      </div>
-      <div class="video-info">
-        <h3>Première de MDX Studios 2025</h3>
-        <p>Camera Operator</p>
-        <p>Date Filmed: 30-Apr-2025</p>
-      </div>
-    </div>
-    <!-- Project 4 -->
-    <div class="video-item">
-      <div class="video-container" data-video-id="VDfYpwlpFJc">
-        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/VDfYpwlpFJc/hqdefault.jpg');">
-          <div class="play-button"></div>
-        </div>
-        <iframe allowfullscreen frameborder="0"></iframe>
-      </div>
-      <div class="video-info">
-        <h3>Pamela Farhat — Amara Ya Amara [Music Video]</h3>
-        <p>DOP & Editor</p>
-        <p>Date Filmed: 19-Jul-2024</p>
-      </div>
-    </div>
-    <!-- Project 5 -->
-    <div class="video-item">
-      <div class="video-container" data-video-id="_AhXEk1YmDc">
-        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/_AhXEk1YmDc/hqdefault.jpg');">
-          <div class="play-button"></div>
-        </div>
-        <iframe allowfullscreen frameborder="0"></iframe>
-      </div>
-      <div class="video-info">
-        <h3>Marie Nassar — Edam El Kel & Yay Mashup [Music Video]</h3>
-        <p>DOP & Editor</p>
-        <p>Date Filmed: 04-Apr-2024</p>
-      </div>
-    </div>
-    <!-- Project 6 -->
-    <div class="video-item">
-      <div class="video-container" data-video-id="Fsav0nfuX60">
-        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/Fsav0nfuX60/hqdefault.jpg');">
-          <div class="play-button"></div>
-        </div>
-        <iframe allowfullscreen frameborder="0"></iframe>
-      </div>
-      <div class="video-info">
-        <h3>Fzero — Short Film</h3>
-        <p>One-man Crew</p>
-        <p>Date Filmed: 05-Feb-2024</p>
-      </div>
-    </div>
-    <!-- Project 7 -->
-    <div class="video-item">
-      <div class="video-container" data-video-id="ghtgcUPCD8o">
-        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/ghtgcUPCD8o/hqdefault.jpg');">
-          <div class="play-button"></div>
-        </div>
-        <iframe allowfullscreen frameborder="0"></iframe>
-      </div>
-      <div class="video-info">
-        <h3>UAE National Anthem Cover</h3>
-        <p>DOP & Editor</p>
-        <p>Date Filmed: 02-Dec-2023</p>
-      </div>
-    </div>
-    <!-- Project 8 -->
-    <div class="video-item">
-      <div class="video-container" data-video-id="I6uf1fLSCYs">
-        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/I6uf1fLSCYs/hqdefault.jpg');">
-          <div class="play-button"></div>
-        </div>
-        <iframe allowfullscreen frameborder="0"></iframe>
-      </div>
-      <div class="video-info">
-        <h3>Fire Show</h3>
-        <p>DOP & Editor</p>
-        <p>Date Filmed: 12-Dec-2023</p>
-      </div>
-    </div>
-    <!-- Project 9 -->
-    <div class="video-item">
-      <div class="video-container" data-video-id="ZNKMCjPrR70">
-        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/ZNKMCjPrR70/hqdefault.jpg');">
-          <div class="play-button"></div>
-        </div>
-        <iframe allowfullscreen frameborder="0"></iframe>
-      </div>
-      <div class="video-info">
-        <h3>Istanbul Trip</h3>
-        <p>DOP & Editor</p>
-        <p>Date Filmed: 20-Sep-2023</p>
-      </div>
-    </div>
-    <!-- Project 10 -->
-    <div class="video-item">
-      <div class="video-container" data-video-id="1X3PheqBEgk">
-        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/1X3PheqBEgk/hqdefault.jpg');">
-          <div class="play-button"></div>
-        </div>
-        <iframe allowfullscreen frameborder="0"></iframe>
-      </div>
-      <div class="video-info">
-        <h3>Golf GTI 2019 Commercial</h3>
-        <p>DOP & Editor</p>
-        <p>Date Filmed: 02-Jun-2023</p>
-      </div>
+  <section id="about" class="about-section">
+    <h2>About Me</h2>
+    <p>I’m passionate about creating cinematic visuals and bringing ideas to life through film.</p>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:anthonymadimail@gmail.com">anthonymadimail@gmail.com</a></p>
+    <p>Phone: +971 50 850 1709</p>
+    <p>Instagram: <a href="https://instagram.com/anthony__madi" target="_blank">@anthony__madi</a></p>
+  </section>
+
+  <!-- Modal for video player -->
+  <div class="video-modal" id="videoModal">
+    <div class="video-content">
+      <span class="close">&times;</span>
+      <iframe id="videoFrame" src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
     </div>
   </div>
-  <button class="carousel-prev">&#10094;</button>
-  <button class="carousel-next">&#10095;</button>
-</section>
 
-<section id="about" class="section about">
-  <h2>About Me</h2>
-  <p>I’m Anthony, a visual storyteller passionate about music videos, short films, commercials, and events. My work combines creativity and technical skills to bring stories to life.</p>
-</section>
-
-<section id="contact" class="section contact">
-  <h2>Contact Me</h2>
-  <p>Email: <a href="mailto:anthonymadimail@gmail.com" class="red-email">anthonymadimail@gmail.com</a></p>
-  <p>Phone: +971 50 850 1709</p>
-</section>
-
-<script>
-  // Smooth scroll
-  document.querySelectorAll('nav a.nav-link').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-    });
-  });
-
-  // Video play toggle
-  document.querySelectorAll('.video-container').forEach(container => {
-    container.addEventListener('click', () => {
-      const iframe = container.querySelector('iframe');
-      const videoId = container.dataset.videoId;
-      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-      iframe.style.display = 'block';
-      container.querySelector('.video-thumbnail').style.opacity = '0';
-    });
-  });
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
