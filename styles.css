@@ -1,155 +1,142 @@
-/* Global */
+/* Global Styles */
 body {
-  margin: 0;
   font-family: 'League Spartan', sans-serif;
+  margin: 0;
+  padding: 0;
   background-color: #000;
   color: #fff;
-  scroll-behavior: smooth;
 }
 
 h1, h2, h3 {
-  margin: 0;
-  font-weight: 700;
+  text-align: center;
 }
 
-h1 {
-  font-size: 3rem;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-h2 {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-p {
-  margin: 5px 0;
-  line-height: 1.4;
-  text-align: center;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 /* Header */
 header {
-  position: sticky;
-  top: 0;
-  background-color: #000;
-  z-index: 1000;
-  padding: 10px 0;
+  background-color: #111;
+  padding: 20px 0;
+}
+
+header h1 {
+  text-transform: capitalize;
+  font-size: 2.5em;
 }
 
 nav {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  margin-top: 10px;
 }
 
 nav a {
-  text-decoration: none;
-  color: #fff;
+  margin: 0 20px;
   font-weight: 700;
-  text-transform: lowercase;
-  position: relative;
-  padding-bottom: 5px;
+  font-size: 1.2em;
+  color: #fff;
 }
 
 .nav-underline {
-  height: 3px;
+  height: 2px;
   background-color: #FF2025;
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  margin-top: 10px;
 }
 
-/* Sections */
+/* Section Styles */
 .section {
-  padding: 30px 20px;
+  padding: 40px 0;
 }
 
-/* Showreel placeholder */
-.showreel-placeholder {
-  width: 80%;
-  max-width: 800px;
-  height: 0;
-  padding-bottom: 56.25%; /* 16:9 ratio */
-  background-color: #111;
-  margin: 0 auto 40px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-weight: 700;
-  font-size: 1.2rem;
+h2 {
+  font-size: 2em;
 }
 
-/* Projects carousel */
+#home p {
+  font-size: 1.2em;
+}
+
+/* DOP Showreel */
+#dop-showreel .video-container {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#dop-showreel iframe {
+  max-width: 100%;
+  height: 315px;
+}
+
+/* Project Carousel */
 .projects-carousel {
   display: flex;
+  justify-content: center;
   overflow-x: auto;
-  scroll-behavior: smooth;
   gap: 20px;
   padding: 20px 0;
-  justify-content: flex-start;
 }
 
 .video-item {
-  flex: 0 0 auto;
-  width: 320px;
+  width: 250px;
+  margin: 0 auto;
 }
 
 .video-container {
-  position: relative;
   width: 100%;
-  height: 180px;
-  background-size: cover;
-  background-position: center;
-  cursor: pointer;
+  height: 140px;
+  background-color: #333;
+  position: relative;
+  overflow: hidden;
 }
 
 .video-thumbnail {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
 }
 
 .play-button {
-  width: 40px;
-  height: 40px;
-  background-color: #FF2025;
-  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: opacity 0.3s;
+  width: 40px;
+  height: 40px;
+  background-color: #FF2025;
+  border-radius: 50%;
+  display: none;
+  justify-content: center;
+  align-items: center;
 }
 
 .video-container:hover .play-button {
-  opacity: 1;
+  display: flex;
 }
 
-.video-info {
-  text-align: center;
-  margin-top: 10px;
+iframe {
+  display: none;
+  width: 100%;
+  height: 100%;
 }
 
-/* Carousel buttons */
-.carousel-prev,
-.carousel-next {
+/* Carousel Buttons */
+.carousel-prev, .carousel-next {
   background-color: transparent;
   border: none;
-  font-size: 2rem;
-  color: #FF2025;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  cursor: pointer;
-  z-index: 10;
+  z-index: 1;
 }
 
 .carousel-prev {
@@ -160,52 +147,25 @@ nav a {
   right: 10px;
 }
 
-/* About */
-.about {
+/* About Section */
+#about p {
+  font-size: 1.2em;
+  max-width: 800px;
+  margin: 20px auto;
   text-align: center;
 }
 
-/* Contact */
-.contact {
+/* Contact Section */
+#contact p {
+  font-size: 1.2em;
   text-align: center;
-  margin-bottom: 40px;
 }
 
-.red-email {
+#contact a {
   color: #FF2025;
+  font-weight: 700;
 }
 
-/* Video Modal */
-#video-modal {
-  display: none;
-  position: fixed;
-  z-index: 2000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.9);
-  justify-content: center;
-  align-items: center;
-}
-
-.video-modal-content {
-  position: relative;
-  width: 80%;
-  max-width: 900px;
-  aspect-ratio: 16/9;
-}
-
-.video-modal-content iframe {
-  width: 100%;
-  height: 100%;
-}
-
-.close-modal {
-  position: absolute;
-  top: -30px;
-  right: 0;
-  color: #FF2025;
-  font-size: 2rem;
-  cursor: pointer;
+#contact a:hover {
+  text-decoration: underline;
 }
