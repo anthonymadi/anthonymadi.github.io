@@ -30,10 +30,7 @@
 <section id="dop-showreel" class="section">
   <div class="showreel-placeholder">
     <div class="video-container" data-video-id="SP8B-LFrXhU">
-      <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/SP8B-LFrXhU/hqdefault.jpg')">
-        <div class="play-button">▶</div>
-      </div>
-      <iframe allowfullscreen frameborder="0"></iframe>
+      <iframe allowfullscreen frameborder="0" src="https://www.youtube.com/embed/SP8B-LFrXhU"></iframe>
     </div>
   </div>
 </section>
@@ -44,7 +41,7 @@
     <div class="video-item">
       <div class="video-container" data-video-id="XRXnCK5tr3k">
         <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/XRXnCK5tr3k/hqdefault.jpg')">
-          <div class="play-button">▶</div>
+          <div class="play-button"></div>
         </div>
         <iframe allowfullscreen frameborder="0"></iframe>
       </div>
@@ -54,7 +51,7 @@
         <p>Date Filmed: 17-Jun-2025</p>
       </div>
     </div>
-    <!-- Add all other projects here -->
+    <!-- Add other project videos here -->
   </div>
 </section>
 
@@ -78,18 +75,23 @@
 </div>
 
 <script>
-  // Video play toggle functionality
+  // Project video play toggle
   document.querySelectorAll('.video-container').forEach(container => {
-    container.addEventListener('click', () => {
-      const iframe = container.querySelector('iframe');
-      const videoId = container.getAttribute('data-video-id');
-      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-      iframe.style.display = 'block';
-      container.querySelector('.video-thumbnail').style.display = 'none';
-    });
+    const thumbnail = container.querySelector('.video-thumbnail');
+    const iframe = container.querySelector('iframe');
+    if (thumbnail) {
+      thumbnail.addEventListener('click', e => {
+        e.stopPropagation();
+        const videoId = container.getAttribute('data-video-id');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxIframe = document.getElementById('lightbox-iframe');
+        lightboxIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+        lightbox.style.display = 'flex';
+      });
+    }
   });
 
-  // Smooth scroll for navigation
+  // Smooth scroll
   document.querySelectorAll('nav a.nav-link').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
@@ -97,18 +99,7 @@
     });
   });
 
-  // Lightbox Functionality
-  document.querySelectorAll('.video-thumbnail').forEach(thumbnail => {
-    thumbnail.addEventListener('click', function() {
-      const videoId = this.closest('.video-container').getAttribute('data-video-id');
-      const lightbox = document.getElementById('lightbox');
-      const iframe = document.getElementById('lightbox-iframe');
-      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-      lightbox.style.display = 'block';
-    });
-  });
-
-  // Close the Lightbox
+  // Close lightbox
   function closeLightbox() {
     const lightbox = document.getElementById('lightbox');
     const iframe = document.getElementById('lightbox-iframe');
