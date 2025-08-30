@@ -70,7 +70,7 @@ nav {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) rotate(90deg);
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   border-top: 30px solid red;
@@ -142,4 +142,37 @@ iframe {
 
 nav a.active {
   color: #FF2025;
+}
+
+/* Lightbox Styles */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-content {
+  position: relative;
+  width: 80%;
+  height: 80%;
+}
+
+.lightbox iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.close-lightbox {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
 }
