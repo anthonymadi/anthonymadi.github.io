@@ -16,17 +16,17 @@ h1 {
 
 nav {
   text-align: center;
-  margin: 0;
-  padding: 10px 0;
+  margin: 20px 0;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   background-color: #000;
   z-index: 100;
+  padding: 10px 0;
 }
 
-nav a {
+.nav-link {
   color: white;
   text-decoration: none;
   font-size: 1.2rem;
@@ -39,7 +39,7 @@ nav a {
   height: 4px;
   background-color: #FF2025;
   position: absolute;
-  bottom: 0;
+  bottom: -10px;
 }
 
 .section {
@@ -73,22 +73,33 @@ nav a {
   transition: opacity 0.3s ease;
 }
 
+/* Play Button */
 .play-button {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(-90deg); /* 90 degrees counterclockwise */
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  border-top: 40px solid white;
+  transform: translate(-50%, -50%); /* 90 degrees counterclockwise */
+  border-left: 40px solid white; /* Adjust left border to stretch */
+  border-top: 20px solid transparent; /* Adjust right border to stretch */
+  border-bottom: 20px solid transparent; /* Make the button white and stretch it horizontally */
   width: 0;
   height: 0;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.video-container:hover .play-button {
+/* Hover Effects for Play Button */
+.video-thumbnail:hover .play-button {
   opacity: 1;
+}
+
+#dop-showreel .showreel-placeholder:hover .play-button {
+  opacity: 1; /* Show on hover for showreel */
+}
+
+/* Hide play button from .showreel-placeholder permanently */
+.showreel-placeholder .play-button {
+  opacity: 0; /* Ensuring it's hidden by default */
 }
 
 iframe {
@@ -108,29 +119,10 @@ iframe {
 
 .projects-carousel {
   display: flex;
-  overflow-x: hidden;
+  overflow-x: auto;
   padding: 20px 0;
   gap: 10px;
   justify-content: center;
-  position: relative;
-}
-
-.carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2rem;
-  color: white;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.left-arrow {
-  left: 0;
-}
-
-.right-arrow {
-  right: 0;
 }
 
 #dop-showreel .showreel-placeholder {
@@ -145,14 +137,13 @@ iframe {
   position: relative;
 }
 
-#dop-showreel .video-thumbnail {
-  background-size: cover;
-  background-position: center;
-  object-fit: cover; /* Ensures the thumbnail fills the placeholder */
+.showreel-placeholder p {
+  font-size: 1.5rem;
+  color: white;
 }
 
 #home, #about, #contact {
-  margin-top: 100px;
+  margin-top: 100px; /* Increased margin to make room for the fixed navbar */
 }
 
 #home p {
@@ -199,3 +190,87 @@ nav a.active {
   color: white;
   cursor: pointer;
 }
+
+/* Additional Adjustments */
+header {
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  z-index: 100;
+}
+
+header h1 {
+  margin-left: 20px;
+  font-size: 24px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a.nav-link {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+nav a.nav-link:hover {
+  color: #e63946;
+}
+
+.nav-underline {
+  height: 2px;
+  background-color: #e63946;
+  margin-top: 5px;
+}
+
+#dop-showreel .video-container {
+  position: relative;
+  max-width: 560px;
+  width: 100%;
+  height: 315px;
+}
+
+.video-info {
+  padding: 10px;
+}
+
+.projects-carousel {
+  display: flex;
+  overflow-x: scroll;
+  gap: 20px;
+  justify-content: center;
+}
+
+#home {
+  text-align: center;
+}
+
+#dop-showreel {
+  margin: 60px 0;
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 20px;
+  }
+
+  .video-container {
+    height: 200px;
+  }
+
+  .video-info h3 {
+    font-size: 14px;
+  }
+}
+
+
+
+
