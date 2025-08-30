@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anthony Madi — Portfolio</title>
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=League+Spartan:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -26,15 +26,10 @@
   <p>Hey there, I'm Anthony, a visual storyteller based in Dubai. Check out my work below:</p>
 </section>
 
-<!-- DOP Showreel -->
+<!-- DOP Showreel placeholder -->
 <section id="dop-showreel" class="section">
   <div class="showreel-placeholder">
-    <div class="video-container" data-video-id="SP8B-LFrXhU">
-      <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/SP8B-LFrXhU/hqdefault.jpg')">
-        <div class="play-button"></div>
-      </div>
-      <iframe allowfullscreen frameborder="0"></iframe>
-    </div>
+    <p>DOP Showreel coming soon</p>
   </div>
 </section>
 
@@ -44,7 +39,7 @@
     <!-- Project 1 -->
     <div class="video-item">
       <div class="video-container" data-video-id="XRXnCK5tr3k">
-        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/XRXnCK5tr3k/hqdefault.jpg')">
+        <div class="video-thumbnail">
           <div class="play-button"></div>
         </div>
         <iframe allowfullscreen frameborder="0"></iframe>
@@ -55,7 +50,7 @@
         <p>Date Filmed: 17-Jun-2025</p>
       </div>
     </div>
-    <!-- Add more projects in similar format... -->
+    <!-- Add all other projects here -->
   </div>
   <button class="carousel-prev">&#10094;</button>
   <button class="carousel-next">&#10095;</button>
@@ -73,34 +68,37 @@
 </section>
 
 <script>
-  // Smooth scroll
-  document.querySelectorAll('nav a.nav-link').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-    });
-  });
-
-  // Video play toggle
+  // Video play toggle functionality
   document.querySelectorAll('.video-container').forEach(container => {
     container.addEventListener('click', () => {
       const iframe = container.querySelector('iframe');
-      const videoId = container.dataset.videoId;
+      const videoId = container.getAttribute('data-video-id');
       iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
       iframe.style.display = 'block';
-      container.querySelector('.video-thumbnail').style.opacity = '0';
+      container.querySelector('.video-thumbnail').style.display = 'none';
     });
   });
 
-  // Carousel functionality (scroll left/right)
-  document.querySelector('.carousel-next').addEventListener('click', () => {
-    const carousel = document.querySelector('.projects-carousel');
-    carousel.scrollBy({ left: 320, behavior: 'smooth' });
+  // Carousel Navigation
+  const prevButton = document.querySelector('.carousel-prev');
+  const nextButton = document.querySelector('.carousel-next');
+  const carousel = document.querySelector('.projects-carousel');
+  let scrollAmount = 0;
+
+  prevButton.addEventListener('click', () => {
+    scrollAmount -= 320; // Adjust the scroll step based on your needs
+    carousel.scrollTo({
+      left: scrollAmount,
+      behavior: 'smooth'
+    });
   });
 
-  document.querySelector('.carousel-prev').addEventListener('click', () => {
-    const carousel = document.querySelector('.projects-carousel');
-    carousel.scrollBy({ left: -320, behavior: 'smooth' });
+  nextButton.addEventListener('click', () => {
+    scrollAmount += 320; // Adjust the scroll step based on your needs
+    carousel.scrollTo({
+      left: scrollAmount,
+      behavior: 'smooth'
+    });
   });
 </script>
 
