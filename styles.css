@@ -18,7 +18,7 @@ a {
 }
 
 section {
-  padding: 30px 20px;
+  padding: 20px 15px;
 }
 
 .section h2 {
@@ -74,10 +74,10 @@ nav a.nav-link {
 /* DOP Showreel Placeholder */
 .showreel-placeholder {
   background-color: #111;
-  width: 80%;
-  max-width: 800px;
+  width: 70%;
+  max-width: 750px;
   aspect-ratio: 16 / 9;
-  margin: 0 auto 40px auto;
+  margin: 0 auto 30px auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,14 +90,15 @@ nav a.nav-link {
 .projects-carousel {
   display: flex;
   overflow-x: auto;
-  gap: 15px;
+  gap: 20px;
   scroll-behavior: smooth;
   padding-bottom: 20px;
+  position: relative;
 }
 
 .video-item {
   flex: 0 0 auto;
-  width: 250px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -125,12 +126,13 @@ nav a.nav-link {
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 1; /* always visible */
   transition: opacity 0.3s ease;
 }
 
 .play-button {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   background-color: #FF2025;
   clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
   opacity: 0;
@@ -143,7 +145,7 @@ nav a.nav-link {
 
 .video-info {
   text-align: center;
-  margin-top: 8px;
+  margin-top: 5px;
 }
 
 .video-info h3 {
@@ -170,11 +172,11 @@ nav a.nav-link {
 }
 
 .carousel-prev {
-  left: 10px;
+  left: -10px;
 }
 
 .carousel-next {
-  right: 10px;
+  right: -10px;
 }
 
 /* About & Contact */
@@ -183,7 +185,7 @@ nav a.nav-link {
 }
 
 .contact p {
-  margin: 5px 0;
+  margin: 8px 0;
 }
 
 .red-email {
@@ -202,5 +204,7 @@ nav a.nav-link {
 
   .carousel-prev, .carousel-next {
     font-size: 1.5rem;
+    left: 0;
+    right: 0;
   }
 }
