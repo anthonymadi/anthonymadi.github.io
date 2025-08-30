@@ -17,6 +17,13 @@ h1 {
 nav {
   text-align: center;
   margin: 20px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  z-index: 100;
+  padding: 10px 0;
 }
 
 .nav-link {
@@ -129,7 +136,7 @@ iframe {
 }
 
 #home, #about, #contact {
-  margin-top: 60px;
+  margin-top: 100px; /* Increased margin to make room for the fixed navbar */
 }
 
 #home p {
@@ -175,4 +182,88 @@ nav a.active {
   font-size: 2rem;
   color: white;
   cursor: pointer;
+}
+
+/* Additional Adjustments */
+header {
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  z-index: 100;
+}
+
+header h1 {
+  margin-left: 20px;
+  font-size: 24px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a.nav-link {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+nav a.nav-link:hover {
+  color: #e63946;
+}
+
+.nav-underline {
+  height: 2px;
+  background-color: #e63946;
+  margin-top: 5px;
+}
+
+#dop-showreel .video-container {
+  position: relative;
+  max-width: 560px;
+  width: 100%;
+  height: 315px;
+}
+
+#dop-showreel .showreel-placeholder:hover .play-button {
+  opacity: 1;
+}
+
+.video-info {
+  padding: 10px;
+}
+
+.projects-carousel {
+  display: flex;
+  overflow-x: scroll;
+  gap: 20px;
+  justify-content: center;
+}
+
+#home {
+  text-align: center;
+}
+
+#dop-showreel {
+  margin: 60px 0;
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 20px;
+  }
+
+  .video-container {
+    height: 200px;
+  }
+
+  .video-info h3 {
+    font-size: 14px;
+  }
 }
