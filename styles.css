@@ -1,104 +1,125 @@
-/* Global styles */
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'League Spartan', sans-serif;
   background-color: #000;
-  color: white;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+  color: #fff;
 }
 
-/* Header */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.nav-link {
+  color: #fff;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #111;
-  padding: 20px;
-  z-index: 1000;
+  background-color: #000;
+  z-index: 10;
 }
 
 header h1 {
+  font-size: 2rem;
   text-align: center;
-  font-size: 30px;
-  margin: 0;
-}
-
-nav {
-  text-align: center;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  margin: 0 15px;
+  padding: 10px 0;
   text-transform: capitalize;
 }
 
-nav a:hover {
-  color: #FF2025;
+header nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 .nav-underline {
-  height: 4px;
+  height: 2px;
   background-color: #FF2025;
-  width: 100%;
   margin-top: 10px;
+  transition: all 0.3s ease;
 }
 
-/* Section styles */
+header nav a:hover {
+  border-bottom: 3px solid #FF2025;
+}
+
+/* Section Styling */
 .section {
-  padding: 60px 20px;
-  margin-top: 80px;
+  padding: 100px 20px;
 }
 
-#home h2,
-#projects h2,
-#about h2,
-#contact h2 {
-  text-align: center;
+#projects {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 10px;
+  justify-content: center;
 }
 
-#home p {
-  text-align: center;
-  font-size: 18px;
+.video-item {
+  position: relative;
+  width: 350px;
+  height: 200px;
 }
 
 .video-container {
+  width: 100%;
+  height: 100%;
   position: relative;
-  width: 300px;
-  height: 170px;
-  margin: 0 10px;
   background-color: #333;
+  overflow: hidden;
 }
 
 .video-thumbnail {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  background-color: #555;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0.8;
-  transition: opacity 0.3s;
-}
-
-.video-thumbnail:hover .play-button {
-  opacity: 1;
+  background-color: #333;
+  transition: opacity 0.3s ease;
 }
 
 .play-button {
-  width: 40px;
-  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
   background-color: #FF2025;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease;
+}
+
+.video-container:hover .play-button {
+  opacity: 1;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  display: none;
 }
 
 .video-info {
@@ -106,61 +127,36 @@ nav a:hover {
   margin-top: 10px;
 }
 
-.carousel-prev,
-.carousel-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 30px;
-  color: white;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  z-index: 10;
+.video-info h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 
-.carousel-prev {
-  left: 10px;
+.video-info p {
+  font-size: 0.9rem;
 }
 
-.carousel-next {
-  right: 10px;
+/* DOP Showreel Styling */
+#dop-showreel .video-container {
+  width: 70%;
+  margin: 20px auto;
+  height: 400px;
 }
 
-.carousel-prev:hover,
-.carousel-next:hover {
-  color: #FF2025;
+#dop-showreel .video-thumbnail {
+  background-image: url('https://img.youtube.com/vi/SP8B-LFrXhU/hqdefault.jpg');
+  background-size: cover;
 }
 
-/* DOP Showreel */
-.showreel-placeholder {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%;
-  background-color: #333;
-  margin-bottom: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.showreel-placeholder .video-container {
-  width: 100%;
-  height: 100%;
-}
-
-.showreel-placeholder .video-thumbnail {
-  opacity: 0.8;
-}
-
-.showreel-placeholder .video-thumbnail:hover .play-button {
-  opacity: 1;
-}
-
+/* Contact Styling */
 .red-email {
   color: #FF2025;
 }
 
-.red-email:hover {
-  text-decoration: underline;
+section#contact {
+  margin-top: 50px;
+}
+
+.nav-link {
+  text-transform: capitalize;
 }
