@@ -103,7 +103,7 @@ nav a.nav-link:hover {
   transition: opacity 0.3s ease;
 }
 
-.video-thumbnail:hover .play-button {
+.video-container:hover .play-button {
   opacity: 1;
 }
 
@@ -183,3 +183,4 @@ iframe {
     font-size: 14px;
   }
 }
+
