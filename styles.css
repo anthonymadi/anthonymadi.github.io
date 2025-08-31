@@ -14,9 +14,9 @@ header {
   width: 100%;
   background-color: #000;
   z-index: 100;
-  padding: 10px 0;
+  padding-top: 10px;
+  padding-bottom: 0; /* remove extra space under red line */
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
 }
@@ -24,12 +24,14 @@ header {
 header h1 {
   margin: 0;
   font-size: 24px;
+  padding: 0;
 }
 
 nav {
   display: flex;
   justify-content: center;
   gap: 20px;
+  margin: 0;
 }
 
 nav a.nav-link {
@@ -48,7 +50,7 @@ nav a.nav-link:hover {
   width: 100%;
   height: 2px;
   background-color: #e63946;
-  margin-top: 10px;
+  margin: 0; /* flush under nav */
 }
 
 .section {
@@ -68,7 +70,6 @@ nav a.nav-link:hover {
   background-color: #222;
   position: relative;
   margin-bottom: 10px;
-  cursor: pointer;
 }
 
 .video-thumbnail {
@@ -79,6 +80,7 @@ nav a.nav-link:hover {
   position: absolute;
   top: 0;
   left: 0;
+  cursor: pointer;
 }
 
 /* Play Button */
@@ -100,6 +102,21 @@ nav a.nav-link:hover {
   opacity: 1;
 }
 
+iframe {
+  width: 100%;
+  height: 100%;
+  display: none;
+  border: none;
+}
+
+.video-info h3 {
+  margin: 5px 0;
+}
+
+.video-info p {
+  margin: 5px 0;
+}
+
 .projects-carousel {
   display: flex;
   overflow-x: auto;
@@ -108,15 +125,17 @@ nav a.nav-link:hover {
   padding: 20px 0;
 }
 
-#dop-showreel .video-container {
-  max-width: 720px;
+#dop-showreel .showreel-placeholder {
   width: 100%;
+  max-width: 720px;
   height: 400px;
   margin: 0 auto;
 }
 
-#dop-showreel .video-thumbnail {
-  display: block;
+#dop-showreel iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 .red-email {
@@ -134,19 +153,12 @@ nav a.nav-link:hover {
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 200;
 }
 
 .lightbox-content {
   width: 80%;
   height: 80%;
   position: relative;
-}
-
-.lightbox iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
 }
 
 .close-lightbox {
@@ -166,4 +178,3 @@ nav a.nav-link:hover {
     font-size: 14px;
   }
 }
-
