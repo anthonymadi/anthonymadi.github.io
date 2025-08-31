@@ -1,112 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anthony Madi — Portfolio</title>
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anthony Madi Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+    <h1>Anthony Madi</h1>
+    <nav>
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#about" class="nav-link">About Me</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+    <div class="nav-underline"></div>
+  </header>
 
-<header>
-  <h1>Anthony Madi</h1>
-  <nav>
-    <a href="#home" class="nav-link">Home</a>
-    <a href="#projects" class="nav-link">Projects</a>
-    <a href="#about" class="nav-link">About Me</a>
-    <a href="#contact" class="nav-link">Contact Me</a>
-  </nav>
-  <div class="nav-underline"></div>
-</header>
+  <section id="home" class="section">
+    <h1>Welcome to My Portfolio</h1>
+  </section>
 
-<section id="home" class="section">
-  <h2>Welcome</h2>
-  <p>Hey there, I'm Anthony, a visual storyteller based in Dubai. Check out my work below:</p>
-</section>
+  <!-- DOP Showreel Section -->
+  <section id="dop-showreel" class="section">
+    <h2>DOP Showreel</h2>
+    <div class="showreel-placeholder video-thumbnail" 
+         style="background-image: url('https://img.youtube.com/vi/SP8B-LFrXhU/maxresdefault.jpg');"
+         data-video="https://www.youtube.com/embed/SP8B-LFrXhU?autoplay=1">
+      <div class="play-button"></div>
+    </div>
+  </section>
 
-<!-- DOP Showreel placeholder -->
-<section id="dop-showreel" class="section">
-  <div class="showreel-placeholder">
-    <div class="video-container" data-video-id="SP8B-LFrXhU">
-      <iframe allowfullscreen frameborder="0" src="https://www.youtube.com/embed/SP8B-LFrXhU"></iframe>
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="projects-carousel">
+      <!-- Project Thumbnails will go here -->
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>Filmmaker and Director of Photography based in the UAE.</p>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>Email: <span class="red-email">anthonymadimail@gmail.com</span></p>
+    <p>Phone: +971 50 850 1709</p>
+    <p>Instagram: @anthony__madi</p>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <span class="close-lightbox" id="close-lightbox">&times;</span>
+      <iframe id="lightbox-video" src="" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
-</section>
 
-<section id="projects" class="section">
-  <h2>Projects</h2>
-  <div class="projects-carousel">
-    <div class="video-item">
-      <div class="video-container" data-video-id="XRXnCK5tr3k">
-        <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/XRXnCK5tr3k/hqdefault.jpg')">
-          <div class="play-button"></div>
-        </div>
-        <iframe allowfullscreen frameborder="0"></iframe>
-      </div>
-      <div class="video-info">
-        <h3>Sunset Dance</h3>
-        <p>DOP & Editor</p>
-        <p>Date Filmed: 17-Jun-2025</p>
-      </div>
-    </div>
-    <!-- Add other project videos here -->
-  </div>
-</section>
-
-<section id="about" class="section about">
-  <h2>About Me</h2>
-  <p>I’m Anthony, a visual storyteller passionate about music videos, short films, commercials, and events. My work combines creativity and technical skills to bring stories to life.</p>
-</section>
-
-<section id="contact" class="section contact">
-  <h2>Contact Me</h2>
-  <p>Email: <a href="mailto:anthonymadimail@gmail.com" class="red-email">anthonymadimail@gmail.com</a></p>
-  <p>Phone: +971 50 850 1709</p>
-</section>
-
-<!-- Lightbox Modal -->
-<div id="lightbox" class="lightbox">
-  <div class="lightbox-content">
-    <iframe id="lightbox-iframe" allowfullscreen frameborder="0"></iframe>
-    <span class="close-lightbox" onclick="closeLightbox()">×</span>
-  </div>
-</div>
-
-<script>
-  // Project video play toggle
-  document.querySelectorAll('.video-container').forEach(container => {
-    const thumbnail = container.querySelector('.video-thumbnail');
-    const iframe = container.querySelector('iframe');
-    if (thumbnail) {
-      thumbnail.addEventListener('click', e => {
-        e.stopPropagation();
-        const videoId = container.getAttribute('data-video-id');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxIframe = document.getElementById('lightbox-iframe');
-        lightboxIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-        lightbox.style.display = 'flex';
+  <script>
+    // Open lightbox
+    document.querySelectorAll('.video-thumbnail').forEach(thumbnail => {
+      thumbnail.addEventListener('click', () => {
+        const videoUrl = thumbnail.getAttribute('data-video');
+        document.getElementById('lightbox-video').src = videoUrl;
+        document.getElementById('lightbox').style.display = 'flex';
       });
-    }
-  });
-
-  // Smooth scroll
-  document.querySelectorAll('nav a.nav-link').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     });
-  });
 
-  // Close lightbox
-  function closeLightbox() {
-    const lightbox = document.getElementById('lightbox');
-    const iframe = document.getElementById('lightbox-iframe');
-    iframe.src = '';
-    lightbox.style.display = 'none';
-  }
-</script>
+    // Close lightbox
+    document.getElementById('close-lightbox').addEventListener('click', () => {
+      document.getElementById('lightbox').style.display = 'none';
+      document.getElementById('lightbox-video').src = '';
+    });
 
+    // Close lightbox on background click
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('lightbox')) {
+        document.getElementById('lightbox').style.display = 'none';
+        document.getElementById('lightbox-video').src = '';
+      }
+    });
+  </script>
 </body>
 </html>
