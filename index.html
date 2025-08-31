@@ -28,22 +28,26 @@
 
 <!-- DOP Showreel -->
 <section id="dop-showreel" class="section">
-  <div class="video-container" data-video-id="SP8B-LFrXhU">
-    <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/SP8B-LFrXhU/hqdefault.jpg')">
-      <div class="play-button"></div>
+  <div class="showreel-placeholder">
+    <div class="video-container" data-video-id="SP8B-LFrXhU">
+      <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/SP8B-LFrXhU/hqdefault.jpg')">
+        <div class="play-button"></div>
+      </div>
+      <iframe allowfullscreen frameborder="0"></iframe>
     </div>
   </div>
 </section>
 
-<!-- Projects -->
 <section id="projects" class="section">
   <h2>Projects</h2>
   <div class="projects-carousel">
+    <!-- Example Project Video -->
     <div class="video-item">
       <div class="video-container" data-video-id="XRXnCK5tr3k">
         <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/XRXnCK5tr3k/hqdefault.jpg')">
           <div class="play-button"></div>
         </div>
+        <iframe allowfullscreen frameborder="0"></iframe>
       </div>
       <div class="video-info">
         <h3>Sunset Dance</h3>
@@ -51,7 +55,7 @@
         <p>Date Filmed: 17-Jun-2025</p>
       </div>
     </div>
-    <!-- Add other project videos here using same structure -->
+    <!-- Add other project videos in the same format -->
   </div>
 </section>
 
@@ -75,15 +79,28 @@
 </div>
 
 <script>
-  // Video click opens lightbox
+  // Lightbox video play
   document.querySelectorAll('.video-container').forEach(container => {
-    container.addEventListener('click', e => {
-      e.stopPropagation();
-      const videoId = container.getAttribute('data-video-id');
-      const lightbox = document.getElementById('lightbox');
-      const iframe = document.getElementById('lightbox-iframe');
-      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-      lightbox.style.display = 'flex';
+    const thumbnail = container.querySelector('.video-thumbnail');
+    const iframe = container.querySelector('iframe');
+
+    if (thumbnail) {
+      thumbnail.addEventListener('click', e => {
+        e.stopPropagation();
+        const videoId = container.getAttribute('data-video-id');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxIframe = document.getElementById('lightbox-iframe');
+        lightboxIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+        lightbox.style.display = 'flex';
+      });
+    }
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('nav a.nav-link').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
     });
   });
 
@@ -94,14 +111,6 @@
     iframe.src = '';
     lightbox.style.display = 'none';
   }
-
-  // Smooth scroll for nav links
-  document.querySelectorAll('nav a.nav-link').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-    });
-  });
 </script>
 
 </body>
