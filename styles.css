@@ -1,4 +1,3 @@
-/* General Styles */
 body {
   font-family: 'League Spartan', sans-serif;
   margin: 0;
@@ -14,15 +13,14 @@ header {
   width: 100%;
   background-color: #000;
   z-index: 100;
-  padding-top: 15px;      /* space above the name */
-  padding-bottom: 5px;    /* small space below red line */
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px 0;
 }
 
 header h1 {
-  margin: 0 0 10px 0;      /* space below name before nav */
+  margin: 0 0 10px 0;
   font-size: 24px;
 }
 
@@ -30,7 +28,6 @@ nav {
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-bottom: 5px;      /* space below nav before red line */
 }
 
 nav a.nav-link {
@@ -49,11 +46,11 @@ nav a.nav-link:hover {
   width: 100%;
   height: 2px;
   background-color: #e63946;
-  margin: 0;
+  margin-top: 10px;
 }
 
 .section {
-  padding: 130px 20px 40px; /* top padding accounts for fixed header */
+  padding: 120px 20px 40px; /* account for fixed header and spacing */
   text-align: center;
 }
 
@@ -93,18 +90,13 @@ nav a.nav-link:hover {
   border-bottom: 20px solid transparent;
   width: 0;
   height: 0;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.video-thumbnail:hover .play-button {
   opacity: 1;
 }
 
 iframe {
   width: 100%;
   height: 100%;
-  display: none;
+  display: none; /* container iframe stays hidden */
   border: none;
 }
 
@@ -141,7 +133,7 @@ iframe {
   color: #FF2025;
 }
 
-/* Lightbox Styles */
+/* Lightbox */
 .lightbox {
   position: fixed;
   top: 0;
