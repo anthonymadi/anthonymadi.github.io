@@ -121,13 +121,23 @@
   const rightArrow = document.querySelector('.right-arrow');
   const scrollAmount = 340;
 
+  function updateArrows() {
+    leftArrow.style.display = carousel.scrollLeft > 0 ? 'flex' : 'none';
+    rightArrow.style.display = carousel.scrollLeft + carousel.clientWidth < carousel.scrollWidth ? 'flex' : 'none';
+  }
+
   leftArrow.addEventListener('click', () => {
     carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    setTimeout(updateArrows, 300);
   });
 
   rightArrow.addEventListener('click', () => {
     carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    setTimeout(updateArrows, 300);
   });
+
+  carousel.addEventListener('scroll', updateArrows);
+  updateArrows();
 </script>
 
 </body>
