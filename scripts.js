@@ -12,7 +12,6 @@ const projects = [
   {title:'Istanbul Trip', date:'20-Sep-2023', role:'DOP & Editor', url:'https://www.youtube.com/watch?v=ZNKMCjPrR70'}
 ];
 
-// Sort projects by date descending
 projects.sort((a,b)=>new Date(b.date)-new Date(a.date));
 
 // Populate carousel
@@ -20,7 +19,7 @@ const carousel = document.querySelector('.projects-carousel');
 projects.forEach((p,i)=>{
   const div = document.createElement('div');
   div.className='video-item';
-  div.dataset.index=i+1; // index 0 is showreel
+  div.dataset.index=i+1;
   div.innerHTML=`<div class="video-thumbnail" style="background-image:url('https://img.youtube.com/vi/${p.url.split('v=')[1]}/hqdefault.jpg')">
                    <div class="play-button"></div>
                  </div>
@@ -28,15 +27,19 @@ projects.forEach((p,i)=>{
   carousel.appendChild(div);
 });
 
-// DOP Showreel thumbnail (index 0)
-const showreelThumb = document.querySelector('.showreel-thumb');
-showreelThumb.dataset.index = 0;
-
 // Combine DOP + Projects for lightbox
 const allVideos = [
-  {title:'DOP Showreel', url:'https://www.youtube.com/watch?v=SP8B-LFrXhU'},
-  ...projects.map(p=>({title:p.title,url:p.url}))
+  {title:'DOP Showreel', url:'https://www.youtube.com/embed/SP8B-LFrXhU'},
+  ...projects.map(p=>({title:p.title,url:p.url.replace("watch?v=","embed/")}))
 ];
+
+// DOP showreel click
+document.querySelector('.showreel-thumb').addEventListener('click', ()=>openLightbox(0));
+
+// Thumbnails click
+document.querySelectorAll('.projects-carousel .video-thumbnail').forEach((thumb,i)=>{
+  thumb.addEventListener('click', ()=>openLightbox(parseInt(thumb.parentElement.dataset.index)));
+});
 
 // LIGHTBOX
 const lightbox = document.getElementById('lightbox');
@@ -50,7 +53,7 @@ let currentIndex = 0;
 function openLightbox(index){
   currentIndex = index;
   lightbox.style.display='flex';
-  lightboxIframe.src = allVideos[currentIndex].url.replace("watch?v=", "embed/")+'?autoplay=1';
+  lightboxIframe.src = allVideos[currentIndex].url+'?autoplay=1';
 }
 
 function closeLightbox(){
@@ -60,18 +63,13 @@ function closeLightbox(){
 
 function showNext(){
   currentIndex=(currentIndex+1)%allVideos.length;
-  lightboxIframe.src = allVideos[currentIndex].url.replace("watch?v=", "embed/")+'?autoplay=1';
+  lightboxIframe.src = allVideos[currentIndex].url+'?autoplay=1';
 }
 
 function showPrev(){
   currentIndex=(currentIndex-1+allVideos.length)%allVideos.length;
-  lightboxIframe.src = allVideos[currentIndex].url.replace("watch?v=", "embed/")+'?autoplay=1';
+  lightboxIframe.src = allVideos[currentIndex].url+'?autoplay=1';
 }
-
-// Open lightbox on thumbnail click
-document.querySelectorAll('.video-thumbnail').forEach(thumb=>{
-  thumb.addEventListener('click', ()=>openLightbox(parseInt(thumb.dataset.index)));
-});
 
 // Close lightbox
 lightboxClose.addEventListener('click', closeLightbox);
@@ -93,15 +91,27 @@ function getVisibleCount(){
   return Math.floor(carousel.offsetWidth / item.offsetWidth);
 }
 
+function updateCarouselArrows(){
+  const scrollLeft = carousel.scrollLeft;
+  const maxScroll = carousel.scrollWidth - carousel.offsetWidth;
+  leftArrow.style.display = scrollLeft > 0 ? 'flex' : 'none';
+  rightArrow.style.display = scrollLeft < maxScroll ? 'flex' : 'none';
+}
+
 leftArrow.addEventListener('click', ()=>{
   const step = getVisibleCount();
   carousel.scrollBy({left:-step*320, behavior:'smooth'});
+  setTimeout(updateCarouselArrows, 300);
 });
 
 rightArrow.addEventListener('click', ()=>{
   const step = getVisibleCount();
   carousel.scrollBy({left:step*320, behavior:'smooth'});
+  setTimeout(updateCarouselArrows, 300);
 });
+
+carousel.addEventListener('scroll', updateCarouselArrows);
+updateCarouselArrows();
 
 // Phone copy
 const phone = document.querySelector('.phone-number');
