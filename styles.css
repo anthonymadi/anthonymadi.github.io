@@ -38,9 +38,7 @@ nav a.nav-link {
   transition: color 0.3s;
 }
 
-nav a.nav-link:hover {
-  color: #e63946;
-}
+nav a.nav-link:hover { color: #e63946; }
 
 .nav-underline {
   width: 100%;
@@ -50,17 +48,10 @@ nav a.nav-link:hover {
 }
 
 /* Section spacing */
-.section {
-  padding: 80px 20px 40px;
-  text-align: center;
-}
+.section { padding: 80px 20px 40px; text-align: center; }
 
 /* DOP Showreel */
-#dop-showreel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+#dop-showreel { display: flex; flex-direction: column; align-items: center; }
 
 #dop-showreel .showreel-placeholder {
   width: 90%;
@@ -70,17 +61,16 @@ nav a.nav-link:hover {
   padding-top: 56.25%;
 }
 
-#dop-showreel .video-container {
+#dop-showreel .video-container iframe {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  border: none;
 }
 
-#dop-showreel h2 {
-  margin-bottom: 20px;
-}
+#dop-showreel h2 { margin-bottom: 20px; }
 
 /* Projects Carousel */
 .carousel-wrapper {
@@ -105,11 +95,7 @@ nav a.nav-link:hover {
   position: relative;
 }
 
-.video-item .video-container {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 */
-}
+.video-item .video-container { position: relative; width: 100%; padding-top: 56.25%; }
 
 .video-thumbnail {
   position: absolute;
@@ -136,13 +122,8 @@ nav a.nav-link:hover {
   opacity: 1;
 }
 
-.video-info h3 {
-  margin: 5px 0;
-}
-
-.video-info p {
-  margin: 5px 0;
-}
+.video-info h3 { margin: 5px 0; }
+.video-info p { margin: 5px 0; }
 
 /* Carousel Arrows */
 .carousel-arrow {
@@ -153,9 +134,10 @@ nav a.nav-link:hover {
   cursor: pointer;
   z-index: 10;
   width: 40px;
-  height: 100%;
+  height: 50%;
   position: absolute;
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
