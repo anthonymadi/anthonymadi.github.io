@@ -26,17 +26,14 @@
     <div class="nav-underline" aria-hidden="true"></div>
   </header>
 
-  <!-- main content -->
   <main>
     <section id="home" class="section">
       <h2 class="centered">Welcome</h2>
       <p class="centered">Hey there, I'm Anthony, a visual storyteller based in Dubai. Check out my work below:</p>
     </section>
 
-    <!-- DOP showreel -->
     <section id="dop-showreel" class="section">
       <h2 class="section-title centered">DOP Showreel</h2>
-
       <div class="showreel-wrapper">
         <div
           class="video-thumbnail showreel-thumb"
@@ -51,7 +48,6 @@
       </div>
     </section>
 
-    <!-- Projects -->
     <section id="projects" class="section">
       <h2 class="section-title centered">Projects</h2>
 
@@ -94,7 +90,6 @@
     </section>
   </main>
 
-  <!-- Lightbox -->
   <div id="lightbox" class="lightbox" aria-hidden="true">
     <button class="close-lightbox" id="lightbox-close" aria-label="Close video">×</button>
     <div class="lightbox-content" role="dialog" aria-modal="true">
@@ -103,7 +98,7 @@
   </div>
 
 <script>
-/* Lightbox, nav smooth scroll, carousel remain unchanged */
+/* ---------- Lightbox ---------- */
 (function() {
   const thumbnails = document.querySelectorAll('.video-thumbnail');
   const lightbox = document.getElementById('lightbox');
@@ -145,6 +140,7 @@
   });
 })();
 
+/* ---------- Smooth scroll ---------- */
 document.querySelectorAll('nav.main-nav a.nav-link').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
@@ -153,6 +149,7 @@ document.querySelectorAll('nav.main-nav a.nav-link').forEach(link => {
   });
 });
 
+/* ---------- Carousel ---------- */
 (function() {
   const carousel = document.querySelector('.projects-carousel');
   const left = document.querySelector('.left-arrow');
