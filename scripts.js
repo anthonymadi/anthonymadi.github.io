@@ -1,124 +1,94 @@
 const projects = [
-  {title:'Pins & Needles — Documentary', date:'30-Aug-2025', role:'Producer & Editor', url:'https://www.youtube.com/watch?v=ggh38hbBlpI'},
-  {title:'Sunset Dance', date:'17-Jun-2025', role:'DOP & Editor', url:'https://www.youtube.com/watch?v=XRXnCK5tr3k'},
-  {title:'Première de MDX Studios 2025', date:'30-Apr-2025', role:'Camera Operator', url:'https://www.youtube.com/watch?v=1DXleUvdN1s'},
-  {title:'One Must Fall — Short Film', date:'15-Apr-2025', role:'Director', url:'https://www.youtube.com/watch?v=PUEyOgSyV9w'},
-  {title:'Pamela Farhat — Amara Ya Amara [Music Video]', date:'19-Jul-2024', role:'DOP & Editor', url:'https://www.youtube.com/watch?v=VDfYpwlpFJc'},
-  {title:'Marie Nassar — Edam El Kel & Yay Mashup [Music Video]', date:'04-Apr-2024', role:'DOP & Editor', url:'https://www.youtube.com/watch?v=_AhXEk1YmDc'},
-  {title:'Fzero — Short Film', date:'05-Feb-2024', role:'One-man Crew', url:'https://www.youtube.com/watch?v=Fsav0nfuX60'},
-  {title:'Golf GTI 2019 Commercial', date:'02-Jun-2023', role:'DOP & Editor', url:'https://www.youtube.com/watch?v=1X3PheqBEgk'},
-  {title:'Fire Show', date:'12-Dec-2023', role:'DOP & Editor', url:'https://www.youtube.com/watch?v=I6uf1fLSCYs'},
-  {title:'UAE National Anthem Cover', date:'02-Dec-2023', role:'DOP & Editor', url:'https://www.youtube.com/watch?v=ghtgcUPCD8o'},
-  {title:'Istanbul Trip', date:'20-Sep-2023', role:'DOP & Editor', url:'https://www.youtube.com/watch?v=ZNKMCjPrR70'}
+  { title: "DOP Showreel", url: "https://www.youtube.com/embed/YOUR_SHOWREEL_VIDEO_ID" },
+  { title: "Pins & Needles — Documentary", url: "https://www.youtube.com/embed/ggh38hbBlpI" },
+  { title: "Sunset Dance", url: "https://www.youtube.com/embed/XRXnCK5tr3k" },
+  // Add remaining projects here in correct sorted order
 ];
 
-projects.sort((a,b)=>new Date(b.date)-new Date(a.date));
-
-// Populate carousel
-const carousel = document.querySelector('.projects-carousel');
-projects.forEach((p,i)=>{
-  const div = document.createElement('div');
-  div.className='video-item';
-  div.dataset.index=i+1;
-  div.innerHTML=`<div class="video-thumbnail" style="background-image:url('https://img.youtube.com/vi/${p.url.split('v=')[1]}/hqdefault.jpg')">
-                   <div class="play-button"></div>
-                 </div>
-                 <div class="video-info"><h3>${p.title}</h3><p>${p.date}<br>${p.role}</p></div>`;
-  carousel.appendChild(div);
-});
-
-// Combine DOP + Projects for lightbox
-const allVideos = [
-  {title:'DOP Showreel', url:'https://www.youtube.com/embed/SP8B-LFrXhU'},
-  ...projects.map(p=>({title:p.title,url:p.url.replace("watch?v=","embed/")}))
-];
-
-// DOP showreel click
-document.querySelector('.showreel-thumb').addEventListener('click', ()=>openLightbox(0));
-
-// Thumbnails click
-document.querySelectorAll('.projects-carousel .video-thumbnail').forEach((thumb,i)=>{
-  thumb.addEventListener('click', ()=>openLightbox(parseInt(thumb.parentElement.dataset.index)));
-});
-
-// LIGHTBOX
-const lightbox = document.getElementById('lightbox');
-const lightboxIframe = document.getElementById('lightbox-iframe');
-const lightboxClose = document.getElementById('lightbox-close');
-const leftLightbox = document.querySelector('.left-lightbox');
-const rightLightbox = document.querySelector('.right-lightbox');
+const thumbnails = document.querySelectorAll(".video-thumbnail");
+const lightbox = document.getElementById("lightbox");
+const iframe = document.getElementById("lightbox-iframe");
+const closeLightbox = document.getElementById("close-lightbox");
+const leftLightbox = document.getElementById("lightbox-left");
+const rightLightbox = document.getElementById("lightbox-right");
 
 let currentIndex = 0;
 
-function openLightbox(index){
-  currentIndex = index;
-  lightbox.style.display='flex';
-  lightboxIframe.src = allVideos[currentIndex].url+'?autoplay=1';
-}
+// Open lightbox when clicking a thumbnail
+thumbnails.forEach((thumb) => {
+  thumb.addEventListener("click", () => {
+    currentIndex = parseInt(thumb.dataset.index);
+    openLightbox(currentIndex);
+  });
+});
 
-function closeLightbox(){
-  lightbox.style.display='none';
-  lightboxIframe.src='';
-}
-
-function showNext(){
-  currentIndex=(currentIndex+1)%allVideos.length;
-  lightboxIframe.src = allVideos[currentIndex].url+'?autoplay=1';
-}
-
-function showPrev(){
-  currentIndex=(currentIndex-1+allVideos.length)%allVideos.length;
-  lightboxIframe.src = allVideos[currentIndex].url+'?autoplay=1';
+function openLightbox(index) {
+  iframe.src = projects[index].url + "?autoplay=1";
+  lightbox.style.display = "flex";
+  updateLightboxArrows();
 }
 
 // Close lightbox
-lightboxClose.addEventListener('click', closeLightbox);
-lightbox.addEventListener('click', e=>{
-  if(e.target === lightbox) closeLightbox();
+closeLightbox.addEventListener("click", () => {
+  lightbox.style.display = "none";
+  iframe.src = "";
+});
+
+// Click outside to close
+lightbox.addEventListener("click", e => {
+  if(e.target === lightbox) {
+    lightbox.style.display = "none";
+    iframe.src = "";
+  }
 });
 
 // Lightbox arrows
-leftLightbox.addEventListener('click', showPrev);
-rightLightbox.addEventListener('click', showNext);
-
-// Carousel arrows
-const leftArrow = document.querySelector('.left-arrow');
-const rightArrow = document.querySelector('.right-arrow');
-
-function getVisibleCount(){
-  const item = document.querySelector('.video-item');
-  if(!item) return 1;
-  return Math.floor(carousel.offsetWidth / item.offsetWidth);
-}
-
-function updateCarouselArrows(){
-  const scrollLeft = carousel.scrollLeft;
-  const maxScroll = carousel.scrollWidth - carousel.offsetWidth;
-  leftArrow.style.display = scrollLeft > 0 ? 'flex' : 'none';
-  rightArrow.style.display = scrollLeft < maxScroll ? 'flex' : 'none';
-}
-
-leftArrow.addEventListener('click', ()=>{
-  const step = getVisibleCount();
-  carousel.scrollBy({left:-step*320, behavior:'smooth'});
-  setTimeout(updateCarouselArrows, 300);
+leftLightbox.addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + projects.length) % projects.length;
+  iframe.src = projects[currentIndex].url + "?autoplay=1";
 });
 
-rightArrow.addEventListener('click', ()=>{
-  const step = getVisibleCount();
-  carousel.scrollBy({left:step*320, behavior:'smooth'});
-  setTimeout(updateCarouselArrows, 300);
+rightLightbox.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % projects.length;
+  iframe.src = projects[currentIndex].url + "?autoplay=1";
 });
 
-carousel.addEventListener('scroll', updateCarouselArrows);
+function updateLightboxArrows() {
+  leftLightbox.style.display = projects.length > 1 ? "flex" : "none";
+  rightLightbox.style.display = projects.length > 1 ? "flex" : "none";
+}
+
+// Phone number copy
+const phoneNumber = document.getElementById("phone-number");
+const copyNotification = document.getElementById("copy-notification");
+
+phoneNumber.addEventListener("click", () => {
+  navigator.clipboard.writeText(phoneNumber.textContent.trim());
+  copyNotification.style.opacity = 1;
+  setTimeout(() => { copyNotification.style.opacity = 0; }, 1200);
+});
+
+// Projects carousel scroll
+const leftArrow = document.querySelector(".left-arrow");
+const rightArrow = document.querySelector(".right-arrow");
+const carousel = document.getElementById("projects-carousel");
+
+function updateCarouselArrows() {
+  leftArrow.style.display = carousel.scrollLeft > 0 ? "flex" : "none";
+  rightArrow.style.display = carousel.scrollLeft + carousel.clientWidth < carousel.scrollWidth ? "flex" : "none";
+}
+
+leftArrow.addEventListener("click", () => {
+  const visible = Math.floor(carousel.clientWidth / carousel.children[0].clientWidth);
+  carousel.scrollBy({ left: -visible * carousel.children[0].clientWidth, behavior: "smooth" });
+  setTimeout(updateCarouselArrows, 200);
+});
+
+rightArrow.addEventListener("click", () => {
+  const visible = Math.floor(carousel.clientWidth / carousel.children[0].clientWidth);
+  carousel.scrollBy({ left: visible * carousel.children[0].clientWidth, behavior: "smooth" });
+  setTimeout(updateCarouselArrows, 200);
+});
+
+carousel.addEventListener("scroll", updateCarouselArrows);
 updateCarouselArrows();
-
-// Phone copy
-const phone = document.querySelector('.phone-number');
-const notif = document.getElementById('copy-notif');
-
-phone.addEventListener('click', ()=>{
-  navigator.clipboard.writeText(phone.textContent);
-  notif.style.opacity='1';
-  setTimeout(()=>{notif.style.opacity='0'},800);
-});
