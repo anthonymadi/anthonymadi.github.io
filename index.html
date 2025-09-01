@@ -3,15 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anthony Madi - Portfolio</title>
+  <title>Anthony Madi</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <div class="nav-container">
-      <div class="logo">Anthony Madi</div>
+  <!-- Fixed Header -->
+  <header class="header">
+    <div class="header-left">
+      <h1 class="site-name">Anthony Madi</h1>
+    </div>
+    <div class="header-right">
       <nav>
-        <ul>
+        <ul class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#about">About Me</a></li>
@@ -19,49 +22,60 @@
         </ul>
       </nav>
     </div>
-    <div class="nav-line"></div>
   </header>
+  <div class="nav-underline"></div>
 
+  <!-- Welcome Section -->
   <section id="home" class="section">
-    <h1 class="center-text">Welcome</h1>
-    <p class="center-text">Cinematographer | Director of Photography</p>
+    <h2 class="center-text">Welcome</h2>
+    <p class="center-text">Cinematographer | Filmmaker</p>
   </section>
 
+  <!-- DOP Showreel -->
   <section id="showreel" class="section">
     <h2 class="center-text">DOP Showreel</h2>
     <div class="video-container">
-      <a href="https://www.youtube.com/watch?v=VIDEO_ID" target="_blank">
-        <img src="dop-thumbnail.jpg" alt="DOP Showreel Thumbnail" class="thumbnail">
+      <a href="https://www.youtube.com/watch?v=XXXXXXXXXXX" target="_blank">
+        <img src="thumbnail-dop.jpg" alt="DOP Showreel Thumbnail" class="video-thumb">
       </a>
     </div>
   </section>
 
+  <!-- Projects -->
   <section id="projects" class="section">
     <h2 class="center-text">Projects</h2>
     <div class="projects-grid">
       <div class="project">
-        <a href="https://www.youtube.com/watch?v=VIDEO1" target="_blank">
-          <img src="project1-thumbnail.jpg" alt="Project 1" class="thumbnail">
-        </a>
-        <p class="center-text">Project 1<br><span class="metadata">2023 | Short Film</span></p>
+        <div class="video-container">
+          <a href="https://www.youtube.com/watch?v=XXXXXXXXXXX" target="_blank">
+            <img src="thumbnail1.jpg" alt="Project 1" class="video-thumb">
+          </a>
+        </div>
+        <h3 class="center-text">Project Title 1</h3>
+        <p class="center-text">Metadata / Role</p>
       </div>
       <div class="project">
-        <a href="https://www.youtube.com/watch?v=VIDEO2" target="_blank">
-          <img src="project2-thumbnail.jpg" alt="Project 2" class="thumbnail">
-        </a>
-        <p class="center-text">Project 2<br><span class="metadata">2024 | Commercial</span></p>
+        <div class="video-container">
+          <a href="https://www.youtube.com/watch?v=XXXXXXXXXXX" target="_blank">
+            <img src="thumbnail2.jpg" alt="Project 2" class="video-thumb">
+          </a>
+        </div>
+        <h3 class="center-text">Project Title 2</h3>
+        <p class="center-text">Metadata / Role</p>
       </div>
     </div>
   </section>
 
+  <!-- About -->
   <section id="about" class="section">
     <h2 class="center-text">About Me</h2>
-    <p class="center-text">I’m a cinematographer passionate about crafting visual stories that resonate.</p>
+    <p class="center-text">Short bio about Anthony.</p>
   </section>
 
+  <!-- Contact -->
   <section id="contact" class="section">
     <h2 class="center-text">Contact</h2>
-    <p class="center-text">Email: anthonymadimail@gmail.com | Phone: +971 50 850 1709</p>
+    <p class="center-text">anthonymadimail@gmail.com | +971 50 850 1709</p>
   </section>
 </body>
 </html>
