@@ -1,7 +1,7 @@
 /* ---------- Basic theme + reset ---------- */
 :root {
   --bg: #000;
-  --muted-bg: #111; /* slightly brighter than before */
+  --muted-bg: #111; /* slightly brighter */
   --text: #fff;
   --accent: #e63946;
   --header-height: 72px;
@@ -16,7 +16,7 @@ html, body {
   background: var(--bg);
   color: var(--text);
   font-family: 'League Spartan', sans-serif;
-  font-size: 18px; /* larger base font */
+  font-size: 18px; /* base font increased */
 }
 
 body > main { padding-top: var(--header-height); }
@@ -180,7 +180,7 @@ body > main { padding-top: var(--header-height); }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.12);
   color: var(--text);
   border: none;
   font-size: 28px;
@@ -193,8 +193,7 @@ body > main { padding-top: var(--header-height); }
 .left-arrow { left: -52px; }
 .right-arrow { right: -52px; }
 
-.carousel-arrow:hover { background: rgba(255,255,255,0.28); }
-.carousel-arrow.hidden { display: none; }
+.carousel-arrow:hover { background: rgba(255,255,255,0.22); }
 
 /* ---------- Lightbox ---------- */
 .lightbox {
@@ -237,7 +236,7 @@ body > main { padding-top: var(--header-height); }
   z-index: 10010;
 }
 
-/* arrows inside lightbox */
+/* arrows outside lightbox */
 .lightbox-arrow {
   position: absolute;
   top: 50%;
@@ -247,12 +246,12 @@ body > main { padding-top: var(--header-height); }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.12);
   color: var(--text);
   border: none;
   font-size: 28px;
   cursor: pointer;
-  z-index: 10020;
+  z-index: 30;
   border-radius: 6px;
   transition: background 0.2s ease;
 }
@@ -260,21 +259,19 @@ body > main { padding-top: var(--header-height); }
 .left-lightbox { left: -60px; }
 .right-lightbox { right: -60px; }
 
-.lightbox-arrow:hover { background: rgba(255,255,255,0.28); }
-.lightbox-arrow.hidden { display: none; }
+.lightbox-arrow:hover { background: rgba(255,255,255,0.22); }
 
 /* ---------- Contact ---------- */
-.red-email { color: var(--accent); }
+.red-email { color: var(--accent); text-decoration: none; }
 .red-email:hover { text-decoration: underline; }
 
 .phone-number:hover { color: var(--accent); cursor: pointer; }
-
 .copy-notification {
   display: inline-block;
   margin-left: 8px;
   background: var(--accent);
   color: #fff;
-  padding: 4px 8px;
+  padding: 2px 6px;
   border-radius: 4px;
   font-size: 14px;
   opacity: 0;
