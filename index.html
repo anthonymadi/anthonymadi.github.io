@@ -1,193 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Anthony Madi — Portfolio</title>
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anthony Madi - Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- Header -->
-  <header class="site-header">
-    <div class="header-inner">
+  <header>
+    <div class="nav-container">
       <div class="logo">Anthony Madi</div>
-
-      <nav class="main-nav" aria-label="Main navigation">
-        <a class="nav-link" href="#home">Home</a>
-        <a class="nav-link" href="#projects">Projects</a>
-        <a class="nav-link" href="#about">About Me</a>
-        <a class="nav-link" href="#contact">Contact Me</a>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </nav>
     </div>
-
-    <div class="nav-underline" aria-hidden="true"></div>
+    <div class="nav-line"></div>
   </header>
 
-  <!-- main content -->
-  <main>
-    <section id="home" class="section">
-      <h2>Welcome</h2>
-      <p>Hey there, I'm Anthony, a visual storyteller based in Dubai. Check out my work below:</p>
-    </section>
+  <section id="home" class="section">
+    <h1 class="center-text">Welcome</h1>
+    <p class="center-text">Cinematographer | Director of Photography</p>
+  </section>
 
-    <!-- DOP showreel -->
-    <section id="dop-showreel" class="section">
-      <h2 class="section-title">DOP Showreel</h2>
-
-      <div class="showreel-wrapper">
-        <!-- thumbnail (click opens lightbox) -->
-        <div
-          class="video-thumbnail showreel-thumb"
-          data-video-id="SP8B-LFrXhU"
-          style="background-image: url('https://img.youtube.com/vi/SP8B-LFrXhU/hqdefault.jpg')"
-          aria-label="Play DOP Showreel"
-          role="button"
-          tabindex="0"
-        >
-          <div class="play-button"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="section">
-      <h2 class="section-title">Projects</h2>
-
-      <div class="carousel-wrapper">
-        <button class="carousel-arrow left-arrow" aria-label="Scroll left">‹</button>
-
-        <div class="projects-carousel" aria-live="polite">
-          <!-- Example project item -->
-          <div class="video-item">
-            <div
-              class="video-thumbnail"
-              data-video-id="XRXnCK5tr3k"
-              style="background-image: url('https://img.youtube.com/vi/XRXnCK5tr3k/hqdefault.jpg')"
-              role="button"
-              tabindex="0"
-              aria-label="Play Sunset Dance"
-            >
-              <div class="play-button"></div>
-            </div>
-            <div class="video-info">
-              <h3>Sunset Dance</h3>
-              <p>DOP & Editor</p>
-              <p>Date Filmed: 17-Jun-2025</p>
-            </div>
-          </div>
-
-          <!-- Add more .video-item blocks as needed (each must contain a .video-thumbnail with data-video-id) -->
-        </div>
-
-        <button class="carousel-arrow right-arrow" aria-label="Scroll right">›</button>
-      </div>
-    </section>
-
-    <section id="about" class="section alt">
-      <h2 class="section-title">About Me</h2>
-      <p>I’m Anthony, a visual storyteller passionate about music videos, short films, commercials, and events.</p>
-    </section>
-
-    <section id="contact" class="section">
-      <h2 class="section-title">Contact Me</h2>
-      <p>Email: <a class="red-email" href="mailto:anthonymadimail@gmail.com">anthonymadimail@gmail.com</a></p>
-      <p>Phone: +971 50 850 1709</p>
-    </section>
-  </main>
-
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox" aria-hidden="true">
-    <button class="close-lightbox" id="lightbox-close" aria-label="Close video">×</button>
-    <div class="lightbox-content" role="dialog" aria-modal="true">
-      <iframe id="lightbox-iframe" allowfullscreen frameborder="0" title="Video player"></iframe>
+  <section id="showreel" class="section">
+    <h2 class="center-text">DOP Showreel</h2>
+    <div class="video-container">
+      <a href="https://www.youtube.com/watch?v=VIDEO_ID" target="_blank">
+        <img src="dop-thumbnail.jpg" alt="DOP Showreel Thumbnail" class="thumbnail">
+      </a>
     </div>
-  </div>
+  </section>
 
-<script>
-/* ---------- Lightbox ---------- */
-(function() {
-  const thumbnails = document.querySelectorAll('.video-thumbnail');
-  const lightbox = document.getElementById('lightbox');
-  const iframe = document.getElementById('lightbox-iframe');
-  const closeBtn = document.getElementById('lightbox-close');
+  <section id="projects" class="section">
+    <h2 class="center-text">Projects</h2>
+    <div class="projects-grid">
+      <div class="project">
+        <a href="https://www.youtube.com/watch?v=VIDEO1" target="_blank">
+          <img src="project1-thumbnail.jpg" alt="Project 1" class="thumbnail">
+        </a>
+        <p class="center-text">Project 1<br><span class="metadata">2023 | Short Film</span></p>
+      </div>
+      <div class="project">
+        <a href="https://www.youtube.com/watch?v=VIDEO2" target="_blank">
+          <img src="project2-thumbnail.jpg" alt="Project 2" class="thumbnail">
+        </a>
+        <p class="center-text">Project 2<br><span class="metadata">2024 | Commercial</span></p>
+      </div>
+    </div>
+  </section>
 
-  function openLightbox(id) {
-    iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
-    lightbox.style.display = 'flex';
-    lightbox.setAttribute('aria-hidden', 'false');
-  }
+  <section id="about" class="section">
+    <h2 class="center-text">About Me</h2>
+    <p class="center-text">I’m a cinematographer passionate about crafting visual stories that resonate.</p>
+  </section>
 
-  function closeLightbox() {
-    iframe.src = '';
-    lightbox.style.display = 'none';
-    lightbox.setAttribute('aria-hidden', 'true');
-  }
-
-  thumbnails.forEach(t => {
-    t.addEventListener('click', () => {
-      const id = t.getAttribute('data-video-id');
-      if (id) openLightbox(id);
-    });
-    // keyboard: Enter key opens
-    t.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        const id = t.getAttribute('data-video-id');
-        if (id) openLightbox(id);
-      }
-    });
-  });
-
-  closeBtn.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', e => {
-    if (e.target === lightbox) closeLightbox();
-  });
-  window.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeLightbox();
-  });
-})();
-
-/* ---------- Smooth scroll for nav ---------- */
-document.querySelectorAll('nav.main-nav a.nav-link').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
-  });
-});
-
-/* ---------- Carousel arrows & hiding ---------- */
-(function() {
-  const carousel = document.querySelector('.projects-carousel');
-  const left = document.querySelector('.left-arrow');
-  const right = document.querySelector('.right-arrow');
-  if (!carousel || !left || !right) return;
-
-  const scrollAmount = 340;
-
-  function updateArrows() {
-    // hide left/right when not scrollable
-    left.style.display = carousel.scrollLeft > 0 ? 'flex' : 'none';
-    right.style.display = carousel.scrollLeft + carousel.clientWidth < carousel.scrollWidth - 1 ? 'flex' : 'none';
-  }
-
-  left.addEventListener('click', () => {
-    carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    setTimeout(updateArrows, 300);
-  });
-  right.addEventListener('click', () => {
-    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    setTimeout(updateArrows, 300);
-  });
-
-  carousel.addEventListener('scroll', updateArrows);
-  window.addEventListener('resize', updateArrows);
-  updateArrows();
-})();
-</script>
-
+  <section id="contact" class="section">
+    <h2 class="center-text">Contact</h2>
+    <p class="center-text">Email: anthonymadimail@gmail.com | Phone: +971 50 850 1709</p>
+  </section>
 </body>
 </html>
