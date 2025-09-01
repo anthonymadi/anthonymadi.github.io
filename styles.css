@@ -39,35 +39,29 @@ nav a.nav-link:hover { color: #e63946; }
 
 .nav-underline { width: 100%; height: 2px; background-color: #e63946; margin: 0; }
 
-.section { padding: 60px 20px 30px; text-align: center; }
+.section { padding: 50px 20px 20px; text-align: center; }
 
-#dop-showreel { display: flex; flex-direction: column; align-items: center; }
+#dop-showreel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 #dop-showreel h2 { margin-bottom: 5px; }
 
 #dop-showreel .showreel-placeholder {
   width: 90%;
   max-width: 1100px;
   position: relative;
-  padding-top: 56.25%;
-  margin-bottom: 30px;
-}
-
-#dop-showreel .video-container iframe,
-#dop-showreel .video-container .video-thumbnail {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
+  padding-top: 56.25%; /* 16:9 */
+  margin-bottom: 20px;
 }
 
 .video-item, .video-container {
   width: 100%;
   max-width: 320px;
   position: relative;
-  padding-top: 56.25%;
-  margin-bottom: 10px;
+  padding-top: 56.25%; /* 16:9 */
+  margin-bottom: 20px;
 }
 
 .video-thumbnail {
@@ -79,6 +73,15 @@ nav a.nav-link:hover { color: #e63946; }
   background-size: cover;
   background-position: center;
   cursor: pointer;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 .play-button {
