@@ -12,13 +12,16 @@ const projects = [
   { title: "Golf GTI 2019 Commercial", date:"02-Jun-2023", role:"DOP & Editor", video:"1X3PheqBEgk" }
 ];
 
+// DOP Showreel video ID
+const dopShowreelID = "SP8B-LFrXhU";
+
 const carousel = document.querySelector('.projects-carousel');
 
-// Sort by date descending
+// Sort projects by date descending
 projects.sort((a,b)=>new Date(b.date) - new Date(a.date));
 
-// Insert projects into carousel
-projects.forEach(p=>{
+// Populate carousel
+projects.forEach((p,i)=>{
   const div=document.createElement('div');
   div.className='video-item';
   div.innerHTML=`
@@ -33,59 +36,73 @@ projects.forEach(p=>{
   carousel.appendChild(div);
 });
 
-// CAROUSEL SCROLL
+// Carousel arrows
 const leftArrow=document.querySelector('.left-arrow');
 const rightArrow=document.querySelector('.right-arrow');
-
 function updateArrows(){
   leftArrow.style.display=carousel.scrollLeft>0?'flex':'none';
   rightArrow.style.display=carousel.scrollLeft+carousel.clientWidth<carousel.scrollWidth?'flex':'none';
 }
 updateArrows();
-
 leftArrow.addEventListener('click',()=>{
   const visible=Math.floor(carousel.clientWidth / carousel.children[0].clientWidth);
-  carousel.scrollBy({ left: -visible*carousel.children[0].clientWidth, behavior: 'smooth' });
+  carousel.scrollBy({ left: -visible*carousel.children[0].clientWidth, behavior:'smooth' });
 });
 rightArrow.addEventListener('click',()=>{
   const visible=Math.floor(carousel.clientWidth / carousel.children[0].clientWidth);
-  carousel.scrollBy({ left: visible*carousel.children[0].clientWidth, behavior: 'smooth' });
+  carousel.scrollBy({ left: visible*carousel.children[0].clientWidth, behavior:'smooth' });
 });
 carousel.addEventListener('scroll', updateArrows);
 
-// LIGHTBOX
+// Lightbox
 const lightbox=document.getElementById('lightbox');
 const iframe=document.getElementById('lightbox-iframe');
 const lightboxClose=document.getElementById('lightbox-close');
 const lightLeft=document.querySelector('.left-lightbox');
 const lightRight=document.querySelector('.right-lightbox');
-
 let currentIndex=-1;
+let inProjects = true; // true = project video, false = DOP showreel
 
-function openLightbox(index){
-  currentIndex=index;
-  iframe.src=`https://www.youtube.com/embed/${projects[index].video}?autoplay=1`;
-  lightbox.style.display='flex';
+function openLightbox(index, isProject=true){
+  inProjects = isProject;
+  currentIndex = index;
+  iframe.src = isProject 
+    ? `https://www.youtube.com/embed/${projects[index].video}?autoplay=1` 
+    : `https://www.youtube.com/embed/${dopShowreelID}?autoplay=1`;
+  lightbox.style.display = 'flex';
 }
-function closeLightbox(){ iframe.src=''; lightbox.style.display='none'; }
+function closeLightbox(){
+  iframe.src='';
+  lightbox.style.display='none';
+}
+
+// Close clicking outside video
+lightbox.addEventListener('click',(e)=>{
+  if(e.target===lightbox) closeLightbox();
+});
 lightboxClose.addEventListener('click', closeLightbox);
 
+// Thumbnails click
 carousel.querySelectorAll('.video-thumbnail').forEach((thumb,i)=>{
-  thumb.addEventListener('click',()=>openLightbox(i));
+  thumb.addEventListener('click',()=>openLightbox(i,true));
 });
-document.querySelector('.showreel-thumb').addEventListener('click',()=>{ openLightbox(0); });
+document.querySelector('.showreel-thumb').addEventListener('click',()=>openLightbox(0,false));
 
 // Lightbox arrows
 lightLeft.addEventListener('click',()=>{
-  currentIndex=(currentIndex-1+projects.length)%projects.length;
-  iframe.src=`https://www.youtube.com/embed/${projects[currentIndex].video}?autoplay=1`;
+  if(inProjects){
+    currentIndex=(currentIndex-1+projects.length)%projects.length;
+    iframe.src=`https://www.youtube.com/embed/${projects[currentIndex].video}?autoplay=1`;
+  }
 });
 lightRight.addEventListener('click',()=>{
-  currentIndex=(currentIndex+1)%projects.length;
-  iframe.src=`https://www.youtube.com/embed/${projects[currentIndex].video}?autoplay=1`;
+  if(inProjects){
+    currentIndex=(currentIndex+1)%projects.length;
+    iframe.src=`https://www.youtube.com/embed/${projects[currentIndex].video}?autoplay=1`;
+  }
 });
 
-// PHONE COPY
+// Phone copy
 const phoneSpan=document.querySelector('.phone-number');
 const copyNotif=document.getElementById('copy-notif');
 phoneSpan.addEventListener('click',()=>{
