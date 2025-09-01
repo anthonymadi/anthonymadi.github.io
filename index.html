@@ -1,86 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Anthony Madi — Portfolio</title>
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthony Madi Portfolio</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- Header -->
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="logo">Anthony Madi</div>
-
-      <nav class="main-nav" aria-label="Main navigation">
-        <a class="nav-link" href="#home">Home</a>
-        <a class="nav-link" href="#projects">Projects</a>
-        <a class="nav-link" href="#about">About</a>
-        <a class="nav-link" href="#contact">Contact</a>
-      </nav>
-    </div>
-    <div class="nav-underline" aria-hidden="true"></div>
-  </header>
-
-  <!-- Main Content -->
-  <main>
-    <section id="home" class="section">
-      <h2>Welcome</h2>
-      <p>This is my portfolio where you will find recent projects I worked on, including short films, commercials, music videos, and event coverage.</p>
-    </section>
-
-    <!-- DOP Showreel -->
-    <section id="dop-showreel" class="section">
-      <h2 class="section-title">DOP Showreel</h2>
-      <p class="showreel-text">A short video composed of my cinematography work showcasing my visual style and skills.</p>
-      <div class="showreel-wrapper">
-        <div class="video-thumbnail showreel-thumb" data-video-id="SP8B-LFrXhU" role="button" tabindex="0" aria-label="Play DOP Showreel" style="background-image: url('https://img.youtube.com/vi/SP8B-LFrXhU/hqdefault.jpg')">
-          <div class="play-button"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="section">
-      <h2 class="section-title">Projects</h2>
-      <div class="carousel-wrapper">
-        <button class="carousel-arrow left-arrow" aria-label="Scroll left">‹</button>
-        <div class="projects-carousel" aria-live="polite">
-          <!-- Project items inserted via JS for brevity -->
-        </div>
-        <button class="carousel-arrow right-arrow" aria-label="Scroll right">›</button>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="section alt">
-      <h2 class="section-title">About</h2>
-      <p>Hey there, I'm Anthony, a visual storyteller in Dubai. My deep passion for filmmaking has led me to work on short films, commercials, music videos, event coverage, and more. I've collaborated with industry creatives, artists, and start-up companies to tell impactful stories and create compelling commercials for the past 3 years. Reach out and let's discuss your next project!</p>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section">
-      <h2 class="section-title">Contact</h2>
-      <p>Email: <a class="red-email" href="mailto:anthonymadimail@gmail.com">anthonymadimail@gmail.com</a></p>
-      <p>Phone: <span class="phone-number">+971 50 850 1709</span></p>
-    </section>
-  </main>
-
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox" aria-hidden="true">
-    <button class="close-lightbox" id="lightbox-close" aria-label="Close video">×</button>
-    <div class="lightbox-content">
-      <button class="lightbox-arrow left-lightbox" aria-label="Previous video">‹</button>
-      <iframe id="lightbox-iframe" allowfullscreen frameborder="0" title="Video player"></iframe>
-      <button class="lightbox-arrow right-lightbox" aria-label="Next video">›</button>
-    </div>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">Anthony Madi</div>
+    <nav class="main-nav">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
   </div>
+  <div class="nav-underline"></div>
+</header>
 
-  <div class="copy-notification" id="copy-notif">Copied!</div>
+<main>
+  <!-- Welcome Section -->
+  <section id="home" class="section">
+    <h1 class="section-title">Welcome</h1>
+    <p>This is my portfolio where you will find recent projects I worked on, including short films, commercials, music videos, and event coverage.</p>
+  </section>
 
-  <script src="scripts.js"></script>
+  <!-- DOP Showreel -->
+  <section id="showreel" class="section">
+    <h2 class="section-title">DOP Showreel</h2>
+    <p>A short video composed of my cinematography work showcasing my visual style and skills.</p>
+    <div class="showreel-wrapper">
+      <div class="video-thumbnail showreel-thumb" style="background-image:url('https://img.youtube.com/vi/SP8B-LFrXhU/hqdefault.jpg')">
+        <div class="play-button"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <h2 class="section-title">Projects</h2>
+    <div class="carousel-wrapper">
+      <button class="carousel-arrow left-arrow">&#10094;</button>
+      <div class="projects-carousel"></div>
+      <button class="carousel-arrow right-arrow">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <h2 class="section-title">About</h2>
+    <p>Hey there, I'm Anthony, a visual storyteller in Dubai. My deep passion for filmmaking has lead me to work on short films, commercials, music videos, event coverage, and more. I've collaborated with industry creatives, artists, and start-up companies to tell impactful stories and create compelling commercials for the past 3 years. Reach out and let's discuss your next project!</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <h2 class="section-title">Contact</h2>
+    <p>Email: <a href="mailto:anthonymadimail@gmail.com" class="red-email">anthonymadimail@gmail.com</a></p>
+    <p>Phone: <span class="phone-number">+971 50 850 1709</span> <span id="copy-notif" class="copy-notification">Copied!</span></p>
+  </section>
+</main>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <div class="lightbox-content">
+    <iframe id="lightbox-iframe" allow="autoplay"></iframe>
+    <button class="lightbox-arrow left-lightbox">&#10094;</button>
+    <button class="lightbox-arrow right-lightbox">&#10095;</button>
+  </div>
+  <button id="lightbox-close" class="close-lightbox">&times;</button>
+</div>
+
+<script src="scripts.js"></script>
 </body>
 </html>
