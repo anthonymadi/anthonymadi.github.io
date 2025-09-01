@@ -1,94 +1,158 @@
+// ---------- Projects Data ----------
 const projects = [
-  { title: "DOP Showreel", url: "https://www.youtube.com/embed/YOUR_SHOWREEL_VIDEO_ID" },
-  { title: "Pins & Needles — Documentary", url: "https://www.youtube.com/embed/ggh38hbBlpI" },
-  { title: "Sunset Dance", url: "https://www.youtube.com/embed/XRXnCK5tr3k" },
-  // Add remaining projects here in correct sorted order
+  {
+    title: "Pins & Needles — Documentary",
+    date: "30-Aug-2025",
+    role: "Producer & Editor",
+    url: "https://www.youtube.com/embed/ggh38hbBlpI",
+  },
+  {
+    title: "Sunset Dance",
+    date: "17-Jun-2025",
+    role: "DOP & Editor",
+    url: "https://www.youtube.com/embed/XRXnCK5tr3k",
+  },
+  {
+    title: "Première de MDX Studios 2025",
+    date: "30-Apr-2025",
+    role: "Camera Operator",
+    url: "https://www.youtube.com/embed/1DXleUvdN1s",
+  },
+  {
+    title: "One Must Fall — Short Film",
+    date: "15-Apr-2025",
+    role: "Director",
+    url: "https://www.youtube.com/embed/PUEyOgSyV9w",
+  },
+  {
+    title: "Pamela Farhat — Amara Ya Amara [Music Video]",
+    date: "19-Jul-2024",
+    role: "DOP & Editor",
+    url: "https://www.youtube.com/embed/VDfYpwlpFJc",
+  },
+  {
+    title: "Marie Nassar — Edam El Kel & Yay Mashup [Music Video]",
+    date: "04-Apr-2024",
+    role: "DOP & Editor",
+    url: "https://www.youtube.com/embed/_AhXEk1YmDc",
+  },
+  {
+    title: "Fzero — Short Film",
+    date: "05-Feb-2024",
+    role: "One-man Crew",
+    url: "https://www.youtube.com/embed/Fsav0nfuX60",
+  },
+  {
+    title: "Fire Show",
+    date: "12-Dec-2023",
+    role: "DOP & Editor",
+    url: "https://www.youtube.com/embed/I6uf1fLSCYs",
+  },
+  {
+    title: "UAE National Anthem Cover",
+    date: "02-Dec-2023",
+    role: "DOP & Editor",
+    url: "https://www.youtube.com/embed/ghtgcUPCD8o",
+  },
+  {
+    title: "Istanbul Trip",
+    date: "20-Sep-2023",
+    role: "DOP & Editor",
+    url: "https://www.youtube.com/embed/ZNKMCjPrR70",
+  },
+  {
+    title: "Golf GTI 2019 Commercial",
+    date: "02-Jun-2023",
+    role: "DOP & Editor",
+    url: "https://www.youtube.com/embed/1X3PheqBEgk",
+  }
 ];
 
-const thumbnails = document.querySelectorAll(".video-thumbnail");
-const lightbox = document.getElementById("lightbox");
-const iframe = document.getElementById("lightbox-iframe");
-const closeLightbox = document.getElementById("close-lightbox");
-const leftLightbox = document.getElementById("lightbox-left");
-const rightLightbox = document.getElementById("lightbox-right");
+// ---------- DOM References ----------
+const dopThumbnail = document.querySelector(".showreel-thumb");
+const dopIframe = document.querySelector("#dop-iframe");
+const lightbox = document.querySelector(".lightbox");
+const lightboxIframe = document.querySelector("#lightbox-iframe");
+const closeLightbox = document.querySelector(".close-lightbox");
+const leftArrow = document.querySelector(".left-arrow");
+const rightArrow = document.querySelector(".right-arrow");
+const leftLightbox = document.querySelector(".left-lightbox");
+const rightLightbox = document.querySelector(".right-lightbox");
+const carousel = document.querySelector(".projects-carousel");
+const phone = document.querySelector(".phone-number");
+const copyNotification = document.querySelector(".copy-notification");
 
-let currentIndex = 0;
+// ---------- DOP Showreel ----------
+dopThumbnail.addEventListener("click", () => {
+  // ensure the correct DOP showreel URL
+  dopIframe.src = "https://www.youtube.com/embed/XRXnCK5tr3k?autoplay=1";
+  lightbox.style.display = "flex";
+  lightboxIframe.src = "https://www.youtube.com/embed/XRXnCK5tr3k?autoplay=1";
+  currentIndex = 1; // DOP showreel index
+  updateLightboxArrows();
+});
 
-// Open lightbox when clicking a thumbnail
-thumbnails.forEach((thumb) => {
-  thumb.addEventListener("click", () => {
-    currentIndex = parseInt(thumb.dataset.index);
-    openLightbox(currentIndex);
+// ---------- Projects Thumbnails ----------
+const projectThumbnails = document.querySelectorAll(".video-thumbnail[data-index]");
+projectThumbnails.forEach(thumbnail => {
+  thumbnail.addEventListener("click", () => {
+    const index = parseInt(thumbnail.getAttribute("data-index"));
+    currentIndex = index;
+    lightbox.style.display = "flex";
+    lightboxIframe.src = projects[index].url + "?autoplay=1";
+    updateLightboxArrows();
   });
 });
 
-function openLightbox(index) {
-  iframe.src = projects[index].url + "?autoplay=1";
-  lightbox.style.display = "flex";
-  updateLightboxArrows();
-}
-
-// Close lightbox
+// ---------- Lightbox ----------
 closeLightbox.addEventListener("click", () => {
   lightbox.style.display = "none";
-  iframe.src = "";
+  lightboxIframe.src = "";
 });
 
-// Click outside to close
 lightbox.addEventListener("click", e => {
-  if(e.target === lightbox) {
+  if (e.target === lightbox) {
     lightbox.style.display = "none";
-    iframe.src = "";
+    lightboxIframe.src = "";
   }
 });
 
-// Lightbox arrows
+// ---------- Carousel Arrows ----------
+function scrollCarousel(amount) {
+  const visible = Math.floor(carousel.offsetWidth / projectThumbnails[0].offsetWidth);
+  carousel.scrollBy({ left: amount * projectThumbnails[0].offsetWidth * visible, behavior: "smooth" });
+}
+
+leftArrow.addEventListener("click", () => scrollCarousel(-1));
+rightArrow.addEventListener("click", () => scrollCarousel(1));
+
+// ---------- Lightbox Arrows ----------
+let currentIndex = 0;
+
+function updateLightboxArrows() {
+  leftLightbox.style.display = currentIndex > 0 ? "flex" : "none";
+  rightLightbox.style.display = currentIndex < projects.length - 1 ? "flex" : "none";
+}
+
 leftLightbox.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + projects.length) % projects.length;
-  iframe.src = projects[currentIndex].url + "?autoplay=1";
+  if (currentIndex > 0) currentIndex--;
+  lightboxIframe.src = projects[currentIndex].url + "?autoplay=1";
+  updateLightboxArrows();
 });
 
 rightLightbox.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % projects.length;
-  iframe.src = projects[currentIndex].url + "?autoplay=1";
+  if (currentIndex < projects.length - 1) currentIndex++;
+  lightboxIframe.src = projects[currentIndex].url + "?autoplay=1";
+  updateLightboxArrows();
 });
 
-function updateLightboxArrows() {
-  leftLightbox.style.display = projects.length > 1 ? "flex" : "none";
-  rightLightbox.style.display = projects.length > 1 ? "flex" : "none";
-}
-
-// Phone number copy
-const phoneNumber = document.getElementById("phone-number");
-const copyNotification = document.getElementById("copy-notification");
-
-phoneNumber.addEventListener("click", () => {
-  navigator.clipboard.writeText(phoneNumber.textContent.trim());
-  copyNotification.style.opacity = 1;
-  setTimeout(() => { copyNotification.style.opacity = 0; }, 1200);
+// ---------- Phone Copy ----------
+phone.addEventListener("click", () => {
+  navigator.clipboard.writeText(phone.textContent).then(() => {
+    copyNotification.style.opacity = 1;
+    setTimeout(() => copyNotification.style.opacity = 0, 1200);
+  });
 });
 
-// Projects carousel scroll
-const leftArrow = document.querySelector(".left-arrow");
-const rightArrow = document.querySelector(".right-arrow");
-const carousel = document.getElementById("projects-carousel");
-
-function updateCarouselArrows() {
-  leftArrow.style.display = carousel.scrollLeft > 0 ? "flex" : "none";
-  rightArrow.style.display = carousel.scrollLeft + carousel.clientWidth < carousel.scrollWidth ? "flex" : "none";
-}
-
-leftArrow.addEventListener("click", () => {
-  const visible = Math.floor(carousel.clientWidth / carousel.children[0].clientWidth);
-  carousel.scrollBy({ left: -visible * carousel.children[0].clientWidth, behavior: "smooth" });
-  setTimeout(updateCarouselArrows, 200);
-});
-
-rightArrow.addEventListener("click", () => {
-  const visible = Math.floor(carousel.clientWidth / carousel.children[0].clientWidth);
-  carousel.scrollBy({ left: visible * carousel.children[0].clientWidth, behavior: "smooth" });
-  setTimeout(updateCarouselArrows, 200);
-});
-
-carousel.addEventListener("scroll", updateCarouselArrows);
-updateCarouselArrows();
+// ---------- Initialize ----------
+updateLightboxArrows();
