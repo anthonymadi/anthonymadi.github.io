@@ -8,7 +8,7 @@
 }
 
 html {
-  font-size: 18px; /* increased overall font size */
+  font-size: 17px; /* slightly bigger than default 16px */
 }
 
 * { box-sizing: border-box; }
@@ -39,7 +39,7 @@ body > main { padding-top: var(--header-height); }
 
 /* Name left */
 .logo {
-  font-size: 1.25rem; /* scaled from 20px */
+  font-size: 20px;
   font-weight: 700;
   color: var(--text);
   line-height:1;
@@ -56,7 +56,7 @@ body > main { padding-top: var(--header-height); }
   color: var(--text);
   text-decoration: none;
   font-weight: 700;
-  font-size: 1rem; /* scaled from 15px */
+  font-size: 15px;
   padding: 6px 0;
 }
 
@@ -71,7 +71,7 @@ body > main { padding-top: var(--header-height); }
 
 /* ---------- Sections ---------- */
 .section {
-  padding: 26px 22px; /* reduced spacing */
+  padding: 26px 22px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -83,11 +83,11 @@ body > main { padding-top: var(--header-height); }
 /* Slightly tighter headings */
 .section-title, .section h2 {
   margin: 0 0 6px 0;
-  font-size: 1.25rem; /* scaled from 20px */
+  font-size: 20px;
 }
 
 /* small section paragraph spacing */
-.section p { margin: 0 0 8px 0; color: rgba(255,255,255,0.9); font-size: 1rem; }
+.section p { margin: 0 0 8px 0; color: rgba(255,255,255,0.9); }
 
 /* ---------- DOP Showreel (centered + larger) ---------- */
 .showreel-wrapper {
@@ -101,7 +101,7 @@ body > main { padding-top: var(--header-height); }
 /* thumbnail uses aspect-ratio for exact 16:9 */
 .video-thumbnail {
   width: 100%;
-  max-width: 1100px; /* larger on desktop */
+  max-width: 1100px;
   aspect-ratio: 16 / 9;
   background-size: cover;
   background-position: center;
@@ -110,17 +110,12 @@ body > main { padding-top: var(--header-height); }
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 6px 18px rgba(0,0,0,0.45);
-  transition: transform 0.2s ease;
-}
-
-.video-thumbnail:hover .play-button {
-  border-left-color: var(--accent);
 }
 
 /* DOP-specific thumbnail slight margin reduction */
 .showreel-thumb { margin-bottom: 6px; }
 
-/* play button - kept exactly as original triangle look */
+/* play button */
 .play-button {
   position: absolute;
   top:50%;
@@ -152,14 +147,13 @@ body > main { padding-top: var(--header-height); }
   -webkit-overflow-scrolling: touch;
 }
 
-/* hide scrollbar visuals */
 .projects-carousel::-webkit-scrollbar { display: none; }
 .projects-carousel { -ms-overflow-style: none; scrollbar-width: none; }
 
 .video-item { flex: 0 0 320px; max-width: 320px; display:flex; flex-direction:column; gap:8px; }
 
-.video-info h3 { margin: 0; font-size: 1rem; }
-.video-info p { margin: 0; color: rgba(255,255,255,0.85); font-size: 0.8125rem; }
+.video-info h3 { margin: 0; font-size: 16px; }
+.video-info p { margin: 0; color: rgba(255,255,255,0.85); font-size: 13px; }
 
 /* arrows */
 .carousel-arrow {
@@ -222,10 +216,9 @@ body > main { padding-top: var(--header-height); }
   z-index: 10010;
 }
 
-/* ---------- Other hover effects ---------- */
+/* hover effects */
 .red-email { color: #e63946; }
 .red-email:hover { opacity: 0.8; }
-p a[href^="tel"]:hover { color: var(--accent); cursor:pointer; }
 
 /* small screens adjustments */
 @media (max-width: 900px) {
