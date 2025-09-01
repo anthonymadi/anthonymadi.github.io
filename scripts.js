@@ -1,104 +1,106 @@
-/* ---------- Select elements ---------- */
-const thumbnails = document.querySelectorAll('.video-thumbnail');
-const lightbox = document.querySelector('.lightbox');
-const iframe = document.getElementById('lightbox-iframe');
-const closeBtn = lightbox.querySelector('.close-lightbox');
-const leftLightbox = lightbox.querySelector('.left-lightbox');
-const rightLightbox = lightbox.querySelector('.right-lightbox');
-const carousel = document.querySelector('.projects-carousel');
-const leftArrow = document.querySelector('.left-arrow');
-const rightArrow = document.querySelector('.right-arrow');
-const phoneNumber = document.querySelector('.phone-number');
-const copyNotification = document.getElementById('copyNotification');
+// Array of project YouTube links
+const videos = [
+  "https://www.youtube.com/embed/ggh38hbBlpI",
+  "https://www.youtube.com/embed/XRXnCK5tr3k",
+  "https://www.youtube.com/embed/1DXleUvdN1s",
+  "https://www.youtube.com/embed/PUEyOgSyV9w",
+  "https://www.youtube.com/embed/_AhXEk1YmDc",
+  "https://www.youtube.com/embed/VDfYpwlpFJc",
+  "https://www.youtube.com/embed/Fsav0nfuX60",
+  "https://www.youtube.com/embed/I6uf1fLSCYs",
+  "https://www.youtube.com/embed/ghtgcUPCD8o",
+  "https://www.youtube.com/embed/ZNKMCjPrR70",
+  "https://www.youtube.com/embed/1X3PheqBEgk"
+];
 
-/* ---------- Helper: current open video ---------- */
+const carousel = document.getElementById("carousel");
+const leftArrow = document.querySelector(".left-arrow");
+const rightArrow = document.querySelector(".right-arrow");
+const thumbnails = document.querySelectorAll(".video-thumbnail");
+const lightbox = document.getElementById("lightbox");
+const lightboxIframe = document.getElementById("lightbox-iframe");
+const closeLightbox = document.getElementById("close-lightbox");
+const leftLightbox = document.querySelector(".left-lightbox");
+const rightLightbox = document.querySelector(".right-lightbox");
+const phoneNumber = document.getElementById("phone-number");
+const copyNotif = document.getElementById("copy-notif");
+
 let currentIndex = 0;
-let videoItems = Array.from(document.querySelectorAll('.projects-carousel .video-item'));
 
-/* ---------- Open lightbox ---------- */
-function openLightbox(index) {
-  currentIndex = index;
-  const id = videoItems[currentIndex].querySelector('.video-thumbnail').dataset.videoId;
-  iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
-  lightbox.style.display = 'flex';
-  lightbox.setAttribute('aria-hidden', 'false');
-}
-
-/* ---------- Close lightbox ---------- */
-function closeLightbox() {
-  iframe.src = '';
-  lightbox.style.display = 'none';
-  lightbox.setAttribute('aria-hidden', 'true');
-}
-
-/* ---------- Open thumbnail click ---------- */
-thumbnails.forEach((thumb, i) => {
-  thumb.addEventListener('click', () => openLightbox(videoItems.indexOf(thumb.closest('.video-item'))));
-  thumb.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      openLightbox(videoItems.indexOf(thumb.closest('.video-item')));
-    }
-  });
-});
-
-/* ---------- Lightbox navigation ---------- */
-function navigateLightbox(step) {
-  currentIndex += step;
-  if (currentIndex < 0) currentIndex = videoItems.length - 1;
-  if (currentIndex >= videoItems.length) currentIndex = 0;
-  const id = videoItems[currentIndex].querySelector('.video-thumbnail').dataset.videoId;
-  iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
-}
-
-leftLightbox.addEventListener('click', () => navigateLightbox(-1));
-rightLightbox.addEventListener('click', () => navigateLightbox(1));
-
-closeBtn.addEventListener('click', closeLightbox);
-lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-window.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
-
-/* ---------- Main carousel scroll ---------- */
+// -------- Carousel Scroll --------
 function updateCarouselArrows() {
-  leftArrow.style.display = carousel.scrollLeft > 0 ? 'flex' : 'none';
-  rightArrow.style.display = carousel.scrollLeft + carousel.clientWidth < carousel.scrollWidth - 1 ? 'flex' : 'none';
+  const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+  leftArrow.style.display = carousel.scrollLeft > 0 ? "flex" : "none";
+  rightArrow.style.display = carousel.scrollLeft < maxScroll ? "flex" : "none";
 }
 
-function visibleVideos() {
+function getVisibleCount() {
+  const carouselWidth = carousel.clientWidth;
+  let totalWidth = 0;
   let count = 0;
-  const carouselRect = carousel.getBoundingClientRect();
-  videoItems.forEach(item => {
-    const rect = item.getBoundingClientRect();
-    if (rect.left >= carouselRect.left && rect.right <= carouselRect.right) count++;
-  });
+  for (let item of carousel.children) {
+    totalWidth += item.offsetWidth + parseInt(getComputedStyle(item).gap) || 0;
+    if (totalWidth <= carouselWidth) count++;
+    else break;
+  }
   return count || 1;
 }
 
-function scrollCarousel(step) {
-  const scrollCount = visibleVideos() * step;
-  const itemWidth = videoItems[0].offsetWidth + parseInt(getComputedStyle(videoItems[0]).gap || 20);
-  carousel.scrollBy({ left: itemWidth * scrollCount, behavior: 'smooth' });
-}
-
-leftArrow.addEventListener('click', () => { scrollCarousel(-1); setTimeout(updateCarouselArrows, 300); });
-rightArrow.addEventListener('click', () => { scrollCarousel(1); setTimeout(updateCarouselArrows, 300); });
-carousel.addEventListener('scroll', updateCarouselArrows);
-window.addEventListener('resize', updateCarouselArrows);
-updateCarouselArrows();
-
-/* ---------- Smooth scroll for nav ---------- */
-document.querySelectorAll('nav.main-nav a.nav-link').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
-  });
+leftArrow.addEventListener("click", () => {
+  const visible = getVisibleCount();
+  const scrollAmount = Array.from(carousel.children).slice(0, visible).reduce((sum, el) => sum + el.offsetWidth + parseInt(getComputedStyle(el).gap || 0), 0);
+  carousel.scrollBy({ left: -scrollAmount, behavior: "smooth" });
 });
 
-/* ---------- Phone number copy ---------- */
-phoneNumber.addEventListener('click', () => {
+rightArrow.addEventListener("click", () => {
+  const visible = getVisibleCount();
+  const scrollAmount = Array.from(carousel.children).slice(0, visible).reduce((sum, el) => sum + el.offsetWidth + parseInt(getComputedStyle(el).gap || 0), 0);
+  carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+});
+
+carousel.addEventListener("scroll", updateCarouselArrows);
+window.addEventListener("load", updateCarouselArrows);
+window.addEventListener("resize", updateCarouselArrows);
+
+// -------- Lightbox --------
+function openLightbox(index) {
+  currentIndex = index;
+  lightboxIframe.src = videos[currentIndex];
+  lightbox.style.display = "flex";
+}
+
+function closeLightboxFunc() {
+  lightbox.style.display = "none";
+  lightboxIframe.src = "";
+}
+
+function prevVideo() {
+  currentIndex = (currentIndex - 1 + videos.length) % videos.length;
+  lightboxIframe.src = videos[currentIndex];
+}
+
+function nextVideo() {
+  currentIndex = (currentIndex + 1) % videos.length;
+  lightboxIframe.src = videos[currentIndex];
+}
+
+thumbnails.forEach((thumb, i) => {
+  thumb.addEventListener("click", () => openLightbox(parseInt(thumb.dataset.index)));
+});
+
+closeLightbox.addEventListener("click", closeLightboxFunc);
+leftLightbox.addEventListener("click", prevVideo);
+rightLightbox.addEventListener("click", nextVideo);
+
+// Close lightbox on overlay click (optional)
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) closeLightboxFunc();
+});
+
+// -------- Phone Copy --------
+phoneNumber.addEventListener("click", () => {
   navigator.clipboard.writeText(phoneNumber.textContent).then(() => {
-    copyNotification.style.opacity = 1;
-    setTimeout(() => { copyNotification.style.opacity = 0; }, 1500);
+    copyNotif.style.opacity = 1;
+    setTimeout(() => { copyNotif.style.opacity = 0; }, 1200);
   });
 });
