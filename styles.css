@@ -1,7 +1,7 @@
 /* ---------- Basic theme + reset ---------- */
 :root {
   --bg: #000;
-  --muted-bg: #050505;
+  --muted-bg: #111; /* slightly brighter */
   --text: #fff;
   --accent: #e63946;
   --header-height: 72px;
@@ -16,7 +16,7 @@ html, body {
   background: var(--bg);
   color: var(--text);
   font-family: 'League Spartan', sans-serif;
-  font-size: 18px; /* slightly larger base font size */
+  font-size: 18px; /* base font increased */
 }
 
 body > main { padding-top: var(--header-height); }
@@ -41,7 +41,7 @@ body > main { padding-top: var(--header-height); }
 }
 
 .logo {
-  font-size: 24px; /* adjusted relative to base font */
+  font-size: 24px;
   font-weight: 700;
   color: var(--text);
   line-height: 1;
@@ -82,7 +82,7 @@ body > main { padding-top: var(--header-height); }
 
 .section-title, .section h2 {
   margin: 0 0 6px 0;
-  font-size: 24px; /* relative to larger base font */
+  font-size: 24px;
 }
 
 .section p {
@@ -110,6 +110,11 @@ body > main { padding-top: var(--header-height); }
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  transition: transform 0.2s ease;
+}
+
+.video-thumbnail:hover {
+  transform: scale(1.02);
 }
 
 .showreel-thumb { margin-bottom: 6px; }
@@ -125,9 +130,13 @@ body > main { padding-top: var(--header-height); }
   width: 0;
   height: 0;
   opacity: 1;
+  transition: transform 0.2s ease, border-left-color 0.2s ease;
 }
 
-.video-thumbnail:hover .play-button { border-left-color: var(--accent); }
+.video-thumbnail:hover .play-button {
+  transform: translate(-50%, -50%) scale(1.2);
+  border-left-color: var(--accent);
+}
 
 /* ---------- Projects Carousel ---------- */
 .carousel-wrapper {
@@ -171,19 +180,20 @@ body > main { padding-top: var(--header-height); }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.12);
   color: var(--text);
   border: none;
   font-size: 28px;
   cursor: pointer;
   z-index: 30;
   border-radius: 6px;
+  transition: background 0.2s ease;
 }
 
 .left-arrow { left: -52px; }
 .right-arrow { right: -52px; }
 
-.carousel-arrow:hover { background: rgba(255,255,255,0.12); }
+.carousel-arrow:hover { background: rgba(255,255,255,0.22); }
 
 /* ---------- Lightbox ---------- */
 .lightbox {
@@ -236,23 +246,40 @@ body > main { padding-top: var(--header-height); }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.12);
   color: var(--text);
   border: none;
   font-size: 28px;
   cursor: pointer;
   z-index: 30;
   border-radius: 6px;
+  transition: background 0.2s ease;
 }
 
 .left-lightbox { left: -60px; }
 .right-lightbox { right: -60px; }
 
-.lightbox-arrow:hover { background: rgba(255,255,255,0.12); }
+.lightbox-arrow:hover { background: rgba(255,255,255,0.22); }
 
 /* ---------- Contact ---------- */
 .red-email { color: var(--accent); }
 .phone-number:hover { color: var(--accent); cursor: pointer; }
+
+/* ---------- Notification ---------- */
+.copy-notification {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
