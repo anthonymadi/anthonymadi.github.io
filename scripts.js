@@ -1,112 +1,114 @@
 const projects = [
-  { title: "Pins & Needles — Documentary", date: "30-Aug-2025", role:"Producer & Editor", video:"ggh38hbBlpI" },
-  { title: "Sunset Dance", date:"17-Jun-2025", role:"DOP & Editor", video:"XRXnCK5tr3k" },
-  { title: "Première de MDX Studios 2025", date:"30-Apr-2025", role:"Camera Operator", video:"1DXleUvdN1s" },
-  { title: "One Must Fall — Short Film", date:"15-Apr-2025", role:"Director", video:"PUEyOgSyV9w" },
-  { title: "Pamela Farhat — Amara Ya Amara [Music Video]", date:"19-Jul-2024", role:"DOP & Editor", video:"VDfYpwlpFJc" },
-  { title: "Marie Nassar — Edam El Kel & Yay Mashup [Music Video]", date:"04-Apr-2024", role:"DOP & Editor", video:"_AhXEk1YmDc" },
-  { title: "Fzero — Short Film", date:"05-Feb-2024", role:"One-man Crew", video:"Fsav0nfuX60" },
-  { title: "Fire Show", date:"12-Dec-2023", role:"DOP & Editor", video:"I6uf1fLSCYs" },
-  { title: "UAE National Anthem Cover", date:"02-Dec-2023", role:"DOP & Editor", video:"ghtgcUPCD8o" },
-  { title: "Istanbul Trip", date:"20-Sep-2023", role:"DOP & Editor", video:"ZNKMCjPrR70" },
-  { title: "Golf GTI 2019 Commercial", date:"02-Jun-2023", role:"DOP & Editor", video:"1X3PheqBEgk" }
+  {title:'Pins & Needles — Documentary', date:'30-Aug-2025', role:'Producer & Editor', url:'https://www.youtube.com/watch?v=ggh38hbBlpI'},
+  {title:'Sunset Dance', date:'17-Jun-2025', role:'DOP & Editor', url:'https://www.youtube.com/watch?v=XRXnCK5tr3k'},
+  {title:'Première de MDX Studios 2025', date:'30-Apr-2025', role:'Camera Operator', url:'https://www.youtube.com/watch?v=1DXleUvdN1s'},
+  {title:'One Must Fall — Short Film', date:'15-Apr-2025', role:'Director', url:'https://www.youtube.com/watch?v=PUEyOgSyV9w'},
+  {title:'Pamela Farhat — Amara Ya Amara [Music Video]', date:'19-Jul-2024', role:'DOP & Editor', url:'https://www.youtube.com/watch?v=VDfYpwlpFJc'},
+  {title:'Marie Nassar — Edam El Kel & Yay Mashup [Music Video]', date:'04-Apr-2024', role:'DOP & Editor', url:'https://www.youtube.com/watch?v=_AhXEk1YmDc'},
+  {title:'Fzero — Short Film', date:'05-Feb-2024', role:'One-man Crew', url:'https://www.youtube.com/watch?v=Fsav0nfuX60'},
+  {title:'Golf GTI 2019 Commercial', date:'02-Jun-2023', role:'DOP & Editor', url:'https://www.youtube.com/watch?v=1X3PheqBEgk'},
+  {title:'Fire Show', date:'12-Dec-2023', role:'DOP & Editor', url:'https://www.youtube.com/watch?v=I6uf1fLSCYs'},
+  {title:'UAE National Anthem Cover', date:'02-Dec-2023', role:'DOP & Editor', url:'https://www.youtube.com/watch?v=ghtgcUPCD8o'},
+  {title:'Istanbul Trip', date:'20-Sep-2023', role:'DOP & Editor', url:'https://www.youtube.com/watch?v=ZNKMCjPrR70'}
 ];
 
-// DOP Showreel video ID
-const dopShowreelID = "SP8B-LFrXhU";
-
-const carousel = document.querySelector('.projects-carousel');
-
 // Sort projects by date descending
-projects.sort((a,b)=>new Date(b.date) - new Date(a.date));
+projects.sort((a,b)=>new Date(b.date)-new Date(a.date));
 
 // Populate carousel
+const carousel = document.querySelector('.projects-carousel');
 projects.forEach((p,i)=>{
-  const div=document.createElement('div');
+  const div = document.createElement('div');
   div.className='video-item';
-  div.innerHTML=`
-    <div class="video-thumbnail" data-video-id="${p.video}" style="background-image:url('https://img.youtube.com/vi/${p.video}/hqdefault.jpg')">
-      <div class="play-button"></div>
-    </div>
-    <div class="video-info">
-      <h3>${p.title}</h3>
-      <p>Date: ${p.date}</p>
-      <p>${p.role}</p>
-    </div>`;
+  div.dataset.index=i+1; // index 0 is showreel
+  div.innerHTML=`<div class="video-thumbnail" style="background-image:url('https://img.youtube.com/vi/${p.url.split('v=')[1]}/hqdefault.jpg')">
+                   <div class="play-button"></div>
+                 </div>
+                 <div class="video-info"><h3>${p.title}</h3><p>${p.date}<br>${p.role}</p></div>`;
   carousel.appendChild(div);
 });
 
-// Carousel arrows
-const leftArrow=document.querySelector('.left-arrow');
-const rightArrow=document.querySelector('.right-arrow');
-function updateArrows(){
-  leftArrow.style.display=carousel.scrollLeft>0?'flex':'none';
-  rightArrow.style.display=carousel.scrollLeft+carousel.clientWidth<carousel.scrollWidth?'flex':'none';
-}
-updateArrows();
-leftArrow.addEventListener('click',()=>{
-  const visible=Math.floor(carousel.clientWidth / carousel.children[0].clientWidth);
-  carousel.scrollBy({ left: -visible*carousel.children[0].clientWidth, behavior:'smooth' });
-});
-rightArrow.addEventListener('click',()=>{
-  const visible=Math.floor(carousel.clientWidth / carousel.children[0].clientWidth);
-  carousel.scrollBy({ left: visible*carousel.children[0].clientWidth, behavior:'smooth' });
-});
-carousel.addEventListener('scroll', updateArrows);
+// DOP Showreel thumbnail (index 0)
+const showreelThumb = document.querySelector('.showreel-thumb');
+showreelThumb.dataset.index = 0;
 
-// Lightbox
-const lightbox=document.getElementById('lightbox');
-const iframe=document.getElementById('lightbox-iframe');
-const lightboxClose=document.getElementById('lightbox-close');
-const lightLeft=document.querySelector('.left-lightbox');
-const lightRight=document.querySelector('.right-lightbox');
-let currentIndex=-1;
-let inProjects = true; // true = project video, false = DOP showreel
+// Combine DOP + Projects for lightbox
+const allVideos = [
+  {title:'DOP Showreel', url:'https://www.youtube.com/watch?v=SP8B-LFrXhU'},
+  ...projects.map(p=>({title:p.title,url:p.url}))
+];
 
-function openLightbox(index, isProject=true){
-  inProjects = isProject;
+// LIGHTBOX
+const lightbox = document.getElementById('lightbox');
+const lightboxIframe = document.getElementById('lightbox-iframe');
+const lightboxClose = document.getElementById('lightbox-close');
+const leftLightbox = document.querySelector('.left-lightbox');
+const rightLightbox = document.querySelector('.right-lightbox');
+
+let currentIndex = 0;
+
+function openLightbox(index){
   currentIndex = index;
-  iframe.src = isProject 
-    ? `https://www.youtube.com/embed/${projects[index].video}?autoplay=1` 
-    : `https://www.youtube.com/embed/${dopShowreelID}?autoplay=1`;
-  lightbox.style.display = 'flex';
+  lightbox.style.display='flex';
+  lightboxIframe.src = allVideos[currentIndex].url.replace("watch?v=", "embed/")+'?autoplay=1';
 }
+
 function closeLightbox(){
-  iframe.src='';
   lightbox.style.display='none';
+  lightboxIframe.src='';
 }
 
-// Close clicking outside video
-lightbox.addEventListener('click',(e)=>{
-  if(e.target===lightbox) closeLightbox();
-});
-lightboxClose.addEventListener('click', closeLightbox);
+function showNext(){
+  currentIndex=(currentIndex+1)%allVideos.length;
+  lightboxIframe.src = allVideos[currentIndex].url.replace("watch?v=", "embed/")+'?autoplay=1';
+}
 
-// Thumbnails click
-carousel.querySelectorAll('.video-thumbnail').forEach((thumb,i)=>{
-  thumb.addEventListener('click',()=>openLightbox(i,true));
+function showPrev(){
+  currentIndex=(currentIndex-1+allVideos.length)%allVideos.length;
+  lightboxIframe.src = allVideos[currentIndex].url.replace("watch?v=", "embed/")+'?autoplay=1';
+}
+
+// Open lightbox on thumbnail click
+document.querySelectorAll('.video-thumbnail').forEach(thumb=>{
+  thumb.addEventListener('click', ()=>openLightbox(parseInt(thumb.dataset.index)));
 });
-document.querySelector('.showreel-thumb').addEventListener('click',()=>openLightbox(0,false));
+
+// Close lightbox
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', e=>{
+  if(e.target === lightbox) closeLightbox();
+});
 
 // Lightbox arrows
-lightLeft.addEventListener('click',()=>{
-  if(inProjects){
-    currentIndex=(currentIndex-1+projects.length)%projects.length;
-    iframe.src=`https://www.youtube.com/embed/${projects[currentIndex].video}?autoplay=1`;
-  }
+leftLightbox.addEventListener('click', showPrev);
+rightLightbox.addEventListener('click', showNext);
+
+// Carousel arrows
+const leftArrow = document.querySelector('.left-arrow');
+const rightArrow = document.querySelector('.right-arrow');
+
+function getVisibleCount(){
+  const item = document.querySelector('.video-item');
+  if(!item) return 1;
+  return Math.floor(carousel.offsetWidth / item.offsetWidth);
+}
+
+leftArrow.addEventListener('click', ()=>{
+  const step = getVisibleCount();
+  carousel.scrollBy({left:-step*320, behavior:'smooth'});
 });
-lightRight.addEventListener('click',()=>{
-  if(inProjects){
-    currentIndex=(currentIndex+1)%projects.length;
-    iframe.src=`https://www.youtube.com/embed/${projects[currentIndex].video}?autoplay=1`;
-  }
+
+rightArrow.addEventListener('click', ()=>{
+  const step = getVisibleCount();
+  carousel.scrollBy({left:step*320, behavior:'smooth'});
 });
 
 // Phone copy
-const phoneSpan=document.querySelector('.phone-number');
-const copyNotif=document.getElementById('copy-notif');
-phoneSpan.addEventListener('click',()=>{
-  navigator.clipboard.writeText(phoneSpan.textContent);
-  copyNotif.style.opacity=1;
-  setTimeout(()=>copyNotif.style.opacity=0,1000);
+const phone = document.querySelector('.phone-number');
+const notif = document.getElementById('copy-notif');
+
+phone.addEventListener('click', ()=>{
+  navigator.clipboard.writeText(phone.textContent);
+  notif.style.opacity='1';
+  setTimeout(()=>{notif.style.opacity='0'},800);
 });
