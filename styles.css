@@ -1,7 +1,7 @@
 /* ---------- Basic theme + reset ---------- */
 :root {
   --bg: #000;
-  --muted-bg: #111;
+  --muted-bg: #111; /* slightly brighter */
   --text: #fff;
   --accent: #e63946;
   --header-height: 72px;
@@ -16,7 +16,7 @@ html, body {
   background: var(--bg);
   color: var(--text);
   font-family: 'League Spartan', sans-serif;
-  font-size: 18px;
+  font-size: 18px; /* base font increased */
 }
 
 body > main { padding-top: var(--header-height); }
@@ -170,6 +170,7 @@ body > main { padding-top: var(--header-height); }
 .video-info h3 { margin: 0; font-size: 18px; }
 .video-info p { margin: 0; color: rgba(255,255,255,0.85); font-size: 15px; text-align: center; }
 
+/* arrows outside carousel */
 .carousel-arrow {
   position: absolute;
   top: 50%;
@@ -235,6 +236,7 @@ body > main { padding-top: var(--header-height); }
   z-index: 10010;
 }
 
+/* arrows outside lightbox */
 .lightbox-arrow {
   position: absolute;
   top: 50%;
@@ -260,14 +262,18 @@ body > main { padding-top: var(--header-height); }
 .lightbox-arrow:hover { background: rgba(255,255,255,0.22); }
 
 /* ---------- Contact ---------- */
-.red-email { color: var(--accent); }
-.phone-number:hover { color: var(--accent); cursor: pointer; }
+.red-email { color: var(--accent); text-decoration: none; }
+.red-email:hover { text-decoration: underline; }
 
-/* Copied notification */
+.phone-number:hover { color: var(--accent); cursor: pointer; }
 .copy-notification {
   display: inline-block;
   margin-left: 8px;
-  color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 14px;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
