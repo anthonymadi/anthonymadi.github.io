@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anthony Madi Portfolio</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anthony Madi Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -12,160 +12,77 @@
   <div class="header-inner">
     <div class="logo">Anthony Madi</div>
     <nav class="main-nav">
-      <a class="nav-link" href="#welcome">Home</a>
-      <a class="nav-link" href="#projects">Projects</a>
-      <a class="nav-link" href="#about">About</a>
-      <a class="nav-link" href="#contact">Contact</a>
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#contact" class="nav-link">Contact</a>
     </nav>
   </div>
   <div class="nav-underline"></div>
 </header>
 
 <main>
-  <section id="welcome" class="section">
+  <!-- Welcome Section -->
+  <section id="home" class="section">
     <h1 class="section-title">Welcome</h1>
     <p>This is my portfolio where you will find recent projects I worked on, including short films, commercials, music videos, and event coverage.</p>
   </section>
 
-  <section id="dop-showreel" class="section">
+  <!-- DOP Showreel -->
+  <section class="section">
     <h2 class="section-title">DOP Showreel</h2>
     <p>A short video composed of my cinematography work showcasing my visual style and skills.</p>
     <div class="showreel-wrapper">
-      <div class="video-thumbnail showreel-thumb" data-index="0" style="background-image:url('thumbnails/dop-showreel.jpg');">
+      <div class="video-thumbnail showreel-thumb" data-index="0" style="background-image:url('dop-thumbnail.jpg')">
         <div class="play-button"></div>
       </div>
     </div>
+    <iframe id="dop-iframe" src="" frameborder="0" allowfullscreen></iframe>
   </section>
 
+  <!-- Projects Carousel -->
   <section id="projects" class="section">
     <h2 class="section-title">Projects</h2>
     <div class="carousel-wrapper">
       <button class="carousel-arrow left-arrow">&#8249;</button>
-      <div class="projects-carousel" id="projects-carousel">
-        <div class="video-item" data-index="1">
-          <div class="video-thumbnail" style="background-image:url('thumbnails/pins-needles.jpg');"></div>
-          <div class="video-info">
-            <h3>Pins & Needles — Documentary</h3>
-            <p>Date: 30-Aug-2025</p>
-            <p>Producer & Editor</p>
+      <div class="projects-carousel">
+        <!-- Example Project Thumbnail -->
+        <div class="video-item">
+          <div class="video-thumbnail" style="background-image:url('project1-thumb.jpg')" data-index="1">
+            <div class="play-button"></div>
           </div>
-        </div>
-
-        <div class="video-item" data-index="2">
-          <div class="video-thumbnail" style="background-image:url('thumbnails/sunset-dance.jpg');"></div>
           <div class="video-info">
             <h3>Sunset Dance</h3>
             <p>Date: 17-Jun-2025</p>
             <p>DOP & Editor</p>
           </div>
         </div>
-
-        <div class="video-item" data-index="3">
-          <div class="video-thumbnail" style="background-image:url('thumbnails/premiere-mdx.jpg');"></div>
-          <div class="video-info">
-            <h3>Première de MDX Studios 2025</h3>
-            <p>Date: 30-Apr-2025</p>
-            <p>Camera Operator</p>
-          </div>
-        </div>
-
-        <div class="video-item" data-index="4">
-          <div class="video-thumbnail" style="background-image:url('thumbnails/one-must-fall.jpg');"></div>
-          <div class="video-info">
-            <h3>One Must Fall — Short Film</h3>
-            <p>Date: 15-Apr-2025</p>
-            <p>Director</p>
-          </div>
-        </div>
-
-        <div class="video-item" data-index="5">
-          <div class="video-thumbnail" style="background-image:url('thumbnails/pamela-farhat.jpg');"></div>
-          <div class="video-info">
-            <h3>Pamela Farhat — Amara Ya Amara [Music Video]</h3>
-            <p>Date: 19-Jul-2024</p>
-            <p>DOP & Editor</p>
-          </div>
-        </div>
-
-        <div class="video-item" data-index="6">
-          <div class="video-thumbnail" style="background-image:url('thumbnails/marie-nassar.jpg');"></div>
-          <div class="video-info">
-            <h3>Marie Nassar — Edam El Kel & Yay Mashup [Music Video]</h3>
-            <p>Date: 04-Apr-2024</p>
-            <p>DOP & Editor</p>
-          </div>
-        </div>
-
-        <div class="video-item" data-index="7">
-          <div class="video-thumbnail" style="background-image:url('thumbnails/fzero.jpg');"></div>
-          <div class="video-info">
-            <h3>Fzero — Short Film</h3>
-            <p>Date: 05-Feb-2024</p>
-            <p>One-man Crew</p>
-          </div>
-        </div>
-
-        <div class="video-item" data-index="8">
-          <div class="video-thumbnail" style="background-image:url('thumbnails/fire-show.jpg');"></div>
-          <div class="video-info">
-            <h3>Fire Show</h3>
-            <p>Date: 12-Dec-2023</p>
-            <p>DOP & Editor</p>
-          </div>
-        </div>
-
-        <div class="video-item" data-index="9">
-          <div class="video-thumbnail" style="background-image:url('thumbnails/uae-anthem.jpg');"></div>
-          <div class="video-info">
-            <h3>UAE National Anthem Cover</h3>
-            <p>Date: 02-Dec-2023</p>
-            <p>DOP & Editor</p>
-          </div>
-        </div>
-
-        <div class="video-item" data-index="10">
-          <div class="video-thumbnail" style="background-image:url('thumbnails/istanbul-trip.jpg');"></div>
-          <div class="video-info">
-            <h3>Istanbul Trip</h3>
-            <p>Date: 20-Sep-2023</p>
-            <p>DOP & Editor</p>
-          </div>
-        </div>
-
-        <div class="video-item" data-index="11">
-          <div class="video-thumbnail" style="background-image:url('thumbnails/golf-gti.jpg');"></div>
-          <div class="video-info">
-            <h3>Golf GTI 2019 Commercial</h3>
-            <p>Date: 02-Jun-2023</p>
-            <p>DOP & Editor</p>
-          </div>
-        </div>
-
+        <!-- Repeat for all projects, increment data-index accordingly -->
       </div>
       <button class="carousel-arrow right-arrow">&#8250;</button>
     </div>
   </section>
 
+  <!-- About -->
   <section id="about" class="section">
     <h2 class="section-title">About</h2>
     <p>Hey there, I'm Anthony, a visual storyteller in Dubai. My deep passion for filmmaking has lead me to work on short films, commercials, music videos, event coverage, and more. I've collaborated with industry creatives, artists, and start-up companies to tell impactful stories and create compelling commercials for the past 3 years. Reach out and let's discuss your next project!</p>
   </section>
 
+  <!-- Contact -->
   <section id="contact" class="section">
     <h2 class="section-title">Contact</h2>
     <p>Email: <a class="red-email" href="mailto:anthonymadimail@gmail.com">anthonymadimail@gmail.com</a></p>
-    <p>Phone: <span class="phone-number" id="phone-number">+971 50 850 1709</span><span class="copy-notification" id="copy-notification">Copied!</span></p>
-    <p>Instagram: <a class="red-email" href="https://instagram.com/anthony__madi">@anthony__madi</a></p>
+    <p>Phone: <span class="phone-number">+971 50 850 1709</span> <span class="copy-notification">Copied!</span></p>
   </section>
 </main>
 
-<div class="lightbox" id="lightbox">
-  <button class="close-lightbox" id="close-lightbox">&#10005;</button>
-  <button class="lightbox-arrow left-lightbox" id="lightbox-left">&#8249;</button>
-  <div class="lightbox-content">
-    <iframe id="lightbox-iframe" src="" allowfullscreen></iframe>
-  </div>
-  <button class="lightbox-arrow right-lightbox" id="lightbox-right">&#8250;</button>
+<!-- Lightbox -->
+<div class="lightbox">
+  <button class="close-lightbox">&times;</button>
+  <button class="lightbox-arrow left-lightbox">&#8249;</button>
+  <iframe id="lightbox-iframe" src="" frameborder="0" allowfullscreen></iframe>
+  <button class="lightbox-arrow right-lightbox">&#8250;</button>
 </div>
 
 <script src="scripts.js"></script>
