@@ -1,19 +1,18 @@
-/* ---------- Lightbox & Carousel ---------- */
 (function() {
-  const thumbnails = document.querySelectorAll('.video-thumbnail');
+  const thumbnails = Array.from(document.querySelectorAll('.video-thumbnail'));
   const lightbox = document.querySelector('.lightbox');
   const iframe = document.getElementById('lightbox-iframe');
   const closeBtn = document.querySelector('.close-lightbox');
-  const carousel = document.querySelector('.projects-carousel');
-  const leftArrow = document.querySelector('.left-arrow');
-  const rightArrow = document.querySelector('.right-arrow');
+
+  const leftLightboxArrow = document.querySelector('.left-lightbox');
+  const rightLightboxArrow = document.querySelector('.right-lightbox');
 
   let currentIndex = 0;
-  const items = Array.from(document.querySelectorAll('.video-item'));
 
   function openLightbox(index) {
     currentIndex = index;
-    iframe.src = `https://www.youtube.com/embed/${items[index].dataset.videoId}?autoplay=1&rel=0`;
+    const videoId = thumbnails[currentIndex].dataset.videoId;
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
     lightbox.style.display = 'flex';
     lightbox.setAttribute('aria-hidden', 'false');
   }
@@ -26,15 +25,19 @@
 
   function navigateLightbox(dir) {
     currentIndex += dir;
-    if (currentIndex < 0) currentIndex = items.length - 1;
-    if (currentIndex >= items.length) currentIndex = 0;
-    iframe.src = `https://www.youtube.com/embed/${items[currentIndex].dataset.videoId}?autoplay=1&rel=0`;
+    if (currentIndex < 0) currentIndex = thumbnails.length - 1;
+    if (currentIndex >= thumbnails.length) currentIndex = 0;
+    const videoId = thumbnails[currentIndex].dataset.videoId;
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
   }
 
   thumbnails.forEach((thumb, i) => {
     thumb.addEventListener('click', () => openLightbox(i));
     thumb.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); }
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openLightbox(i);
+      }
     });
   });
 
@@ -46,10 +49,15 @@
     if (e.key === 'ArrowLeft') navigateLightbox(-1);
   });
 
-  document.querySelector('.left-lightbox').addEventListener('click', () => navigateLightbox(-1));
-  document.querySelector('.right-lightbox').addEventListener('click', () => navigateLightbox(1));
+  leftLightboxArrow.addEventListener('click', () => navigateLightbox(-1));
+  rightLightboxArrow.addEventListener('click', () => navigateLightbox(1));
 
   /* ---------- Projects Carousel ---------- */
+  const carousel = document.querySelector('.projects-carousel');
+  const leftArrow = document.querySelector('.left-arrow');
+  const rightArrow = document.querySelector('.right-arrow');
+  const items = Array.from(document.querySelectorAll('.video-item'));
+
   function getVisibleCount() {
     const containerWidth = carousel.clientWidth;
     let total = 0, acc = 0;
@@ -70,7 +78,7 @@
   leftArrow.addEventListener('click', () => scrollCarousel(-1));
   rightArrow.addEventListener('click', () => scrollCarousel(1));
 
-  /* ---------- Smooth scroll for nav ---------- */
+  /* ---------- Smooth scroll nav ---------- */
   document.querySelectorAll('.main-nav a.nav-link').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
@@ -82,7 +90,7 @@
   /* ---------- Phone click copy ---------- */
   const phoneEl = document.querySelector('.phone-number');
   phoneEl.addEventListener('click', () => {
-    navigator.clipboard.writeText(phoneEl.textContent.replace('Phone: ',''));
+    navigator.clipboard.writeText(phoneEl.textContent.replace('Phone: ', ''));
     phoneEl.style.color = 'var(--accent)';
     setTimeout(() => phoneEl.style.color = '', 300);
   });
