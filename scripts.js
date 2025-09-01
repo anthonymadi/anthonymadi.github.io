@@ -1,7 +1,7 @@
 const projects = [
   {title:'What We Leave Behind — Short Film', date:'12-July-2025', role:'Gaffer', url:'https://www.youtube.com/watch?v=4_SO9hQuVPI'},
   {title:'Pins & Needles — Documentary', date:'30-Aug-2025', role:'Producer & Editor', url:'https://www.youtube.com/watch?v=ggh38hbBlpI'},
-  {title:'Sunset Dance', date:'17-Jun-2025', role:'DOP & Editor', url:'https://www.youtube.com/watch?v=XRXnCK5tr3k'},
+  {title:'Sunset Dance', date:'15-Aug-2025', role:'DOP & Editor', url:'https://www.youtube.com/watch?v=XRXnCK5tr3k'},
   {title:'Première de MDX Studios 2025', date:'30-Apr-2025', role:'Camera Operator', url:'https://www.youtube.com/watch?v=1DXleUvdN1s'},
   {title:'One Must Fall — Short Film', date:'15-Apr-2025', role:'Director', url:'https://www.youtube.com/watch?v=PUEyOgSyV9w'},
   {title:'Pamela Farhat — Amara Ya Amara [Music Video]', date:'19-Jul-2024', role:'DOP & Editor', url:'https://www.youtube.com/watch?v=VDfYpwlpFJc'},
