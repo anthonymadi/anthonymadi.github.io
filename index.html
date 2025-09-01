@@ -29,11 +29,8 @@
 <section id="dop-showreel" class="section">
   <h2>DOP Showreel</h2>
   <div class="showreel-wrapper">
-    <div class="video-container" data-video-id="SP8B-LFrXhU">
-      <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/SP8B-LFrXhU/hqdefault.jpg')">
-        <div class="play-button"></div>
-      </div>
-      <iframe allowfullscreen frameborder="0"></iframe>
+    <div class="video-thumbnail" data-video-id="SP8B-LFrXhU" style="background-image: url('https://img.youtube.com/vi/SP8B-LFrXhU/hqdefault.jpg')">
+      <div class="play-button"></div>
     </div>
   </div>
 </section>
@@ -44,11 +41,8 @@
     <button class="carousel-arrow left-arrow">‹</button>
     <div class="projects-carousel">
       <div class="video-item">
-        <div class="video-container" data-video-id="XRXnCK5tr3k">
-          <div class="video-thumbnail" style="background-image: url('https://img.youtube.com/vi/XRXnCK5tr3k/hqdefault.jpg')">
-            <div class="play-button"></div>
-          </div>
-          <iframe allowfullscreen frameborder="0"></iframe>
+        <div class="video-thumbnail" data-video-id="XRXnCK5tr3k" style="background-image: url('https://img.youtube.com/vi/XRXnCK5tr3k/hqdefault.jpg')">
+          <div class="play-button"></div>
         </div>
         <div class="video-info">
           <h3>Sunset Dance</h3>
@@ -56,7 +50,7 @@
           <p>Date Filmed: 17-Jun-2025</p>
         </div>
       </div>
-      <!-- Add more project videos here -->
+      <!-- More project videos here -->
     </div>
     <button class="carousel-arrow right-arrow">›</button>
   </div>
@@ -81,14 +75,14 @@
 </div>
 
 <script>
-const videoContainers = document.querySelectorAll('.video-container');
+const thumbnails = document.querySelectorAll('.video-thumbnail');
 const lightbox = document.getElementById('lightbox');
 const lightboxIframe = document.getElementById('lightbox-iframe');
 const lightboxClose = document.getElementById('lightbox-close');
 
-videoContainers.forEach(container => {
-  container.addEventListener('click', () => {
-    const videoId = container.getAttribute('data-video-id');
+thumbnails.forEach(thumb => {
+  thumb.addEventListener('click', () => {
+    const videoId = thumb.getAttribute('data-video-id');
     lightboxIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
     lightbox.style.display = 'flex';
   });
